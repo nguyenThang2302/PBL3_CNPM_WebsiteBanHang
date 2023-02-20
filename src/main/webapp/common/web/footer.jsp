@@ -46,10 +46,7 @@
                             <button type="submit" class="site-btn">Đăng ký</button>
                         </form>
                         <div class="footer__widget__social">
-                            <a href="https://www.facebook.com/bachkhoaDUT"><i class="fa fa-facebook"></i></a>
-                            <a href="#"><i class="fa fa-instagram"></i></a>
-                            <a href="#"><i class="fa fa-twitter"></i></a>
-                            <a href="#"><i class="fa fa-pinterest"></i></a>
+                            <a href ="https://www.facebook.com/bachkhoaDUT"><img src="<c:url value='/template/web/img/icon_fb.png'/>"alt=""></a>
                         </div>
                     </div>
                 </div>

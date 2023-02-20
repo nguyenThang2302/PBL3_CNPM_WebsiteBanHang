@@ -36,26 +36,21 @@
         <nav class="humberger__menu__nav mobile-menu">
             <ul>
                 <!-- <li class="active"><a href="./index.html">Trang chủ</a></li> -->
-                <li class="active"><a href="/spring-mvc/trang-chu">Trang chủ</a></li>
-                <li><a href="./shop-grid.html">Shop</a></li>
+                <li class="active"><a href="/spring-mvc/trang-chu">Trang Chủ</a></li>
+                <li><a href="./shop-grid.html">Shopping</a></li>
                 <li><a href="#">Pages</a>
                     <ul class="header__menu__dropdown">
-                        <li><a href="./shop-details.html">Shop Details</a></li>
-                        <li><a href="./shoping-cart.html">Shoping Cart</a></li>
-                        <li><a href="./checkout.html">Check Out</a></li>
-                        <li><a href="./blog-details.html">Blog Details</a></li>
+                        <li><a href="/spring-mvc/gio-hang">Giỏ Hàng</a></li>
+                        <li><a href="/spring-mvc/thanh-toan">Thanh Toán</a></li>
                     </ul>
                 </li>
-                <li><a href="./blog.html">Blog</a></li>
-                <li><a href="/spring-mvc/lien-he">Liên hệ</a></li>
+                <li><a href="./blog.html">About</a></li>
+                <li><a href="/spring-mvc/lien-he">Liên Hệ</a></li>
             </ul>
         </nav>
         <div id="mobile-menu-wrap"></div>
         <div class="header__top__right__social">
-            <a href="#"><i class="fa fa-facebook"></i></a>
-            <a href="#"><i class="fa fa-twitter"></i></a>
-            <a href="#"><i class="fa fa-linkedin"></i></a>
-            <a href="#"><i class="fa fa-pinterest-p"></i></a>
+            <a href ="https://www.facebook.com/bachkhoaDUT"><img src="<c:url value='/template/web/img/icon_fb.png'/>"alt=""></a>
         </div>
         <div class="humberger__menu__contact">
             <ul>
@@ -82,11 +77,8 @@
                     <div class="col-lg-6 col-md-6">
                         <div class="header__top__right">
                             <div class="header__top__right__social">
-                                <a href="https://www.facebook.com/bachkhoaDUT"><i class="fa fa-facebook"></i></a>
-                                <a href="#"><i class="fa fa-twitter"></i></a>
-                                <a href="#"><i class="fa fa-linkedin"></i></a>
-                                <a href="#"><i class="fa fa-pinterest-p"></i></a>
-                            </div>
+            					<a href ="https://www.facebook.com/bachkhoaDUT"><img src="<c:url value='/template/web/img/icon_fb.png'/>"alt=""></a>
+        					</div>
                             <div class="header__top__right__language">
                                 <img src="<c:url value='/template/web/img/vietnam.png'/>" alt="">
                                 <div>Tiếng Việt</div>
@@ -115,19 +107,16 @@
                 <div class="col-lg-6">
                     <nav class="header__menu">
                         <ul>
-                            <li class="active"><a href="/spring-mvc/trang-chu">Trang chủ</a></li>
-                            <li><a href="./shop-grid.html">Shop</a></li>
+                            <li class="active"><a href="/spring-mvc/trang-chu">Trang Chủ</a></li>
+                            <li><a href="./shop-grid.html">Shopping</a></li>
                             <li><a href="#">Pages</a>
                                 <ul class="header__menu__dropdown">
-                                    <li><a href="./shop-details.html">Shop Details</a></li>
-                                    <li><a href="./shoping-cart.html">Shoping Cart</a></li>
-                                    <li><a href="./checkout.html">Check Out</a></li>
-                                    <li><a href="./blog-details.html">Blog Details</a></li>
+                                    <li><a href="/spring-mvc/gio-hang">Giỏ Hàng</a></li>
+                                    <li><a href="spring-mvc/thanh-toan">Thanh Toán</a></li>
                                 </ul>
                             </li>
-                            <li><a href="./blog.html">Blog</a></li>
-                            <%-- <li><a href="<c:url value='/template/web/contact.jsp'/>">Liên hệ</a></li> --%>
-                            <li><a href="/spring-mvc/lien-he">Liên hệ</a></li>
+                            <li><a href="./blog.html">About</a></li>
+                            <li><a href="/spring-mvc/lien-he">Liên Hệ</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -193,11 +182,98 @@
                             </div>
                         </div>
                     </div>
-                    <div class="hero__item set-bg" data-setbg="<c:url value='/template/web/img/posterposter.jpg'/>">
+                    <%-- <div class="hero__item set-bg" data-setbg="<c:url value='/template/web/img/posterposter.jpg'/>">
                         <div class="hero__text">
                             <a href="/spring-mvc/trang-chu" class="primary-btn">SHOP NOW</a>
                         </div>
-                    </div>
+                    </div> --%>
+				                    <!-- Carousel wrapper -->
+				    <div
+				      id="carouselBasicExample"
+				      class="carousel slide carousel-fade"
+				      data-mdb-ride="carousel"
+				    >
+				      <!-- Indicators -->
+				      <div class="carousel-indicators">
+				        <button
+				          type="button"
+				          data-mdb-target="#carouselBasicExample"
+				          data-mdb-slide-to="0"
+				          class="active"
+				          aria-current="true"
+				          aria-label="Slide 1"
+				        ></button>
+				        <button
+				          type="button"
+				          data-mdb-target="#carouselBasicExample"
+				          data-mdb-slide-to="1"
+				          aria-label="Slide 2"
+				        ></button>
+				        <button
+				          type="button"
+				          data-mdb-target="#carouselBasicExample"
+				          data-mdb-slide-to="2"
+				          aria-label="Slide 3"
+				        ></button>
+				      </div>
+				
+				      <!-- Inner -->
+				      <div class="carousel-inner">
+				        <!-- Single item -->
+				        <div class="carousel-item active">
+				          <img
+				            src="<c:url value='/template/web/img/slide1.jpg'/>"
+				            class="d-block w-100"
+				            alt="Sunset Over the City"
+				          />
+				          <div class="carousel-caption d-none d-md-block">
+				          </div>
+				        </div>
+				
+				        <!-- Single item -->
+				        <div class="carousel-item">
+				          <img
+				            src="<c:url value='/template/web/img/slide2.jpg'/>"
+				            class="d-block w-100"
+				            alt="Canyon at Nigh"
+				          />
+				          <div class="carousel-caption d-none d-md-block">
+				          </div>
+				        </div>
+				
+				        <!-- Single item -->
+				        <div class="carousel-item">
+				          <img
+				            src="<c:url value='/template/web/img/slide3.jpg'/>"
+				            class="d-block w-100"
+				            alt="Cliff Above a Stormy Sea"
+				          />
+				          <div class="carousel-caption d-none d-md-block">
+				        </div>
+				      </div>
+				      <!-- Inner -->
+				
+				      <!-- Controls -->
+				      <button
+				        class="carousel-control-prev"
+				        type="button"
+				        data-mdb-target="#carouselBasicExample"
+				        data-mdb-slide="prev"
+				      >
+				        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+				        <span class="visually-hidden">Previous</span>
+				      </button>
+				      <button
+				        class="carousel-control-next"
+				        type="button"
+				        data-mdb-target="#carouselBasicExample"
+				        data-mdb-slide="next"
+				      >
+				        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+				        <span class="visually-hidden">Next</span>
+				      </button>
+				    </div>
+				    <!-- Carousel wrapper -->
                 </div>
             </div>
         </div>

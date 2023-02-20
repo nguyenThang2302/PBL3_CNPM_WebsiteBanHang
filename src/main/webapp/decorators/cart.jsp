@@ -59,7 +59,7 @@
 	<script src="<c:url value='/template/web/js/owl.carousel.min.js'/>"></script>
     <script src="<c:url value='/template/web/js/main.js'/>"></script>
     
-    <!-- MDB -->
+        <!-- MDB -->
     <script src="<c:url value='/template/web/js/mdb.min.js'/>"></script>
     <!-- Custom scripts -->
     <script type="text/javascript"></script>

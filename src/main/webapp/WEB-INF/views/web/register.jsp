@@ -19,7 +19,10 @@
 	background-color: #FFFFFF;
 	margin-top: 150px;
 	width: 900px;
-	heigh: 900px;
+	height: 650px;
+	filter:
+		drop-shadow(10px 10px 10px #000);
+	border-radius: 30px;
 	}
 </style>
 <div class = "container"> 

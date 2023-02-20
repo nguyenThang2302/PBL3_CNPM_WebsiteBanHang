@@ -20,4 +20,8 @@
     <decorator name="dang-nhap" page="login.jsp">
        <pattern>/dang-nhap</pattern>
     </decorator>
+    
+    <decorator name="gio-hang" page="cart.jsp">
+       <pattern>/gio-hang</pattern>
+    </decorator>
 </decorators>
