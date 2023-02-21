@@ -22,9 +22,4 @@ public class HomeDao {
 		list = _jdbcTemplate.query(sql, new MapperProducts());
 		return list;
 	}
-	
-	public static void main(String[] args) {
-		HomeDao homeDao = new HomeDao();
-		List<Products> list = homeDao.GetDataSilde();
-	}
 }
