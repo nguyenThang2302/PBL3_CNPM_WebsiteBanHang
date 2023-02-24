@@ -18,7 +18,7 @@ public class HomeDao {
 	
 	public List<Products> GetDataSilde() {
 		List <Products> list = new ArrayList<Products>();
-		String sql = "select * from students";
+		String sql = "select * from accounts";
 		list = _jdbcTemplate.query(sql, new MapperProducts());
 		return list;
 	}

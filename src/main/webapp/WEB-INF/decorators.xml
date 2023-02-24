@@ -24,4 +24,16 @@
     <decorator name="gio-hang" page="cart.jsp">
        <pattern>/gio-hang</pattern>
     </decorator>
+    
+    <decorator name="shopping" page="shopping.jsp">
+       <pattern>/shopping</pattern>
+    </decorator>
+    
+    <decorator name="thanh-toan" page="checkout.jsp">
+       <pattern>/thanh-toan</pattern>
+    </decorator>
+    
+    <decorator name="about-us" page="about.jsp">
+       <pattern>/about-us</pattern>
+    </decorator>
 </decorators>

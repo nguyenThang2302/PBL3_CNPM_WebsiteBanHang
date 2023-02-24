@@ -37,14 +37,14 @@
             <ul>
                 <!-- <li class="active"><a href="./index.html">Trang chủ</a></li> -->
                 <li class="active"><a href="/spring-mvc/trang-chu">Trang Chủ</a></li>
-                <li><a href="./shop-grid.html">Shopping</a></li>
+                <li><a href="/spring-mvc/shopping">Shopping</a></li>
                 <li><a href="#">Pages</a>
                     <ul class="header__menu__dropdown">
                         <li><a href="/spring-mvc/gio-hang">Giỏ Hàng</a></li>
                         <li><a href="/spring-mvc/thanh-toan">Thanh Toán</a></li>
                     </ul>
                 </li>
-                <li><a href="./blog.html">About</a></li>
+                <li><a href="/spring-mvc/about-us">About</a></li>
                 <li><a href="/spring-mvc/lien-he">Liên Hệ</a></li>
             </ul>
         </nav>
@@ -108,14 +108,14 @@
                     <nav class="header__menu">
                         <ul>
                             <li class="active"><a href="/spring-mvc/trang-chu">Trang Chủ</a></li>
-                            <li><a href="./shop-grid.html">Shopping</a></li>
+                            <li><a href="/spring-mvc/shopping">Shopping</a></li>
                             <li><a href="#">Pages</a>
                                 <ul class="header__menu__dropdown">
                                     <li><a href="/spring-mvc/gio-hang">Giỏ Hàng</a></li>
-                                    <li><a href="spring-mvc/thanh-toan">Thanh Toán</a></li>
+                                    <li><a href="/spring-mvc/thanh-toan">Thanh Toán</a></li>
                                 </ul>
                             </li>
-                            <li><a href="./blog.html">About</a></li>
+                            <li><a href="/spring-mvc/about-us">About</a></li>
                             <li><a href="/spring-mvc/lien-he">Liên Hệ</a></li>
                         </ul>
                     </nav>
