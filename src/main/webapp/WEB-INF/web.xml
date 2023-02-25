@@ -27,6 +27,17 @@
             /WEB-INF/context/applicationContext.xml
         </param-value>
     </context-param>
+    
+    <context-param>
+	   <param-name>contextConfigLocation</param-name>
+	   <param-value>/WEB-INF/context/dispatcher-servlet.xml</param-value>
+    </context-param>
+    
+    <listener>
+	   <listener-class>
+	     org.springframework.web.context.ContextLoaderListener
+	    </listener-class>
+  </listener>
 
     <!-- Spring MVC -->
     <servlet>

@@ -12,14 +12,24 @@
 </head>
 
 <body>
+	<style>
+		.trademark{
+			text-align: center;
+			
+		}
+	</style>
+	
+	<div class= "trademark">
+	<h1>Thương Hiệu</h1>
+	</div>
 	<!-- Categories Section Begin -->
     <section class="categories">
         <div class="container">
             <div class="row">
                 <div class="categories__slider owl-carousel">
                     <div class="col-lg-3">
-                        <div class="categories__item set-bg" data-setbg="img/categories/cat-1.jpg">
-                            <h5><a href="#">Fresh Fruit</a></h5>
+                        <div class="categories__item set-bg" data-setbg="">	
+                            <h5><a href="#">Magic</a></h5>
                         </div>
                     </div>
                     <div class="col-lg-3">
@@ -54,15 +64,21 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="section-title">
-                        <h2>Featured Product</h2>
+                        <h2>Sản Phẩm Nổi Bật</h2>
                     </div>
                     <div class="featured__controls">
                         <ul>
-                            <li class="active" data-filter="*">All</li>
-                            <li data-filter=".oranges">Oranges</li>
-                            <li data-filter=".fresh-meat">Fresh Meat</li>
-                            <li data-filter=".vegetables">Vegetables</li>
-                            <li data-filter=".fastfood">Fastfood</li>
+                            <li class="active" data-filter="*">Tất cả</li>
+                            <li data-filter=".oranges">Nồi Chiên Không Dầu</li>
+                            <li data-filter=".fresh-meat">Lò Nướng</li>
+                            <li data-filter=".vegetables">Bếp Các Loại</li>
+                            <li data-filter=".fastfood">Máy Xay Và Máy Ép</li>
+                        </ul>
+                        <ul>
+                            <li data-filter=".oranges">Quạt Lạnh</li>
+                            <li data-filter=".fresh-meat">Máy Chế Biến Thực Phẩm</li>
+                            <li data-filter=".vegetables">Nồi Cơm Điện Tử</li>
+                            <li data-filter=".fastfood">Gia Dụng Khác</li>
                         </ul>
                     </div>
                 </div>
@@ -218,7 +234,7 @@
             <div class="row">
                 <div class="col-lg-4 col-md-6">
                     <div class="latest-product__text">
-                        <h4>Latest Products</h4>
+                        <h4>Sản phẩm mới nhất</h4>
                         <div class="latest-product__slider owl-carousel">
                             <div class="latest-prdouct__slider__item">
                                 <a href="#" class="latest-product__item">
@@ -283,7 +299,7 @@
                 </div>
                 <div class="col-lg-4 col-md-6">
                     <div class="latest-product__text">
-                        <h4>Top Rated Products</h4>
+                        <h4>Sản phẩm hàng đầu</h4>
                         <div class="latest-product__slider owl-carousel">
                             <div class="latest-prdouct__slider__item">
                                 <a href="#" class="latest-product__item">
@@ -348,7 +364,7 @@
                 </div>
                 <div class="col-lg-4 col-md-6">
                     <div class="latest-product__text">
-                        <h4>Review Products</h4>
+                        <h4>Sản phẩm đánh giá cao</h4>
                         <div class="latest-product__slider owl-carousel">
                             <div class="latest-prdouct__slider__item">
                                 <a href="#" class="latest-product__item">
