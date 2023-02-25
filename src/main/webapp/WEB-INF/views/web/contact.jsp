@@ -18,7 +18,7 @@
 <body>
     <!-- Breadcrumb Section Begin -->
     <!-- data-setbg="<c:url value='/template/web/img/posterposter.jpg'/>" -->
-    <section class="breadcrumb-section set-bg" data-setbg="<c:url value='img/breadcrumb.jpg'/>">
+    <section class="breadcrumb-section set-bg" data-setbg="">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">

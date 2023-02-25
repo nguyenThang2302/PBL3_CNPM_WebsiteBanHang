@@ -57,12 +57,9 @@
           <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
             <div class="member" data-aos="fade-up">
               <div class="member-img">
-                <img src="assets/img/team/team-1.jpg" class="img-fluid" alt="">
+                <img src="https://scontent.fsgn2-6.fna.fbcdn.net/v/t39.30808-6/326691917_695794528699804_4218672318674917759_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=Mu3uAdGgMxQAX-XE5zQ&_nc_ht=scontent.fsgn2-6.fna&oh=00_AfBQhXXhMLOpNX9kwQCEl_0rL3EgMRrS1g0foWru7yu5nw&oe=63FFD5AF" class="img-fluid" alt="">
                 <div class="social">
-                  <a href=""><i class="bi bi-twitter"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""><i class="bi bi-linkedin"></i></a>
+                  <a href="https://www.facebook.com/thang.230203"><i class="bi bi-facebook"></i></a>
                 </div>
               </div>
               <div class="member-info">
@@ -75,12 +72,9 @@
           <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
             <div class="member" data-aos="fade-up" data-aos-delay="100">
               <div class="member-img">
-                <img src="assets/img/team/team-2.jpg" class="img-fluid" alt="">
+                <img src="https://scontent.fsgn2-8.fna.fbcdn.net/v/t39.30808-6/275007227_3199182500313877_8314485675350462014_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=174925&_nc_ohc=h1W2sq6v3bEAX-1K2NQ&tn=x1UQu5qQmT8DHMDT&_nc_ht=scontent.fsgn2-8.fna&oh=00_AfAvMkt3QoVnHxIYd-CZzzaauTp-jvtxCEqOM6usnb_FRQ&oe=63FE18B4" class="img-fluid" alt="">
                 <div class="social">
-                  <a href=""><i class="bi bi-twitter"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""><i class="bi bi-linkedin"></i></a>
+                  <a href="https://www.facebook.com/quangsang07092003"><i class="bi bi-facebook"></i></a>
                 </div>
               </div>
               <div class="member-info">
@@ -93,12 +87,9 @@
           <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
             <div class="member" data-aos="fade-up" data-aos-delay="200">
               <div class="member-img">
-                <img src="assets/img/team/team-3.jpg" class="img-fluid" alt="">
+                <img src="https://scontent.fsgn2-7.fna.fbcdn.net/v/t1.6435-9/124551882_1252186998492102_2601772748587988693_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=8bfeb9&_nc_ohc=873-TY7RIjQAX8GeJ-_&_nc_ht=scontent.fsgn2-7.fna&oh=00_AfAs_BWiMphRza8VsSUrbxnWkD2Tgj8kudbw0VavDUqpvw&oe=64217457" class="img-fluid" alt="">
                 <div class="social">
-                  <a href=""><i class="bi bi-twitter"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""><i class="bi bi-linkedin"></i></a>
+                  <a href="https://www.facebook.com/quocan.01.08"><i class="bi bi-facebook"></i></a>
                 </div>
               </div>
               <div class="member-info">
@@ -111,12 +102,9 @@
           <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
             <div class="member" data-aos="fade-up" data-aos-delay="300">
               <div class="member-img">
-                <img src="assets/img/team/team-4.jpg" class="img-fluid" alt="">
+                <img src="https://scontent.fsgn2-6.fna.fbcdn.net/v/t1.6435-9/48423622_1863555470434338_6419596340686225408_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=8bfeb9&_nc_ohc=L-GxRtY79wwAX8OeT_B&tn=x1UQu5qQmT8DHMDT&_nc_ht=scontent.fsgn2-6.fna&oh=00_AfCpKAv-GUSpIj4fSRJZ9Fh8uqj8Kwf-f1hjIbihR6HYTQ&oe=64215E14" class="img-fluid" alt="">
                 <div class="social">
-                  <a href=""><i class="bi bi-twitter"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""><i class="bi bi-linkedin"></i></a>
+                  <a href="https://www.facebook.com/minhtuan.pham.585"><i class="bi bi-facebook"></i></a>
                 </div>
               </div>
               <div class="member-info">
@@ -209,49 +197,49 @@
 
           <div class="col-lg-3 col-md-4 col-6">
             <div class="client-logo">
-              <img src="assets/img/clients/client-1.png" class="img-fluid" alt="">
+              <img src="https://i.imgur.com/6Pbo3jk.png" class="img-fluid" alt="">
             </div>
           </div>
 
           <div class="col-lg-3 col-md-4 col-6">
             <div class="client-logo">
-              <img src="assets/img/clients/client-2.png" class="img-fluid" alt="">
+              <img src="https://i.imgur.com/oXxcJ8E.png" class="img-fluid" alt="">
             </div>
           </div>
 
           <div class="col-lg-3 col-md-4 col-6">
             <div class="client-logo">
-              <img src="assets/img/clients/client-3.png" class="img-fluid" alt="">
+              <img src="https://i.imgur.com/afY27wm.png" class="img-fluid" alt="">
             </div>
           </div>
 
           <div class="col-lg-3 col-md-4 col-6">
             <div class="client-logo">
-              <img src="assets/img/clients/client-4.png" class="img-fluid" alt="">
+              <img src="https://i.imgur.com/dhkiLS0.png" class="img-fluid" alt="">
             </div>
           </div>
 
           <div class="col-lg-3 col-md-4 col-6">
             <div class="client-logo">
-              <img src="assets/img/clients/client-5.png" class="img-fluid" alt="">
+              <img src="https://i.imgur.com/BYrwRyr.png" class="img-fluid" alt="">
             </div>
           </div>
 
           <div class="col-lg-3 col-md-4 col-6">
             <div class="client-logo">
-              <img src="assets/img/clients/client-6.png" class="img-fluid" alt="">
+              <img src="https://i.imgur.com/ZlBNe1G.png" class="img-fluid" alt="">
             </div>
           </div>
 
           <div class="col-lg-3 col-md-4 col-6">
             <div class="client-logo">
-              <img src="assets/img/clients/client-7.png" class="img-fluid" alt="">
+              <img src="https://i.imgur.com/emYtHzq.png" class="img-fluid" alt="">
             </div>
           </div>
 
           <div class="col-lg-3 col-md-4 col-6">
             <div class="client-logo">
-              <img src="assets/img/clients/client-8.png" class="img-fluid" alt="">
+              <img src="https://i.imgur.com/oOCRxsW.png" class="img-fluid" alt="">
             </div>
           </div>
 
