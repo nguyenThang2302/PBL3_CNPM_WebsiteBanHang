@@ -23,21 +23,21 @@
 
         <div class="row content">
           <div class="col-lg-6" data-aos="fade-right">
-            <h2>HE HIMSELF WOULD BE RELIEVED OF HIS LABORS</h2>
-            <h3>They provide for the most worthy pleasures, as if the pleasures of the body were to be destroyed by a sruen jone trave</h3>
+            <h2>Project Base Learning 3: XÂY DỰNG WEBSITE BÁN ĐỒ GIA DỤNG
+            </h2>
+            <h3>Hiện nay, khi có nhu cầu mua sắm bất cứ vật dụng gì, thay vì đi một vòng quanh trung tâm thương mại, chợ hoặc siêu thị, người tiêu dùng thường tìm sản phẩm trên Internet, xem thông tin, đánh giá tại các website và đặt mua online. </h3>
           </div>
           <div class="col-lg-6 pt-4 pt-lg-0" data-aos="fade-left">
             <p>
-              I do not work at all except to get some advantage out of it. Do not be angry with the pain in the reprimand in the pleasure he wants to be a hair from the pain in the hope that there is no breeding. Unless they are blinded by lust, they do not come out, they are in fault who abandon their duties, the soul softens, that is toils
-            </p>
+              Cách mua hàng này được đánh giá là thuận tiện hơn nhiều bởi chỉ cần ngồi một chỗ, có kết nối Internet là có thể mua hàng. Thiết kế web đồ gia dụng, gia đình đồng nghĩa với việc doanh nghiệp đang hòa nhịp với xu thế tiêu dùng chung của xã hội. Lợi ích mà website bán đồ gia dụng mang đến cho doanh nghiệp:            </p>
             <ul>
-              <li><i class="ri-check-double-line"></i> I do not do any work except to gain some benefit from it</li>
-              <li><i class="ri-check-double-line"></i> Doubts or irrure pain in reprimands in the pleasure he wants</li>
-              <li><i class="ri-check-double-line"></i> I do not work at all except to get some advantage out of it. Duis or Irure pain in the reprimand</li>
+              <li><i class="ri-check-double-line"></i> Chăm sóc khách hàng mọi lúc, mọi nơi</li>
+              <li><i class="ri-check-double-line"></i> Mở rộng thị trường</li>
+              <li><i class="ri-check-double-line"></i> Tiết kiệm chi phí</li>
+              <li><i class="ri-check-double-line"></i> Tăng lợi nhuận</li>
+              <li><i class="ri-check-double-line"></i> Giảm lưu kho hàng hóa</li>
+              <li><i class="ri-check-double-line"></i> Giảm chi phí mua bán</li>
             </ul>
-            <p class="fst-italic">
-              It is important to take care of the patient, to be followed by the doctor, but it is a time of great pain and suffering.
-            </p>
           </div>
         </div>
 
@@ -124,7 +124,7 @@
       <div class="container">
 
         <div class="section-title" data-aos="fade-up">
-          <h1>Kĩ <strong>Năng</strong></h1>
+          <h1>Công Nghệ <strong>Sử Dụng</strong></h1>
           <p>It takes great pains to benefit. His needs result from something that actually drives him away. Let them be what they want. Anyone whom anyone desires. And no one who hinders receives the others. Because he should flee in this office of convenience, which is here.</p>
         </div>
 
@@ -172,7 +172,7 @@
             </div>
 
             <div class="progress">
-              <span class="skill">Create Content <i class="val">55%</i></span>
+              <span class="skill">DataBase SQL <i class="val">55%</i></span>
               <div class="progress-bar-wrap">
                 <div class="progress-bar" role="progressbar" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100"></div>
               </div>

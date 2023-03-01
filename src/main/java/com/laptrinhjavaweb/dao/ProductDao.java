@@ -11,14 +11,14 @@ import com.laptrinhjavaweb.entity.MapperProducts;
 import com.laptrinhjavaweb.entity.Products;
 
 @Repository
-public class HomeDao {
-	
+public class ProductDao {
+
 	@Autowired
 	public JdbcTemplate _jdbcTemplate;
-	
+
 	public List<Products> GetDataSilde() {
-		List <Products> list = new ArrayList<Products>();
-		String sql = "select * from accounts";
+		List<Products> list = new ArrayList<Products>();
+		String sql = "select * from products";
 		list = _jdbcTemplate.query(sql, new MapperProducts());
 		return list;
 	}
