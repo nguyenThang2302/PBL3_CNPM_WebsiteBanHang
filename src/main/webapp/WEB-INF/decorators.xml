@@ -36,4 +36,8 @@
     <decorator name="about-us" page="about.jsp">
        <pattern>/about-us</pattern>
     </decorator>
+    
+    <decorator name="product-management" page="productmanagement.jsp">
+       <pattern>/product-management</pattern>
+    </decorator>
 </decorators>

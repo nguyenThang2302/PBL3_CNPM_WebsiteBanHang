@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
@@ -21,5 +22,25 @@ public class ProductDao {
 		String sql = "select * from products";
 		list = _jdbcTemplate.query(sql, new MapperProducts());
 		return list;
+	}
+
+	public int deleteOne(int id) {
+		String sql = "delete from products where id = " + id + "";
+		return _jdbcTemplate.update(sql);
+	}
+
+	public int createOne(Products p) {
+		String sql = "INSERT INTO products (name, image, price) VALUES (?, ?, ?)";
+        return _jdbcTemplate.update(sql, p.getName(), p.getImage(), p.getPrice());
+	}
+	
+	public int updateOne(Products p) {
+		String sql = "UPDATE products set name = ?, image = ?, price = ? where id = ?";
+		return _jdbcTemplate.update(sql, p.getName(), p.getImage(), p.getPrice(), p.getId());
+	}
+	
+	public Products findById(int id) {
+		 String sql="select * from products where id=?";    
+		 return _jdbcTemplate.queryForObject(sql, new Object[]{id},new BeanPropertyRowMapper<Products>(Products.class));
 	}
 }
