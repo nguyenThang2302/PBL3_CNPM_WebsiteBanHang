@@ -6,17 +6,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.laptrinhjavaweb.dao.HomeDao;
+import com.laptrinhjavaweb.dao.ProductDao;
+import com.laptrinhjavaweb.service.web.HomeServiceImpl;
 
 @Controller
 public class HomeController {
 	@Autowired
-	HomeDao homeDao;
+	HomeServiceImpl homeService;
 
 	@RequestMapping(value = "/trang-chu", method = RequestMethod.GET)
 	public ModelAndView homePage() {
 		ModelAndView mav = new ModelAndView("web/home");
-		 mav.addObject("products", homeDao.GetDataSilde()); 
-		 return mav;
+		mav.addObject("products", homeService.GetDataSilde());
+		mav.addObject("trademarks",homeService.GetDataTradeMark());
+		return mav;
 	}
 }

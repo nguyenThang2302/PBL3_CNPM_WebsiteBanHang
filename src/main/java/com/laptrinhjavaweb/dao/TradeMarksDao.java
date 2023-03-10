@@ -8,18 +8,20 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import com.laptrinhjavaweb.entity.MapperProducts;
+import com.laptrinhjavaweb.entity.MapperTrademarks;
 import com.laptrinhjavaweb.entity.Products;
+import com.laptrinhjavaweb.entity.Trademarks;
 
 @Repository
-public class HomeDao {
-	
+public class TradeMarksDao {
+
 	@Autowired
 	public JdbcTemplate _jdbcTemplate;
-	
-	public List<Products> GetDataSilde() {
-		List <Products> list = new ArrayList<Products>();
-		String sql = "select * from accounts";
-		list = _jdbcTemplate.query(sql, new MapperProducts());
+
+	public List<Trademarks> GetDataTradeMark() {
+		List<Trademarks> list = new ArrayList<Trademarks>();
+		String sql = "select * from trademarks";
+		list = _jdbcTemplate.query(sql, new MapperTrademarks());
 		return list;
 	}
 }

@@ -1,12 +1,11 @@
 package com.laptrinhjavaweb.entity;
 
-public class Products {
+public class Trademarks {
 	private int id;
 	private String name;
 	private String image;
-	private int price;
-
-	public Products() {
+	
+	public Trademarks() {
 		super();
 	}
 
@@ -18,14 +17,6 @@ public class Products {
 		this.id = id;
 	}
 
-	public String getImage() {
-		return image;
-	}
-
-	public void setImage(String image) {
-		this.image = image;
-	}
-
 	public String getName() {
 		return name;
 	}
@@ -34,12 +25,13 @@ public class Products {
 		this.name = name;
 	}
 
-	public int getPrice() {
-		return price;
+	public String getImage() {
+		return image;
 	}
 
-	public void setPrice(int price) {
-		this.price = price;
+	public void setImage(String image) {
+		this.image = image;
 	}
-
+	
+	
 }
