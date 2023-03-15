@@ -22,4 +22,30 @@ public class ProductDao {
 		list = _jdbcTemplate.query(sql, new MapperProducts());
 		return list;
 	}
+<<<<<<< HEAD
+=======
+
+	public int deleteOne(int id) {
+		String sql = "delete from products where id = " + id + "";
+		return _jdbcTemplate.update(sql);
+	}
+
+	public int createOne(Products p) {
+		String sql = "INSERT INTO products (name, image, price) VALUES (?, ?, ?)";
+        return _jdbcTemplate.update(sql, p.getName(), p.getImage(), p.getPrice());
+	}
+	
+	public int updateOne(Products p) {
+		String sql = "UPDATE products set name = ?, image = ?, price = ? where id = ?";
+		return _jdbcTemplate.update(sql, p.getName(), p.getImage(), p.getPrice(), p.getId());
+	}
+	
+	public Products findById(int id) {
+		List<Products> list = new ArrayList<Products>();
+		String sql="select * from products where id=?";    
+			 return _jdbcTemplate.queryForObject(sql, new Object[]{id},new
+			 BeanPropertyRowMapper<Products>(Products.class));
+			 
+	}
+>>>>>>> 5d622a5 (PBL3-1:API CRUD Products Trademarks)
 }
