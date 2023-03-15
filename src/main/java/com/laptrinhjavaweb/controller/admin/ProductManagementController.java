@@ -21,6 +21,8 @@ public class ProductManagementController {
 	
 	@RequestMapping("/product-management")
 	public String showForm(Model m) {
+
+		
 		m.addAttribute("command", new Products());
 		return"productmanagement";
 	}
