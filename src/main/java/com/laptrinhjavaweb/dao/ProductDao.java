@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
@@ -22,8 +23,6 @@ public class ProductDao {
 		list = _jdbcTemplate.query(sql, new MapperProducts());
 		return list;
 	}
-<<<<<<< HEAD
-=======
 
 	public int deleteOne(int id) {
 		String sql = "delete from products where id = " + id + "";
@@ -47,5 +46,4 @@ public class ProductDao {
 			 BeanPropertyRowMapper<Products>(Products.class));
 			 
 	}
->>>>>>> 5d622a5 (PBL3-1:API CRUD Products Trademarks)
 }

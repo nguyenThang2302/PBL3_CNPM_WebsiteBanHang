@@ -13,4 +13,12 @@ public interface IHomeService {
 	public List<Products> GetDataSilde();
 	@Autowired
 	public List<Trademarks> GetDataTradeMark();
+	@Autowired
+	int deleteOne(int id);
+	@Autowired
+	int createOne(Products p);
+	@Autowired
+	int updateOne(Products p);
+	@Autowired
+	Products findById(int id);
 }

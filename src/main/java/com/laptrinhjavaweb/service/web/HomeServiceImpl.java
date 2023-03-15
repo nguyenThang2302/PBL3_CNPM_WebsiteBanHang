@@ -26,4 +26,23 @@ public class HomeServiceImpl implements IHomeService {
 		return trademarkDao.GetDataTradeMark();
 	}
 	
+	@Override
+	public int deleteOne(int id) {
+		return productDao.deleteOne(id);
+	}
+	
+	@Override
+	public int createOne(Products p) {
+		return productDao.createOne(p);
+	}
+	
+	@Override
+	public int updateOne(Products p) {
+		return productDao.updateOne(p);
+	}
+	
+	@Override
+	public Products findById(int id) {
+		return productDao.findById(id);
+	}
 }
