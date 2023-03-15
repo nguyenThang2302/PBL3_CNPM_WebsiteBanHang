@@ -20,11 +20,11 @@
 <body>
 
 <div class="container mt-4">
-  <form action ="save" method="post">
+  <form action ="save" method="POST">
    <tr>
 	<td colspan="2">
 		<h3>Chỉnh sửa thông tin sản phẩm</h3>
-		<input type="hidden" name="id" value="">
+		<input type="hidden" name="id" value="${products.id}">
 	</td>
    </tr>
     <div class="form-group">
@@ -33,6 +33,7 @@
         type="text"
         class="form-control"
         name="name"
+        value="${products.name}"
      />
     </div>
 	<div class="form-group">
@@ -41,6 +42,7 @@
         type="text"
         class="form-control"
         name="image"
+        value="${products.image}"
       />
     </div>
     <div class="form-group">
@@ -49,6 +51,7 @@
         type="text"
         class="form-control"
         name="price"
+        value="${products.price}"
       />
     </div>
     <button type="submit" class="btn btn-primary">Lưu Lại</button>

@@ -36,25 +36,26 @@ public class ProductManagementController {
 		return "admin/productmanagement";
 	}
 	
-	@RequestMapping(value = "product-management/delete/{id}", method = RequestMethod.GET)
+	@RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
 	public String deleteOne(@PathVariable int id ) {
 		homeService.deleteOne(id);
 		return "redirect:/product-management"; 
 	}
-	@RequestMapping(value = "product-management/create", method = RequestMethod.POST, produces = "text/html; charset=UTF-8")
+	
+	@RequestMapping(value = "/create", method = RequestMethod.POST, produces = "text/html; charset=UTF-8")
 	public String createOne(@ModelAttribute("products") Products products) { 
 		homeService.createOne(products);
 		return "redirect:/product-management"; 
 	}
 	
-    @RequestMapping(value="product-management/update/{id}")    
+    @RequestMapping(value="/{id}/update", method = RequestMethod.GET)    
     public String findById(@PathVariable int id, Model m){    
         Products products= homeService.findById(id);  
         m.addAttribute("products",products);  
         return "admin/updateProducts";    
     }  
     
-    @RequestMapping(value="product-management/update/save",method = RequestMethod.POST)    
+    @RequestMapping(value="/{id}/save",method = RequestMethod.POST)    
     public String editsave(@ModelAttribute("products") Products products){  
         homeService.updateOne(products);    
         return "redirect:/product-management";    

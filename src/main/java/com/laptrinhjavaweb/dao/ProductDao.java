@@ -40,7 +40,10 @@ public class ProductDao {
 	}
 	
 	public Products findById(int id) {
-		 String sql="select * from products where id=?";    
-		 return _jdbcTemplate.queryForObject(sql, new Object[]{id},new BeanPropertyRowMapper<Products>(Products.class));
+		List<Products> list = new ArrayList<Products>();
+		String sql="select * from products where id=?";    
+			 return _jdbcTemplate.queryForObject(sql, new Object[]{id},new
+			 BeanPropertyRowMapper<Products>(Products.class));
+			 
 	}
 }

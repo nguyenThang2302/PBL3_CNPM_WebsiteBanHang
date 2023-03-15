@@ -306,8 +306,8 @@ $(document).ready(function(){
 							<td>${item.image}</td>
 							<td>${item.price}</td>
 							<td>
-								<a href="product-management/update/${item.id}" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-								<a href="product-management/delete/${item.id}" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+								<a href="${item.id}/update" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+								<a href="delete/${item.id}" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
 							</td>
 						</tr>
 						</c:forEach>
@@ -320,7 +320,7 @@ $(document).ready(function(){
 	<div id="addEmployeeModal" class="modal fade">
 		<div class="modal-dialog">
 			<div class="modal-content">
-				<form method = "post" action = "product-management/create">
+				<form method = "post" action = "create">
 					<div class="modal-header">						
 						<h4 class="modal-title">Thêm sản phẩm</h4>
 						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
@@ -386,7 +386,7 @@ $(document).ready(function(){
 	<div id="deleteEmployeeModal" class="modal fade">
 		<div class="modal-dialog">
 			<div class="modal-content">
-				<form>
+				<form action = "delete" method = "POST">
 					<div class="modal-header">						
 						<h4 class="modal-title">Xóa sản phẩm</h4>
 						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
