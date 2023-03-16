@@ -230,7 +230,8 @@
 	}	
 	.modal form label {
 		font-weight: normal;
-	}	
+	}
+		
 </style>
 <script>
 $(document).ready(function(){
@@ -262,17 +263,15 @@ $(document).ready(function(){
 </head>
 
 <body>
-  <div class="container">
+  <div class="container" style="margin-top:80px; margin-right:150px; font-size: 15px">
 		<div class="table-responsive">
 			<div class="table-wrapper">
 				<div class="table-title">
 					<div class="row">
 						<div class="col-xs-6">
-							<h2>Quản lý <b>Sản Phẩm</b></h2>
-						</div>
-						<div class="col-xs-6">
-							<a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Tạo mới sản phẩm</span></a>
-							<a href="#deleteEmployeeModal" class="btn btn-danger" data-toggle="modal"><i class="material-icons">&#xE15C;</i> <span>Xóa sản phẩm</span></a>						
+							<h2>Tất Cả <b>Sản Phẩm</b></h2>
+							<a href = "tao-moi" class="btn btn-success"><i class="material-icons">&#xE147;</i><h5 style="font-size: 15px">Tạo sản phẩm</h5></a>
+							<a href = "#" class="btn btn-danger"><i class="material-icons">&#xE147;</i><h5 style="font-size: 15px"> Xóa sản phẩm</h5></a>
 						</div>
 					</div>
 				</div>
@@ -317,36 +316,6 @@ $(document).ready(function(){
 		</div>        
     </div>
 	<!-- Edit Modal HTML -->
-	<div id="addEmployeeModal" class="modal fade">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<form method = "post" action = "create">
-					<div class="modal-header">						
-						<h4 class="modal-title">Thêm sản phẩm</h4>
-						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-					</div>
- 					<div class="modal-body">					
-						<div class="form-group">
-							<label>Name</label>
-							<input name="name" type="text" class="form-control" required = "required"/>
-						</div>
-						<div class="form-group">
-							<label>Image</label>
-							<input name="image" type="text" class="form-control" required = "required"/>
-						</div>
-						<div class="form-group">
-							<label>Price</label>
-							<input name="price" type="number" class="form-control" required="required"/>
-						</div>			
-					</div>  
-					<div class="modal-footer">
-						<input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
-						<input type="submit" class="btn btn-success" value="Add">
-					</div> 
-				</form>
-			</div>
-		</div>
-	</div>
 	<!-- Edit Modal HTML -->
 	<div id="product-management/update/{id}" class="modal fade">
 		<div class="modal-dialog">
