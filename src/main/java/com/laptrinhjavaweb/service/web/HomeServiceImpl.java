@@ -45,4 +45,9 @@ public class HomeServiceImpl implements IHomeService {
 	public Products findById(int id) {
 		return productDao.findById(id);
 	}
+	
+	@Override
+	public int updateDescriptionProduct(Products p) {
+		return productDao.updateDescriptionProduct(p);
+	}
 }

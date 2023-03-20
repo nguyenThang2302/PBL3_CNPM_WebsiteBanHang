@@ -87,7 +87,7 @@
                             </ul>
                         </div>
                         <div class="featured__item__text">
-                            <h6><a href="#">${item.name}</a></h6>
+                            <h6><a href="sanpham">${item.name}</a></h6>
                             <h5>${item.price}</h5>
                         </div>
                     </div>

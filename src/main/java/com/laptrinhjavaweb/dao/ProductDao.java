@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
@@ -45,5 +46,9 @@ public class ProductDao {
 			 return _jdbcTemplate.queryForObject(sql, new Object[]{id},new
 			 BeanPropertyRowMapper<Products>(Products.class));
 			 
+	}
+	public int updateDescriptionProduct(Products p) {
+		String sql = "update products set brand = ?, description = ?, information = ?, salient = ?, color = ?, status = ? where id = ?";
+		return _jdbcTemplate.update(sql, p.getBrand(), p.getDescription(), p.getInformation(), p.getSalient(), p.getColor(), p.getStatus(), p.getId());
 	}
 }

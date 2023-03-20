@@ -67,6 +67,18 @@ public class ProductManagementController {
     public String editsave(@ModelAttribute("products") Products products){  
         homeService.updateOne(products);    
         return "redirect:/product-management";    
-    }    
+    }
     
+    @RequestMapping(value="/{id}/mo-ta", method = RequestMethod.GET)    
+    public String updateDescriptionProduct(@PathVariable int id, Model m){    
+        Products products= homeService.findById(id);  
+        m.addAttribute("products",products);  
+        return "admin/updateDescriptionProduct";    
+    }  
+    
+    @RequestMapping(value="/{id}/savemota",method = RequestMethod.POST)    
+    public String editsaveDescriptionProduct(@ModelAttribute("products") Products products){  
+        homeService.updateDescriptionProduct(products);    
+        return "redirect:/product-management";    
+    }
 }

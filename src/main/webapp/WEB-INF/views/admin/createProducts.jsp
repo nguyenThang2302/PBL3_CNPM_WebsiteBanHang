@@ -41,7 +41,7 @@
 						</div>			
 					</div>  
 					<div class="modal-footer">
-						<input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
+						<a href="product-management" type="button" class="btn btn-default" data-dismiss="modal">Cancel</a>
 						<input type="submit" class="btn btn-success" value="Add">
 					</div> 
 				</form>
