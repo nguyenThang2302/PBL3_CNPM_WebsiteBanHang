@@ -38,6 +38,12 @@ public class ProductManagementController {
 		return "admin/productmanagement";
 	}
 	
+	@RequestMapping(value = "/tao-moi", method = RequestMethod.GET)
+	public ModelAndView homePage() {
+		ModelAndView mav = new ModelAndView("admin/createProducts");
+		return mav;
+	}
+	
 	@RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
 	public String deleteOne(@PathVariable int id ) {
 		homeService.deleteOne(id);

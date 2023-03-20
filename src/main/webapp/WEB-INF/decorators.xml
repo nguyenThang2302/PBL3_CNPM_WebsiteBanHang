@@ -40,4 +40,12 @@
     <decorator name="product-management" page="productmanagement.jsp">
        <pattern>/product-management</pattern>
     </decorator>
+    
+    <decorator name="quan-ly" page="admin.jsp">
+       <pattern>/quan-ly</pattern>
+    </decorator>
+    
+    <decorator name="tao-moi" page="createProducts.jsp">
+       <pattern>/tao-moi</pattern>
+    </decorator>
 </decorators>
