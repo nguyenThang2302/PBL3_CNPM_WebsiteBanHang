@@ -13,7 +13,6 @@
 </head>
 
 <body>
-<p>${trademarks.size()}</p>
 	<style>
 		.trademark{
 			text-align: center;

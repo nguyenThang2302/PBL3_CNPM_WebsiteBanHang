@@ -5,10 +5,12 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Repository;
 
 import com.laptrinhjavaweb.entity.Departments;
 import com.laptrinhjavaweb.entity.MapperDepartments;
 
+@Repository
 public class DepartmentDao {
 	@Autowired
 	public JdbcTemplate _jdbcTemplate;

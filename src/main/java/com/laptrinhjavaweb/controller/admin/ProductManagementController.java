@@ -11,30 +11,30 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.laptrinhjavaweb.entity.Departments;
 import com.laptrinhjavaweb.entity.Products;
+import com.laptrinhjavaweb.service.admin.AdminServiceImpl;
 import com.laptrinhjavaweb.service.web.HomeServiceImpl;
 
 @Controller(value = "productManagementControllerOfAdmin")
 public class ProductManagementController {
 	@Autowired
 	HomeServiceImpl homeService;
+	@Autowired
+	AdminServiceImpl adminService;
 	
 	@RequestMapping("/product-management")
 	public String showForm(Model m) {
-
-		
 		m.addAttribute("command", new Products());
 		return"productmanagement";
 	}
 	
 	@RequestMapping(value = "/product-management", method = RequestMethod.GET)
 	public String productManagementPage(Model model) {
-		/*
-		 * ModelAndView mav = new ModelAndView("admin/productmanagement");
-		 * mav.addObject("products", homeService.GetDataSilde()); return mav;
-		 */
 		List<Products> products = homeService.GetDataSilde();
+		List<Departments> departments = adminService.findAll();
 		model.addAttribute("products", products);
+		model.addAttribute("departments", departments);
 		return "admin/productmanagement";
 	}
 	
