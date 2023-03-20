@@ -1,10 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+	
   <!-- ======= Header ======= -->
   <header id="header" class="header fixed-top d-flex align-items-center">
 
     <div class="d-flex align-items-center justify-content-between">
-      <a href="index.html" class="logo d-flex align-items-center">
+      <a href="quan-tri" class="logo d-flex align-items-center">
         <img src="assets/img/logo.png" alt="">
         <span class="d-none d-lg-block">Quản Trị Viên</span>
       </a>
@@ -238,7 +240,15 @@
           <i class="bi bi-menu-button-wide"></i><span>Quản lí sản phẩm</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-          <li>
+        
+        <c:forEach var = "item" items = "${departments}">
+        	<li>
+            <a href="#">
+              <i class="bi bi-circle"></i><span>${item.name}</span>
+            </a>
+          </li>
+        </c:forEach>
+          <!-- <li>
             <a href="components-alerts.html">
               <i class="bi bi-circle"></i><span>Nồi chiên không dầu</span>
             </a>
@@ -282,7 +292,7 @@
             <a href="components-modal.html">
               <i class="bi bi-circle"></i><span>Gia dụng khác</span>
             </a>
-          </li>
+          </li> -->
           <li>
             <a href="product-management">
               <i class="bi bi-circle"></i><span>Tất cả sản phẩm</span>
