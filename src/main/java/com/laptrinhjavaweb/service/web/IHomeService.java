@@ -21,4 +21,6 @@ public interface IHomeService {
 	int updateOne(Products p);
 	@Autowired
 	Products findById(int id);
+	@Autowired
+	int updateDescriptionProduct(Products p);
 }

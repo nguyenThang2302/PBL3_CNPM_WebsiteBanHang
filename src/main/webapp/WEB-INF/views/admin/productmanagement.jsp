@@ -307,6 +307,7 @@ $(document).ready(function(){
 							<td>
 								<a href="${item.id}/update" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
 								<a href="delete/${item.id}" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+								<a href="${item.id}/mo-ta" data-toggle="modal"><img src="https://i.imgur.com/vckzWz9.png" style="margin-left:11px;"></img></a>
 							</td>
 						</tr>
 						</c:forEach>

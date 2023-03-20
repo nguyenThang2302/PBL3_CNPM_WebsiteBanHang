@@ -20,40 +20,58 @@
 <body>
 
 <div class="container mt-4">
-  <form action ="save" method="POST">
+  <form action ="savemota" method="POST">
    <tr>
 	<td colspan="2">
-		<h3>Chỉnh sửa thông tin sản phẩm: ${products.name}</h3>
+		<h3>Mô tả sản phẩm: ${products.name}</h3>
 		<input type="hidden" name="id" value="${products.id}">
 	</td>
    </tr>
     <div class="form-group">
-      <label for="name">Name</label>
+      <label for="brand">Thương Hiệu</label>
       <input
         type="text"
         class="form-control"
-        name="name"
-        value="${products.name}"
+        name="brand"
+        value="${products.brand}"
      />
     </div>
 	<div class="form-group">
-      <label for="image">Image</label>
-      <input
-        type="text"
-        class="form-control"
-        name="image"
-        value="${products.image}"
-      />
+      <label for="description">Mô tả</label>
+      <div>
+      <textarea rows="5" cols="117" name = "description">${products.description}</textarea>
+      </div>
     </div>
     <div class="form-group">
-      <label for="price">Price</label>
+      <label for="information">Thông tin</label>
+      <div>
+      <textarea rows="5" cols="117" name = "information">${products.information}</textarea>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="salient">Thông số kĩ thuật</label>
+      <div>
+      <textarea rows="5" cols="117" name = "salient">${products.salient}</textarea>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="color">Màu sắc</label>
       <input
         type="text"
         class="form-control"
-        name="price"
-        value="${products.price}"
-      />
-    </div>
+        name="color"
+        value="${products.color}"
+      /> 
+      </div>
+      <div class="form-group">
+      <label for="status">Tình trạng</label>
+      <input
+        type="text"
+        class="form-control"
+        name="status"
+        value="${products.status}"
+      /> 
+      </div>
     <button type="submit" class="btn btn-primary">Lưu Lại</button>
   </form>
 </div>

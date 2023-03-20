@@ -1,4 +1,4 @@
-package com.laptrinhjavaweb.controller.admin;
+package com.laptrinhjavaweb.controller.web;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -8,14 +8,14 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.laptrinhjavaweb.service.web.HomeServiceImpl;
 
-@Controller(value = "homeControllerOfAdmin")
-public class HomeController {
+@Controller
+public class DescriptionProductController {
 	@Autowired
 	HomeServiceImpl homeService;
 
-	@RequestMapping(value = "/quan-ly", method = RequestMethod.GET)
+	@RequestMapping(value = "/sanpham", method = RequestMethod.GET)
 	public ModelAndView homePage() {
-		ModelAndView mav = new ModelAndView("admin/admin");
+		ModelAndView mav = new ModelAndView("web/descriptionproduct");
 		return mav;
 	}
 }
