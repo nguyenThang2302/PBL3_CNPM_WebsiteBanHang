@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+xin <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 
@@ -66,13 +66,15 @@
 
       <!-- Email input -->
       <div class="form-outline mb-4">
-        <input type="email" id="loginName" class="form-control" />
+        <input type="email" id="loginName" class="form-control" 
+        placeholder="Email or Username"/>
         <label class="form-label" for="loginName">Email or username</label>
       </div>
 
       <!-- Password input -->
       <div class="form-outline mb-4">
-        <input type="password" id="loginPassword" class="form-control" />
+        <input type="password" id="loginPassword" class="form-control" 
+        placeholder="Password"/>
         <label class="form-label" for="loginPassword">Password</label>
       </div>
 
@@ -126,25 +128,29 @@
 
       <!-- Name input -->
       <div class="form-outline mb-4">
-        <input type="text" id="registerName" class="form-control" />
+        <input type="text" id="registerName" class="form-control" 
+        	placeholder="Họ và Tên"/>
         <label class="form-label" for="registerName">Name</label>
       </div>
 
       <!-- Username input -->
       <div class="form-outline mb-4">
-        <input type="text" id="registerUsername" class="form-control" />
+        <input type="text" id="registerUsername" class="form-control"
+        	placeholder="Tên đăng nhập"/>
         <label class="form-label" for="registerUsername">Username</label>
       </div>
 
       <!-- Email input -->
       <div class="form-outline mb-4">
-        <input type="email" id="registerEmail" class="form-control" />
+        <input type="email" id="registerEmail" class="form-control" 
+        	placeholder="Email"/>
         <label class="form-label" for="registerEmail">Email</label>
       </div>
 
       <!-- Password input -->
       <div class="form-outline mb-4">
-        <input type="password" id="registerPassword" class="form-control" />
+        <input type="password" id="registerPassword" class="form-control" 
+        	placeholder="Password"/>
         <label class="form-label" for="registerPassword">Password</label>
       </div>
 
