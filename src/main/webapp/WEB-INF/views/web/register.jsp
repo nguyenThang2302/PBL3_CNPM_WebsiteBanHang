@@ -69,7 +69,6 @@
       
       <!-- Name input -->
       <div class="form-outline mb-4">
-        <!-- <input type="text" id="registerName" class="form-control" /> -->
 		<form:input type="text" class="form-control" path="name" />
         <form:label class="form-label" for="registerName" path="name">Name</form:label>
           
@@ -77,7 +76,6 @@
 
       <!-- Email input -->
       <div class="form-outline mb-4">
-<!--         <input type="email" id="registerEmail" class="form-control" /> -->
         <form:input type="email" class="form-control" path="email" />  
         <form:label class="form-label" for="registerEmail" path="email" >Email</form:label>
         
@@ -86,7 +84,6 @@
 
       <!-- Password input -->
       <div class="form-outline mb-4">
-        <!-- <input type="password" id="registerPassword" class="form-control" /> -->
         <form:input type="password" class="form-control" path="password" />  
         <form:label class="form-label" for="registerPassword" path="password">Password</form:label>
         

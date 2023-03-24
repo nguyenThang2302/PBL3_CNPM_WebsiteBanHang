@@ -1,5 +1,7 @@
-xin <%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ include file="/common/taglib.jsp" %>
+	
 <!DOCTYPE html>
 
 <html>
@@ -42,7 +44,7 @@ xin <%@ page language="java" contentType="text/html; charset=UTF-8"
 <!-- Pills content -->
 <div class="tab-content">
   <div class="tab-pane fade show active" id="pills-login" role="tabpanel" aria-labelledby="tab-login">
-    <form>
+    <form:form action="hoan-thanh" method="post" modelAttribute="user"> 
       <div class="text-center mb-3">
         <p>Đăng Nhập Với:</p>
         <button type="button" class="btn btn-link btn-floating mx-1">
@@ -66,16 +68,14 @@ xin <%@ page language="java" contentType="text/html; charset=UTF-8"
 
       <!-- Email input -->
       <div class="form-outline mb-4">
-        <input type="email" id="loginName" class="form-control" 
-        placeholder="Email or Username"/>
-        <label class="form-label" for="loginName">Email or username</label>
+        <form:input type="email" class="form-control" path="email" />  
+        <form:label class="form-label" for="loginName" path="email" >Email or username</form:label>
       </div>
 
       <!-- Password input -->
       <div class="form-outline mb-4">
-        <input type="password" id="loginPassword" class="form-control" 
-        placeholder="Password"/>
-        <label class="form-label" for="loginPassword">Password</label>
+        <form:input type="password" class="form-control" path="password" />  
+        <form:label class="form-label" for="loginPassword" path="password">Password</form:label>
       </div>
 
       <!-- 2 column grid layout -->
@@ -93,15 +93,19 @@ xin <%@ page language="java" contentType="text/html; charset=UTF-8"
           <a href="#!">Quên mật khẩu?</a>
         </div>
       </div>
-
+      
+      <div class="text-center">
+      	<h6 style="color: #FF0000" class="fst-italic" >${ status_Login }</h6>
+      </div>
+	
       <!-- Submit button -->
-      <button type="submit" class="btn btn-primary btn-block mb-4">Đăng Nhập</button>
+      <input type="submit" value="Đăng nhập" class="btn btn-primary btn-block mb-3"/>
 
       <!-- Register buttons -->
       <div class="text-center">
         <p>Bạn chưa có tài khoản? <a href="/spring-mvc/dang-ky">Đăng ký | </a> <a href="/spring-mvc/trang-chu">Trang chủ</a></p>
-      </div>
-    </form>
+      </div>	
+    </form:form>
   </div>
   <div class="tab-pane fade" id="pills-register" role="tabpanel" aria-labelledby="tab-register">
     <form>

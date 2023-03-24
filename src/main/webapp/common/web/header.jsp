@@ -29,9 +29,9 @@
                     <li><a href="#">Tiếng Việt</a></li>
                 </ul>
             </div>
-            <div class="header__top__right__auth">
-                <a href="/spring-mvc/dang-nhap"><i class="fa fa-user"></i> Đăng nhập</a>
-                <a href="/spring-mvc/dang-ky"><i class="fa fa-user"></i> Đăng ký</a>
+            <div class="header__top__right__social">
+                <a href="/spring-mvc/dang-nhap"><i class="fa fa-user"></i>    Đăng nhập</a>
+            	<a href="/spring-mvc/dang-ky"><i class="fa fa-user"></i>    Đăng ký</a>
             </div>
         </div>
         <nav class="humberger__menu__nav mobile-menu">
@@ -89,9 +89,9 @@
                     				<li><a href="#">Tiếng Việt</a></li>
                                 </ul>
                             </div>
-                            <div class="header__top__right__auth">
-                                <a href="/spring-mvc/dang-nhap"><i class="fa fa-user"></i> Đăng nhập</a>
-                				<a href="/spring-mvc/dang-ky"><i class="fa fa-user"></i> Đăng ký</a>
+                             <div class="header__top__right__social">
+                                <a href="/spring-mvc/dang-nhap"><i class="fa fa-user"></i>    Đăng nhập</a>       	
+                                <a href="/spring-mvc/dang-ky"><i class="fa fa-user"></i>    Đăng ký</a>
                             </div>
                         </div>
                     </div>
