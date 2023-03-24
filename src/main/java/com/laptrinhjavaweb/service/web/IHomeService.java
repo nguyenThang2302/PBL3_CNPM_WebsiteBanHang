@@ -23,4 +23,6 @@ public interface IHomeService {
 	Products findById(int id);
 	@Autowired
 	int updateDescriptionProduct(Products p);
+	@Autowired
+	public List<Products> getProductById(int id);
 }

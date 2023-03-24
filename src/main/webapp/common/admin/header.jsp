@@ -243,56 +243,11 @@
         
         <c:forEach var = "item" items = "${departments}">
         	<li>
-            <a href="#">
+            <a href="${item.name}">
               <i class="bi bi-circle"></i><span>${item.name}</span>
             </a>
           </li>
         </c:forEach>
-          <!-- <li>
-            <a href="components-alerts.html">
-              <i class="bi bi-circle"></i><span>Nồi chiên không dầu</span>
-            </a>
-          </li>
-          <li>
-            <a href="components-accordion.html">
-              <i class="bi bi-circle"></i><span>Máy làm tỏi đen</span>
-            </a>
-          </li>
-          <li>
-            <a href="components-badges.html">
-              <i class="bi bi-circle"></i><span>Lò nướng</span>
-            </a>
-          </li>
-          <li>
-            <a href="components-breadcrumbs.html">
-              <i class="bi bi-circle"></i><span>Bếp các loại</span>
-            </a>
-          </li>
-          <li>
-            <a href="components-buttons.html">
-              <i class="bi bi-circle"></i><span>Máy xay và máy ép</span>
-            </a>
-          </li>
-          <li>
-            <a href="components-cards.html">
-              <i class="bi bi-circle"></i><span>Quạt lạnh</span>
-            </a>
-          </li>
-          <li>
-            <a href="components-carousel.html">
-              <i class="bi bi-circle"></i><span>Máy chế biến thực phẩm</span>
-            </a>
-          </li>
-          <li>
-            <a href="components-list-group.html">
-              <i class="bi bi-circle"></i><span>Nồi cơm điện tử</span>
-            </a>
-          </li>
-          <li>
-            <a href="components-modal.html">
-              <i class="bi bi-circle"></i><span>Gia dụng khác</span>
-            </a>
-          </li> -->
           <li>
             <a href="product-management">
               <i class="bi bi-circle"></i><span>Tất cả sản phẩm</span>

@@ -50,6 +50,6 @@
     </decorator>
     
     <decorator name="sanpham" page="descriptionproduct.jsp">
-       <pattern>/sanpham</pattern>
+       <pattern>/sanpham/*</pattern>
     </decorator>
 </decorators>

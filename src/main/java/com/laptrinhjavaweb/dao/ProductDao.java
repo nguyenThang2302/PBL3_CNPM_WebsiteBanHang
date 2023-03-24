@@ -51,4 +51,11 @@ public class ProductDao {
 		String sql = "update products set brand = ?, description = ?, information = ?, salient = ?, color = ?, status = ? where id = ?";
 		return _jdbcTemplate.update(sql, p.getBrand(), p.getDescription(), p.getInformation(), p.getSalient(), p.getColor(), p.getStatus(), p.getId());
 	}
+	
+	public List<Products> getProductById(int id) {
+		List<Products> list = new ArrayList<Products>();
+		String sql = "select * from products where id = "+id+"" ;
+		list = _jdbcTemplate.query(sql, new MapperProducts());
+		return list;
+	}
 }

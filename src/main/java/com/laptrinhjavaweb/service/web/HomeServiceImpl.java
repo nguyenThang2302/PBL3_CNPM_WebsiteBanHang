@@ -50,4 +50,9 @@ public class HomeServiceImpl implements IHomeService {
 	public int updateDescriptionProduct(Products p) {
 		return productDao.updateDescriptionProduct(p);
 	}
+	
+	@Override
+	public List<Products> getProductById(int id) {
+		return productDao.getProductById(id);
+	}
 }
