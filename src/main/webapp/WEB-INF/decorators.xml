@@ -52,4 +52,8 @@
     <decorator name="sanpham" page="descriptionproduct.jsp">
        <pattern>/sanpham</pattern>
     </decorator>
+    
+    <decorator name="discount-management" page="discountcodes.jsp">
+       <pattern>/discount-management</pattern>
+    </decorator>
 </decorators>

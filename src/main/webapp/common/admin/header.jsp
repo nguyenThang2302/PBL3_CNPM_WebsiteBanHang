@@ -330,7 +330,7 @@
         </a>
         <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="tables-general.html">
+            <a href="discount-management">
               <i class="bi bi-circle"></i><span>Mã giảm giá</span>
             </a>
           </li>
