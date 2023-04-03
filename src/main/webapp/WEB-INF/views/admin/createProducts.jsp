@@ -18,30 +18,33 @@
 </style>
 
 <body>
-
 		<div class="modal-dialog">
 			<div class="modal-content">
-				<form method = "post" action = "create">
+				<form method = "post" action = "${departments.slug_name}/add">>
 					<div class="modal-header">						
-						<h4 class="modal-title">Thêm sản phẩm</h4>
+						<h4 class="modal-title">Thêm sản phẩm: ${departments.name}</h4>
 						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 					</div>
- 					<div class="modal-body">					
+ 					<div class="modal-body">
+ 						<div class="form-group">
+							<label>Mã sản phẩm</label>
+							<input name="code" type="text" class="form-control" required = "required"/>
+						</div>					
 						<div class="form-group">
-							<label>Name</label>
+							<label>Tên sản phẩm</label>
 							<input name="name" type="text" class="form-control" required = "required"/>
 						</div>
 						<div class="form-group">
-							<label>Image</label>
+							<label>Hình ảnh sản phẩm</label>
 							<input name="image" type="text" class="form-control" required = "required"/>
 						</div>
 						<div class="form-group">
-							<label>Price</label>
+							<label>Giá</label>
 							<input name="price" type="number" class="form-control" required="required"/>
 						</div>			
 					</div>  
 					<div class="modal-footer">
-						<a href="product-management" type="button" class="btn btn-default" data-dismiss="modal">Cancel</a>
+						<a href="/spring-mvc/san-pham/${departments.slug_name}" type="button" class="btn btn-default" data-dismiss="modal">Cancel</a>
 						<input type="submit" class="btn btn-success" value="Add">
 					</div> 
 				</form>

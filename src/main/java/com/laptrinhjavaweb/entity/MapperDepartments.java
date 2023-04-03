@@ -11,6 +11,7 @@ public class MapperDepartments implements org.springframework.jdbc.core.RowMappe
 		
 		sliders.setId(res.getInt("id"));
 		sliders.setName(res.getString("name"));
+		sliders.setSlug_name(res.getString("slug_name"));
 		return sliders;
 	}
 }

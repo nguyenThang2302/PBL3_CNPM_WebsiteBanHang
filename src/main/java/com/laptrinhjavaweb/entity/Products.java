@@ -2,16 +2,11 @@ package com.laptrinhjavaweb.entity;
 
 public class Products {
 	private int id;
+	private String code;
 	private int department_id;
 	private String image;
 	private String name;
 	private int price;
-	private String brand;
-	private String description;
-	private String information;
-	private String salient;
-	private String color;
-	private String status;
 
 	public Products() {
 		super();
@@ -57,53 +52,12 @@ public class Products {
 		this.price = price;
 	}
 
-	public String getDescription() {
-		return description;
+	public String getCode() {
+		return code;
 	}
 
-	public void setDescription(String description) {
-		this.description = description;
-	}
-
-	public String getInformation() {
-		return information;
-	}
-
-	public void setInformation(String information) {
-		this.information = information;
-	}
-
-	public String getSalient() {
-		return salient;
-	}
-
-	public void setSalient(String salient) {
-		this.salient = salient;
-	}
-
-	public String getColor() {
-		return color;
-	}
-
-	public void setColor(String color) {
-		this.color = color;
-	}
-
-	public String getStatus() {
-		return status;
-	}
-
-	public void setStatus(String status) {
-		this.status = status;
-	}
-
-	public String getBrand() {
-		return brand;
-	}
-
-	public void setBrand(String brand) {
-		this.brand = brand;
+	public void setCode(String code) {
+		this.code = code;
 	}
 	
-
 }

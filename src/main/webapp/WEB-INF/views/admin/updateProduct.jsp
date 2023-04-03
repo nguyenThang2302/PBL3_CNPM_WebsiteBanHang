@@ -24,7 +24,7 @@
    <tr>
 	<td colspan="2">
 		<h3>Chỉnh sửa thông tin sản phẩm: ${products.name}</h3>
-		<input type="hidden" name="id" value="${products.id}">
+		<input type="hidden" name="code" value="${products.code}">
 	</td>
    </tr>
     <div class="form-group">

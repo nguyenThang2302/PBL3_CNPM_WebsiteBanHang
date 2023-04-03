@@ -37,8 +37,8 @@
        <pattern>/about-us</pattern>
     </decorator>
     
-    <decorator name="product-management" page="productmanagement.jsp">
-       <pattern>/product-management</pattern>
+    <decorator name="san-pham" page="productmanagement.jsp">
+       <pattern>/san-pham/*</pattern>
     </decorator>
     
     <decorator name="quan-tri" page="admin.jsp">
@@ -46,10 +46,18 @@
     </decorator>
     
     <decorator name="tao-moi" page="createProducts.jsp">
-       <pattern>/tao-moi</pattern>
+       <pattern>/san-pham/tao-moi/*</pattern>
+    </decorator>
+    
+    <decorator name="tao-moi" page="updateProduct.jsp">
+       <pattern>/san-pham/*/update</pattern>
     </decorator>
     
     <decorator name="sanpham" page="descriptionproduct.jsp">
        <pattern>/sanpham/*</pattern>
+    </decorator>
+    
+    <decorator name="mo-ta-san-pham" page="updateDescriptionProduct.jsp">
+       <pattern>/*/mo-ta</pattern>
     </decorator>
 </decorators>

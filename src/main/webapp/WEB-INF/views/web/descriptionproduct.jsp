@@ -50,25 +50,23 @@
                 <div class="col-lg-6 col-md-6">
                     <div class="product__details__pic">
                         <div class="product__details__pic__item">
-                            <%-- <img class="product__details__pic__item--large"
-                                src="${products.image}" height="500" width="300" alt=""> --%>
-                                <iframe width="560" height="315" src="https://www.youtube.com/embed/WU_Go840TZk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                                <iframe width="560" height="315" src="https://www.youtube.com/embed/${desProduct.video_url}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                         </div>
                         <div class="product__details__pic__slider owl-carousel">
                             <img data-imgbigurl="img/product/details/product-details-2.jpg"
-                                src="https://cdn.tgdd.vn/Products/Images/2063/151837/kangaroo-kg-669g-1-1-org.jpg" alt="">
+                                src="${desProduct.des_image1}" alt="">
                             <img data-imgbigurl="img/product/details/product-details-3.jpg"
-                                src="https://cdn.tgdd.vn/Products/Images/2063/151837/kangaroo-kg-669g-2-org.jpg" alt="">
+                                src="${desProduct.des_image2}" alt="">
                             <img data-imgbigurl="img/product/details/product-details-5.jpg"
-                                src="https://cdn.tgdd.vn/Products/Images/2063/151837/kangaroo-kg-669g-4-org.jpg" alt="">
+                                src="${desProduct.des_image3}" alt="">
                             <img data-imgbigurl="img/product/details/product-details-4.jpg"
-                                src="https://cdn.tgdd.vn/Products/Images/2063/151837/kangaroo-kg-669g-6-org.jpg" alt="">
+                                src="${desProduct.des_image4}" alt="">
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6">
                     <div class="product__details__text">
-                        <h3>${desProducts.name}</h3>
+                        <h3>${products.name}</h3>
                         <div class="product__details__rating">
                             <i class="fa fa-star"></i>
                             <i class="fa fa-star"></i>
@@ -76,7 +74,7 @@
                             <i class="fa fa-star"></i>
                             <i class="fa fa-star-half-o"></i>
                         </div>
-                        <div class="product__details__price">${desProducts.price}</div>
+                        <div class="product__details__price">${products.price}</div>
                         <div class="product__details__quantity">
                             <div class="quantity">
                                 <div class="pro-qty">
@@ -87,9 +85,9 @@
                         <a href="#" class="primary-btn">Thêm vào giỏ hàng</a>
                         <a href="#" class="heart-icon"><span class="icon_heart_alt"></span></a>
                         <ul>
-                            <li><b>Thương hiệu</b> <span>${desProducts.brand}</span></li>
-                            <li><b>Màu sắc</b> <span>${desProducts.color}</span></li>
-                            <li><b>Trạng thái</b> <span>${desProducts.status}</span></li>
+                            <li><b>Thương hiệu</b> <span>${desProduct.brand}</span></li>
+                            <li><b>Màu sắc</b> <span>${desProduct.color}</span></li>
+                            <li><b>Trạng thái</b> <span>${desProduct.status}</span></li>
                         </ul>
                     </div>
                 </div>
@@ -112,17 +110,17 @@
                         <div class="tab-content">
                             <div class="tab-pane active" id="tabs-1" role="tabpanel">
                                 <div class="product__details__tab__desc">
-                                    <p>${desProducts.description}</p>
+                                    <p>${desProduct.description}</p>
                                 </div>
                             </div>
                             <div class="tab-pane" id="tabs-2" role="tabpanel">
                                 <div class="product__details__tab__desc">
-                                    <p>${desProducts.information}</p>
+                                    <p>${desProduct.information}</p>
                                 </div>
                             </div>
                             <div class="tab-pane" id="tabs-3" role="tabpanel">
                                 <div class="product__details__tab__desc">
-                                    <p>${desProducts.salient}</p>
+                                    <p>${desProduct.salient}</p>
                                 </div>
                             </div>
                         </div>

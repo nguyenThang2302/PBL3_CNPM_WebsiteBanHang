@@ -30,19 +30,4 @@ public class PageAdminController {
 		model.addAttribute("departments", departments);
 		return "admin/admin";
 	}
-	
-	@RequestMapping(value = "/{name}")
-	public String slug(@PathVariable("name") String name, RedirectAttributes redirectAttributes) {
-	    Slugify slg = new Slugify();
-	    String slugName = slg.slugify(name);
-	    redirectAttributes.addAttribute("slugName", slugName);
-	    return "redirect:/{slugName}";
-	}
-
-	@RequestMapping(value = "/{slugName}")
-	public String productManagement(@PathVariable("slugName") String slugName, Model model, @ModelAttribute("departments") Departments departments) {
-	    departments.setName(slugName);
-	    model.addAttribute("departments", departments);
-	    return "admin/productmanagement";
-	}
 }
