@@ -150,7 +150,7 @@
                         </div>
                         <ul>
                         <c:forEach var = "item" items = "${departments}">
-                            <li><a href="danh-muc-san-pham/${item.slug_name}">${item.name}</a></li>
+                            <li><a href="/spring-mvc/danh-muc-san-pham/${item.slug_name}">${item.name}</a></li>
                         </c:forEach>
                         </ul>
                     </div>
