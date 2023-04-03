@@ -36,6 +36,7 @@
     />
     <!-- MDB -->
     <link rel="stylesheet" href="<c:url value='/template/web/css/mdb.min.css'/>" type="text/css">
+    <dec:head></dec:head>
 </head>
 
 <body>

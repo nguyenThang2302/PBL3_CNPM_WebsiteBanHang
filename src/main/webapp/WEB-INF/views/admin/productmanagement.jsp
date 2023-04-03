@@ -269,8 +269,9 @@ $(document).ready(function(){
 				<div class="table-title">
 					<div class="row">
 						<div class="col-xs-6">
-							<h2>Tất Cả <b>Sản Phẩm</b></h2>
-							<a href = "tao-moi" class="btn btn-success"><i class="material-icons">&#xE147;</i><h5 style="font-size: 15px">Tạo sản phẩm</h5></a>
+							<img src="https://i.imgur.com/UjviLay.png"><a href ="/spring-mvc/quan-tri"> Trở Về</a></img>
+							<h2>${departments.name}</h2>
+							<a href = "tao-moi/${departments.slug_name}" class="btn btn-success"><i class="material-icons">&#xE147;</i><h5 style="font-size: 15px">Tạo sản phẩm</h5></a>
 							<a href = "#" class="btn btn-danger"><i class="material-icons">&#xE147;</i><h5 style="font-size: 15px"> Xóa sản phẩm</h5></a>
 						</div>
 					</div>
@@ -284,11 +285,11 @@ $(document).ready(function(){
 									<label for="selectAll"></label>
 								</span>
 							</th>
-							<th>Id</th>
-							<th>Name</th>
-							<th>Image</th>
-							<th>Price</th>
-							<th>Actions</th>
+							<th>Mã sản phẩm</th>
+							<th>Tên sản phẩm</th>
+							<th>Hình ảnh sản phẩm</th>
+							<th>Giá sản phẩm</th>
+							<th>Hành động</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -300,14 +301,14 @@ $(document).ready(function(){
 									<label for="checkbox1"></label>
 								</span>
 							</td>
-							<td>${item.id}</td>
+							<td>${item.code}</td>
 							<td>${item.name}</td>
 							<td>${item.image}</td>
 							<td>${item.price}</td>
 							<td>
-								<a href="${item.id}/update" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-								<a href="delete/${item.id}" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
-								<a href="${item.id}/mo-ta" data-toggle="modal"><img src="https://i.imgur.com/vckzWz9.png" style="margin-left:11px;"></img></a>
+								<a href="${departments.slug_name}/${item.code}/update" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+								<a href="delete/${departments.slug_name}/${item.code}" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+								<a href="${departments.slug_name}/${item.code}/mo-ta" data-toggle="modal"><img src="https://i.imgur.com/vckzWz9.png" style="margin-left:11px;"></img></a>
 							</td>
 						</tr>
 						</c:forEach>

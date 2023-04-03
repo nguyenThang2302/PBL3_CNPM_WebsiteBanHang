@@ -1524,9 +1524,10 @@ ol {
 }
 
 .product__item__pic {
-	height: 270px;
+	height: 150px;
 	position: relative;
 	overflow: hidden;
+	width: 150px;
 }
 
 .product__item__pic__hover {

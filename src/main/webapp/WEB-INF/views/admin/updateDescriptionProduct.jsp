@@ -24,7 +24,7 @@
    <tr>
 	<td colspan="2">
 		<h3>Mô tả sản phẩm: ${products.name}</h3>
-		<input type="hidden" name="id" value="${products.id}">
+		<input type="hidden" name="product_code" value="${desProduct.product_code}">
 	</td>
    </tr>
     <div class="form-group">
@@ -33,26 +33,71 @@
         type="text"
         class="form-control"
         name="brand"
-        value="${products.brand}"
+        value="${desProduct.brand}"
      />
     </div>
 	<div class="form-group">
       <label for="description">Mô tả</label>
       <div>
-      <textarea rows="5" cols="117" name = "description">${products.description}</textarea>
+      <textarea rows="5" cols="117" name = "description">${desProduct.description}</textarea>
       </div>
     </div>
     <div class="form-group">
       <label for="information">Thông tin</label>
       <div>
-      <textarea rows="5" cols="117" name = "information">${products.information}</textarea>
+      <textarea rows="5" cols="117" name = "information">${desProduct.information}</textarea>
       </div>
     </div>
     <div class="form-group">
       <label for="salient">Thông số kĩ thuật</label>
       <div>
-      <textarea rows="5" cols="117" name = "salient">${products.salient}</textarea>
+      <textarea rows="5" cols="117" name = "salient">${desProduct.salient}</textarea>
       </div>
+    </div>
+    <div class="form-group">
+      <label for="brand">Video Review</label>
+      <input
+        type="text"
+        class="form-control"
+        name="video_url"
+        value="${desProduct.video_url}"
+     />
+    </div>
+    <div class="form-group">
+      <label for="brand">Mô tả hỉnh ảnh 1</label>
+      <input
+        type="text"
+        class="form-control"
+        name="des_image1"
+        value="${desProduct.des_image1}"
+     />
+    </div>
+    <div class="form-group">
+      <label for="brand">Mô tả hỉnh ảnh 2</label>
+      <input
+        type="text"
+        class="form-control"
+        name="des_image2"
+        value="${desProduct.des_image2}"
+     />
+    </div>
+    <div class="form-group">
+      <label for="brand">Mô tả hỉnh ảnh 3</label>
+      <input
+        type="text"
+        class="form-control"
+        name="des_image3"
+        value="${desProduct.des_image3}"
+     />
+    </div>
+    <div class="form-group">
+      <label for="brand">Mô tả hỉnh ảnh 4</label>
+      <input
+        type="text"
+        class="form-control"
+        name="des_image4"
+        value="${desProduct.des_image4}"
+     />
     </div>
     <div class="form-group">
       <label for="color">Màu sắc</label>
@@ -60,7 +105,7 @@
         type="text"
         class="form-control"
         name="color"
-        value="${products.color}"
+        value="${desProduct.color}"
       /> 
       </div>
       <div class="form-group">
@@ -69,7 +114,7 @@
         type="text"
         class="form-control"
         name="status"
-        value="${products.status}"
+        value="${desProduct.status}"
       /> 
       </div>
     <button type="submit" class="btn btn-primary">Lưu Lại</button>

@@ -37,10 +37,7 @@
 </head>
 <body id="page-top">
 
-	<!-- Header -->
-    <%@ include file="/common/admin/header.jsp" %>
-
-	<dec:body/>
+  <dec:body/>
 	
   <script src="<c:url value='/template/admin/assets/vendor/apexcharts/apexcharts.min.js'/>"></script>
   <script src="<c:url value='/template/admin/assets/vendor/bootstrap/js/bootstrap.bundle.min.js'/>"></script>
