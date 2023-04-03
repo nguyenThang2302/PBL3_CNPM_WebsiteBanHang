@@ -60,4 +60,8 @@
     <decorator name="mo-ta-san-pham" page="updateDescriptionProduct.jsp">
        <pattern>/*/mo-ta</pattern>
     </decorator>
+    
+    <decorator name="danh-muc-san-pham" page="shopping.jsp">
+       <pattern>/danh-muc-san-pham/*</pattern>
+    </decorator>
 </decorators>

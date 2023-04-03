@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
     <!-- Page Preloder -->
     <div id="preloder">
         <div class="loader"></div>
@@ -148,15 +149,9 @@
                             <span>Danh mục sản phẩm</span>
                         </div>
                         <ul>
-                            <li><a href="#">Nồi Chiên Không Dầu</a></li>
-                            <li><a href="#">Máy Làm Tỏi Đen</a></li>
-                            <li><a href="#">Lò Nướng</a></li>
-                            <li><a href="#">Bếp Các Loại</a></li>
-                            <li><a href="#">Máy Xay Và Máy Ép</a></li>
-                            <li><a href="#">Quạt Lạnh</a></li>
-                            <li><a href="#">Máy Chế Biến Thực Phẩm</a></li>
-                            <li><a href="#">Nồi Cơm Điện Tử</a></li>
-                            <li><a href="#">Gia Dụng Khác</a></li>
+                        <c:forEach var = "item" items = "${departments}">
+                            <li><a href="danh-muc-san-pham/${item.slug_name}">${item.name}</a></li>
+                        </c:forEach>
                         </ul>
                     </div>
                 </div>

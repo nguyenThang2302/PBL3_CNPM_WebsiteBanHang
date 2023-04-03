@@ -76,10 +76,10 @@ public class ProductDao {
 		return list;
 	}
 	
-	public Products findByDepartmentId(int id) {
+	public List<Products>  findByDepartmentId(int id) {
 		List<Products> list = new ArrayList<Products>();
-		String sql="select * from products where department_id = ?";    
-			 return _jdbcTemplate.queryForObject(sql, new Object[]{id},new
-			 BeanPropertyRowMapper<Products>(Products.class));
+		String sql = "select * from products where department_id = ?";
+		list = _jdbcTemplate.query(sql, new MapperProducts(), id);
+		return list;
 	}
 }
