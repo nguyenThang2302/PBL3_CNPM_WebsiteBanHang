@@ -60,7 +60,7 @@ public class HomeServiceImpl implements IHomeService {
 		return productDao.findByCode(code);
 	}
 	@Override
-	public Products findByDepartmentId(int id) {
+	public List<Products>  findByDepartmentId(int id) {
 		return productDao.findByDepartmentId(id);
 	}
 }

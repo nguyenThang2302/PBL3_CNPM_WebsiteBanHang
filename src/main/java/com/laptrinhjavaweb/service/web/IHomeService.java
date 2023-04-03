@@ -29,5 +29,5 @@ public interface IHomeService {
 	@Autowired
 	public Products findByCode(String code);
 	@Autowired
-	public Products findByDepartmentId(int id);
+	public List<Products> findByDepartmentId(int id);
 }
