@@ -19,6 +19,7 @@ import com.laptrinhjavaweb.service.admin.AdminServiceImpl;
 import com.laptrinhjavaweb.service.web.HomeServiceImpl;
 
 @Controller
+<<<<<<< HEAD
 public class HomeController {
 	@Autowired
 	HomeServiceImpl homeService;
@@ -32,6 +33,17 @@ public class HomeController {
 		mav.addObject("departments", adminService.findAll());
 		mav.addObject("trademarks",homeService.GetDataTradeMark());
 		return mav;
+=======
+public class HomeController extends BaseController {
+
+	@RequestMapping(value = "/trang-chu", method = RequestMethod.GET)
+	public ModelAndView homePage() {
+
+		/* ModelAndView mav = new ModelAndView("web/home"); */
+		_mvShare.addObject("trademarks",_homeService.GetDataTradeMark());
+		_mvShare.setViewName("web/home");
+		return _mvShare;
+>>>>>>> 5dbc6b9 (PBL3-2: Login And Register)
 	}
 	
 	@RequestMapping(value = "/{code}", method = RequestMethod.GET)
