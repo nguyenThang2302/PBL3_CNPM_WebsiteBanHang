@@ -38,7 +38,7 @@
                 <c:forEach var="item" items="${trademarks}">
                 	<div class="col-lg-3">
                         <div class="categories__item set-bg" data-setbg="${item.image}">	
-                            <h5><a href="#">${item.name}</a></h5>
+                            <h5><a href="${item.url}">${item.name}</a></h5>
                         </div>
                     </div>     
                 </c:forEach> 

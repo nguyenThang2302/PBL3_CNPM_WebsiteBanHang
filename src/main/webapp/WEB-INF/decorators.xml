@@ -64,4 +64,8 @@
     <decorator name="danh-muc-san-pham" page="shopping.jsp">
        <pattern>/danh-muc-san-pham/*</pattern>
     </decorator>
+    
+    <decorator name="thuong-hieu" page="trademarks.jsp">
+       <pattern>/thuong-hieu</pattern>
+    </decorator>
 </decorators>
