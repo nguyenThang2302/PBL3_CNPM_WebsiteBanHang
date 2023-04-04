@@ -15,7 +15,7 @@ public class BaseController {
 	
 	@PostConstruct
 	public ModelAndView Init () {
-		_mvShare.addObject("products", _homeService.GetDataSilde());
+		_mvShare.addObject("products", _homeService.findAllProducts());
 		return _mvShare;
 	}
 }
