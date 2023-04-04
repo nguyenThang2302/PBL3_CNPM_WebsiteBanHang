@@ -31,8 +31,7 @@
 <!-- Pills navs -->
 <ul class="nav nav-pills nav-justified mb-3" id="ex1" role="tablist">
   <li class="nav-item" role="presentation">
-    <a class="nav-link" id="tab-login" data-mdb-toggle="pill" href="#pills-login" role="tab"
-      aria-controls="pills-login" aria-selected="true">Đăng Nhập</a>
+    <a class="nav-link" href="/spring-mvc/dang-nhap" aria-selected="true">Đăng Nhập</a>
   </li>
     <li class="nav-item" role="presentation">
     <a class="nav-link active" id="tab-register" data-mdb-toggle="pill" href="#pills-register" role="tab"
@@ -47,25 +46,8 @@
    <!--  <form>   -->    
     <form:form action="hoan-tat" method="post" modelAttribute="user">  
       <div class="text-center mb-3">
-        <p>Đăng ký với:</p>
-        <button type="button" class="btn btn-link btn-floating mx-1">
-          <i class="fab fa-facebook-f"></i>
-        </button>
-
-        <button type="button" class="btn btn-link btn-floating mx-1">
-          <i class="fab fa-google"></i>
-        </button>
-
-        <button type="button" class="btn btn-link btn-floating mx-1">
-          <i class="fab fa-twitter"></i>
-        </button>
-
-        <button type="button" class="btn btn-link btn-floating mx-1">
-          <i class="fab fa-github"></i>
-        </button>
+            <a href="/spring-mvc/trang-chu"><img src="<c:url value='/template/web/img/logo.png'/>"alt=""></a>
       </div>
-
-      <p class="text-center">hoặc:</p>
       
       <!-- Name input -->
       <div class="form-outline mb-4">
@@ -103,7 +85,11 @@
           Tôi đã đọc và đồng ý với các điều khoản
         </label>
       </div>
-
+      
+ 	  <div class="text-center">
+      	<h6 style="color: #FF0000" class="fst-italic" >${ status }</h6>
+      </div>    
+      
       <!-- Submit button -->
       	<input type="submit" value="Submit" class="btn btn-primary btn-block mb-3"/>
      </form:form>

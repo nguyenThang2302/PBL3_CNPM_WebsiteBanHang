@@ -13,14 +13,18 @@ public class AccountServiceImpl implements IAccountService {
 	UsersDao usersDao = new UsersDao();
 	
 	public int AddAccount(Users user) {
-		user.setPassword(BCrypt.hashpw(user.getPassword(), BCrypt.gensalt(12)));
-		return usersDao.AddAccount(user);
+	    if (usersDao.isUserExists(user.getEmail())) {
+	        return -1;
+	    } else {
+	        user.setPassword(BCrypt.hashpw(user.getPassword(), BCrypt.gensalt(12)));
+	        return usersDao.AddAccount(user);
+	    }
 	}
 
 	@Override
 	public Users CheckAccount(Users user) {
 		String pass = user.getPassword();
-		user = usersDao.GetUserByAcc(user);
+		user = usersDao.getUserByAcc(user);
 		if(user != null) {
 			if(BCrypt.checkpw(pass, user.getPassword())) {
 				return user;

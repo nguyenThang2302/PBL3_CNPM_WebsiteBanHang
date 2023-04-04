@@ -1,6 +1,19 @@
+<<<<<<< HEAD
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+=======
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ include file="/common/taglib.jsp" %>
+
+	<style>
+		.header__top {
+			background: #f5f5f5;
+			height: 48px;
+		}
+	</style>
+	
+>>>>>>> dfcd4b4 (PBL3-2: Login And Register)
     <!-- Page Preloder -->
     <div id="preloder">
         <div class="loader"></div>
@@ -30,8 +43,8 @@
                 </ul>
             </div>
             <div class="header__top__right__social">
-                <a href="/spring-mvc/dang-nhap"><i class="fa fa-user"></i>    Đăng nhập</a>
-            	<a href="/spring-mvc/dang-ky"><i class="fa fa-user"></i>    Đăng ký</a>
+                <a href="/spring-mvc/dang-nhap"><i class="fa fa-user"></i>Đăng nhập</a>
+            	<a href="/spring-mvc/dang-ky"><i class="fa fa-user"></i>Đăng ký</a>
             </div>
         </div>
         <nav class="humberger__menu__nav mobile-menu">
@@ -70,7 +83,7 @@
                     <div class="col-lg-6 col-md-6">
                         <div class="header__top__left">
                             <ul>
-                                <li><i class="fa fa-envelope"></i> pbl3_cnpm@gmail.com</li>
+                                <li><i class="fa fa-envelope"></i>pbl3_cnpm@gmail.com</li>
                 				<li>Miễn phí giao hàng</li>
                             </ul>
                         </div>
@@ -89,10 +102,22 @@
                     				<li><a href="#">Tiếng Việt</a></li>
                                 </ul>
                             </div>
+                            <c:if test = "${ empty LoginInfor }">
                              <div class="header__top__right__social">
-                                <a href="/spring-mvc/dang-nhap"><i class="fa fa-user"></i>    Đăng nhập</a>       	
-                                <a href="/spring-mvc/dang-ky"><i class="fa fa-user"></i>    Đăng ký</a>
+                                <a href="/spring-mvc/dang-nhap"><i class="fas fa-sign-in-alt"></i>&nbsp;&nbsp;Đăng nhập</a>       	
                             </div>
+                            <div class="header__top__right__auth">
+                                <a href="/spring-mvc/dang-ky"><i class="fa fa-user"></i>&nbsp;Đăng ký</a>
+                            </div>
+                            </c:if>
+                            <c:if test = "${ not empty LoginInfor }">
+							<div class="header__top__right__social">
+                                <i class="fas fa-user-circle">&nbsp;&nbsp;&nbsp;${ LoginInfor.name }</i>
+							</div>
+							<div class="header__top__right__auth">
+								<a href="/spring-mvc/dang-xuat"><i class="fas fa-sign-out-alt"></i>&nbsp;&nbsp;Đăng Xuất</a>
+							</div>
+						</c:if>
                         </div>
                     </div>
                 </div>

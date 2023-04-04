@@ -28,9 +28,16 @@ public class UsersDao extends BaseDao{
 		return insert;
 	};
 	
-	public Users GetUserByAcc(Users user) {
-		String sql = "SELECT * FROM users WHERE email = '"+user.getEmail()+"';";
-		Users result = _jdbcTemplate.queryForObject(sql, new MapperUsers());
-		return result;
+	public Users getUserByAcc(Users user) {
+	    String sql = "SELECT * FROM users WHERE email = ?";
+	    Users result = _jdbcTemplate.queryForObject(sql, new Object[]{user.getEmail()}, new MapperUsers());
+	    return result;
 	};
+	
+	public boolean isUserExists(String email) {
+	    String sql = "SELECT COUNT(*) FROM users WHERE email = ?";
+	    int count = _jdbcTemplate.queryForObject(sql, new Object[] {email}, Integer.class);
+	    return count > 0;
+	}
+
 }

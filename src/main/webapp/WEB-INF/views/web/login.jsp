@@ -35,8 +35,7 @@
       aria-controls="pills-login" aria-selected="true">Đăng Nhập</a>
   </li>
   <li class="nav-item" role="presentation">
-    <a class="nav-link" id="tab-register" data-mdb-toggle="pill" href="#pills-register" role="tab"
-      aria-controls="pills-register" aria-selected="false">Đăng Ký</a>
+    <a class="nav-link" href="/spring-mvc/dang-ky" aria-selected="true">Đăng Ký</a>
   </li>
 </ul>
 <!-- Pills navs -->
@@ -46,25 +45,8 @@
   <div class="tab-pane fade show active" id="pills-login" role="tabpanel" aria-labelledby="tab-login">
     <form:form action="hoan-thanh" method="post" modelAttribute="user"> 
       <div class="text-center mb-3">
-        <p>Đăng Nhập Với:</p>
-        <button type="button" class="btn btn-link btn-floating mx-1">
-          <i class="fab fa-facebook-f"></i>
-        </button>
-
-        <button type="button" class="btn btn-link btn-floating mx-1">
-          <i class="fab fa-google"></i>
-        </button>
-
-        <button type="button" class="btn btn-link btn-floating mx-1">
-          <i class="fab fa-twitter"></i>
-        </button>
-
-        <button type="button" class="btn btn-link btn-floating mx-1">
-          <i class="fab fa-github"></i>
-        </button>
+            <a href="/spring-mvc/trang-chu"><img src="<c:url value='/template/web/img/logo.png'/>"alt=""></a>
       </div>
-
-      <p class="text-center">hoặc:</p>
 
       <!-- Email input -->
       <div class="form-outline mb-4">
