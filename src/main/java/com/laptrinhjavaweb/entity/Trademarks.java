@@ -4,6 +4,7 @@ public class Trademarks {
 	private int id;
 	private String name;
 	private String image;
+	private String url;
 	
 	public Trademarks() {
 		super();
@@ -32,6 +33,12 @@ public class Trademarks {
 	public void setImage(String image) {
 		this.image = image;
 	}
-	
-	
+
+	public String getUrl() {
+		return url;
+	}
+
+	public void setUrl(String url) {
+		this.url = url;
+	}
 }

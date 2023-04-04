@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.laptrinhjavaweb.entity.Departments;
 import com.laptrinhjavaweb.entity.DescriptionProduct;
 import com.laptrinhjavaweb.entity.Products;
+import com.laptrinhjavaweb.entity.Trademarks;
 @Service
 public interface IAdminService {
 	@Autowired
@@ -20,4 +21,14 @@ public interface IAdminService {
 	public DescriptionProduct findProductDescription(String product_code);
 	@Autowired
 	public int updateDescritionProduct(DescriptionProduct d);
+	@Autowired
+	public List<Trademarks> findAllTradeMarks();
+	@Autowired
+	public int createOneTradeMark(Trademarks t);
+	@Autowired
+	public int deleteOndeTrademark(int id);
+	@Autowired
+	public int updateOneTrademark(Trademarks t);
+	@Autowired
+	public Trademarks findByIdTrademark(int id);
 }

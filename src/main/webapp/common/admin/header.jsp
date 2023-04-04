@@ -138,7 +138,7 @@
         </a>
         <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="tables-general.html">
+            <a href="ma-giam-gia">
               <i class="bi bi-circle"></i><span>Mã giảm giá</span>
             </a>
           </li>
@@ -151,7 +151,7 @@
         </a>
         <ul id="charts-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="charts-chartjs.html">
+            <a href="thuong-hieu">
               <i class="bi bi-circle"></i><span>Thương hiệu</span>
             </a>
           </li>
