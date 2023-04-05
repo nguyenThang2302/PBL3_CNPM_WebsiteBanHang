@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.laptrinhjavaweb.entity.Departments;
 import com.laptrinhjavaweb.entity.DescriptionProduct;
+import com.laptrinhjavaweb.entity.DiscountCode;
 import com.laptrinhjavaweb.entity.Products;
 import com.laptrinhjavaweb.entity.Trademarks;
 @Service
@@ -31,4 +32,14 @@ public interface IAdminService {
 	public int updateOneTrademark(Trademarks t);
 	@Autowired
 	public Trademarks findByIdTrademark(int id);
+	@Autowired
+	public List<DiscountCode> findAllDiscountCode();
+	@Autowired
+	public int createOneDiscountCode(DiscountCode d);
+	@Autowired
+	public int delteOneDiscountCode(int id);
+	@Autowired
+	public DiscountCode findByIdDiscountCode(int id);
+	@Autowired
+	public int updateOneDiscountCode(DiscountCode d);
 }

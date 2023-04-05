@@ -68,4 +68,8 @@
     <decorator name="thuong-hieu" page="trademarks.jsp">
        <pattern>/thuong-hieu</pattern>
     </decorator>
+    
+    <decorator name="ma-giam-gia" page="discountcode.jsp">
+       <pattern>/ma-giam-gia</pattern>
+    </decorator>
 </decorators>

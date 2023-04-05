@@ -7,10 +7,12 @@ import org.springframework.stereotype.Service;
 
 import com.laptrinhjavaweb.dao.DepartmentDao;
 import com.laptrinhjavaweb.dao.DescriptionProductDao;
+import com.laptrinhjavaweb.dao.DiscountCodeDao;
 import com.laptrinhjavaweb.dao.ProductDao;
 import com.laptrinhjavaweb.dao.TradeMarksDao;
 import com.laptrinhjavaweb.entity.Departments;
 import com.laptrinhjavaweb.entity.DescriptionProduct;
+import com.laptrinhjavaweb.entity.DiscountCode;
 import com.laptrinhjavaweb.entity.Products;
 import com.laptrinhjavaweb.entity.Trademarks;
 
@@ -24,6 +26,9 @@ public class AdminServiceImpl implements IAdminService {
 	private DescriptionProductDao desProductDao;
 	@Autowired
 	private TradeMarksDao tradeMarkDao;
+	@Autowired
+	private DiscountCodeDao discountcodeDao;
+	
 	@Override
 	public List<Departments> findAll() {
 		return departmentDao.findAll();
@@ -63,5 +68,25 @@ public class AdminServiceImpl implements IAdminService {
 	@Override
 	public Trademarks findByIdTrademark(int id) {
 		return tradeMarkDao.findByIdTrademark(id);
+	}
+	@Override
+	public List<DiscountCode> findAllDiscountCode() {
+		return discountcodeDao.findAllDiscountCode();
+	}
+	@Override
+	public int createOneDiscountCode(DiscountCode d) {
+		return discountcodeDao.createOneDiscountCode(d);
+	}
+	@Override
+	public int delteOneDiscountCode(int id) {
+		return discountcodeDao.delteOneDiscountCode(id);
+	}
+	@Override
+	public DiscountCode findByIdDiscountCode(int id) {
+		return discountcodeDao.findByIdDiscountCode(id);
+	}
+	@Override
+	public int updateOneDiscountCode(DiscountCode d) {
+		return discountcodeDao.updateOneDiscountCode(d);
 	}
 }
