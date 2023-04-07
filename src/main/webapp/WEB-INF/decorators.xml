@@ -76,4 +76,8 @@
     <decorator name="san-pham-yeu-thich" page="favouriteproduct.jsp">
        <pattern>/san-pham-yeu-thich</pattern>
     </decorator>
+    
+    <decorator name="thong-tin-nguoi-dung" page="profile.jsp">
+       <pattern>/thong-tin-nguoi-dung</pattern>
+    </decorator>
 </decorators>

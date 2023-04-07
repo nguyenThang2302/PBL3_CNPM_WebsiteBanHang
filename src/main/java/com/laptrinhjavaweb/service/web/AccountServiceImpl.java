@@ -23,16 +23,35 @@ public class AccountServiceImpl implements IAccountService {
 
 	@Override
 	public Users CheckAccount(Users user) {
-		String pass = user.getPassword();
-		user = usersDao.getUserByAcc(user);
-		if(user != null) {
-			if(BCrypt.checkpw(pass, user.getPassword())) {
-				return user;
+		if(usersDao.isUserExists(user.getEmail())) {
+			String pass = user.getPassword();
+			user = usersDao.getUserByAcc(user);
+			if(user != null) {
+				if(BCrypt.checkpw(pass, user.getPassword())) {
+					return user;
+				}
+				else {
+					return null;
+				}
 			}
 			else {
 				return null;
 			}
 		}
-		return null;
+		else {
+			return null;
+		}
+	}
+	
+	public Users updateUserProfile(Users user) {
+	    Users existingUser = usersDao.getUserByUserCode(user.getUser_code());
+	    if (existingUser != null) {
+	        existingUser.setName(user.getName());
+	        existingUser.setEmail(user.getEmail());
+	        existingUser.setPhone(user.getPhone());
+	        existingUser.setAddress(user.getAddress());
+	        usersDao.updateUser(existingUser);
+	    }
+	    return user;
 	}
 }

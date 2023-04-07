@@ -50,7 +50,7 @@ public class UserController extends BaseController {
 	}
 	
 	@RequestMapping(value = "/dang-nhap", method = RequestMethod.GET)
-	public ModelAndView DangNhap(HttpServletRequest request, HttpServletResponse response, Model model) {
+	public ModelAndView DangNhap(HttpServletRequest request, HttpServletResponse response) {
 		_mvShare.setViewName("web/login");
 		_mvShare.addObject("user", new Users());
 		return _mvShare;
@@ -65,14 +65,22 @@ public class UserController extends BaseController {
 			return "redirect:/trang-chu";
 		}
 		else {
-			redirectAttributes.addFlashAttribute("status_Login", "Đăng nhập thất bại");
+			redirectAttributes.addFlashAttribute("status_Login", "Sai tên tài khoản hoặc mật khẩu");
 		}
 		return "redirect:/dang-nhap";
 	}
 	
+	/*
+	 * @RequestMapping(value = "/dang-xuat", method = RequestMethod.GET) public
+	 * String DangXuat(HttpSession session, HttpServletRequest request,
+	 * HttpServletResponse response) { session.removeAttribute("LoginInfor"); return
+	 * "redirect:" + request.getHeader("Referer");
+	 * 
+	 * }
+	 */
 	@RequestMapping(value = "/dang-xuat", method = RequestMethod.GET)
-	public String DangXuat(HttpSession session, HttpServletRequest request, HttpServletResponse response, Model model) {
-		session.removeAttribute("LoginInfor");
-		return "redirect:" + request.getHeader("Referer");
+	public String DangXuat(HttpSession session) {
+	    session.removeAttribute("LoginInfor");
+	    return "redirect:/trang-chu";
 	}
 }
