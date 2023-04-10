@@ -34,7 +34,6 @@ public class HomeController extends BaseController {
 		return mav;
 	}
 
-	
 	@RequestMapping(value = "/{code}", method = RequestMethod.GET)
 	public String DescriptionProduct1(@PathVariable String code) {
 		Departments departments = adminService.findSlugNameByCode(code);

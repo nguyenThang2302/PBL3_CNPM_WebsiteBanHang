@@ -27,6 +27,7 @@
 	}
 	</style>
   <!-- Breadcrumb Section Begin -->
+  <h1>${Cart.size()}</h1>
     <section class="breadcrumb-section set-bg" data-setbg="img/breadcrumb.jpg">
         <div class="container">
             <div class="row">
