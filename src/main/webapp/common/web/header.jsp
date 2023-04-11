@@ -145,10 +145,15 @@
                 <div class="col-lg-3">
                     <div class="header__cart">
                         <ul>
+<<<<<<< HEAD
                             <li><a href="/spring-mvc/san-pham-yeu-thich"><i class="fa fa-heart"></i></a></li>
                             <li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
+=======
+                            <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
+                            <li><a href="/spring-mvc/gio-hang"><i class="fa fa-shopping-bag"></i> <span>${TotalQuantity}</span></a></li>
+>>>>>>> bde99bb (PBL3-8: Cart)
                         </ul>
-                        <div class="header__cart__price">item: <span>$150.00</span></div>
+                        <div class="header__cart__price"><span>${TotalPrice}</span></div>
                     </div>
                 </div>
             </div>
@@ -198,12 +203,7 @@
                             </div>
                         </div>
                     </div>
-                    <%-- <div class="hero__item set-bg" data-setbg="<c:url value='/template/web/img/posterposter.jpg'/>">
-                        <div class="hero__text">
-                            <a href="/spring-mvc/trang-chu" class="primary-btn">SHOP NOW</a>
-                        </div>
-                    </div> --%>
-				                    <!-- Carousel wrapper -->
+				    <!-- Carousel wrapper -->
 				    <div
 				      id="carouselBasicExample"
 				      class="carousel slide carousel-fade"

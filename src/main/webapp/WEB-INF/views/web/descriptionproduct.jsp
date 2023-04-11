@@ -27,7 +27,6 @@
 	}
 	</style>
   <!-- Breadcrumb Section Begin -->
-  <h1>${Cart.size()}</h1>
     <section class="breadcrumb-section set-bg" data-setbg="img/breadcrumb.jpg">
         <div class="container">
             <div class="row">
@@ -84,8 +83,13 @@
                                 </div>
                             </div>
                         </div>
+<<<<<<< HEAD
                         <a href="#" class="primary-btn">Thêm vào giỏ hàng</a>
                         <a href="/spring-mvc/san-pham-yeu-thich/${products.code}" class="heart-icon"><span class="icon_heart_alt"></span></a>
+=======
+                        <a href="/spring-mvc/them-vao-gio-hang/${departmentsSlugName.slug_name}/${desProduct.product_code}" class="primary-btn">Thêm vào giỏ hàng</a>
+                        <a href="#" class="heart-icon"><span class="icon_heart_alt"></span></a>
+>>>>>>> bde99bb (PBL3-8: Cart)
                         <ul>
                             <li><b>Thương hiệu</b> <span>${desProduct.brand}</span></li>
                             <li><b>Màu sắc</b> <span>${desProduct.color}</span></li>
@@ -144,19 +148,19 @@
                 </div>
             </div>
             <div class="row">
-            <c:forEach var="item" items ="${relateProducts}">
+            <c:forEach var="item" items ="${departments}">
             <div class="col-lg-3 col-md-4 col-sm-6">
                     <div class="product__item">
-                        <div class="product__item__pic set-bg" data-setbg="${item.image}">
+                        <div class="product__item__pic set-bg" data-setbg="">
                             
                         </div>
                         <div class="product__item__text">
-                            <h6><a href="#">${item.name}</a></h6>
-                            <h5>${item.price}</h5>
+                            <h6><a href="#"></a></h6>
+                            <h5></h5>
                         </div>
                     </div>
                 </div>  
-            </c:forEach>           
+            </c:forEach>    
             </div>
         </div>
     </section>

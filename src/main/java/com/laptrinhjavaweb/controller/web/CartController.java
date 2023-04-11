@@ -1,23 +1,30 @@
 package com.laptrinhjavaweb.controller.web;
 
+import java.net.http.HttpRequest;
 import java.util.HashMap;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.laptrinhjavaweb.Dto.CartDto;
+import com.laptrinhjavaweb.entity.Departments;
+import com.laptrinhjavaweb.service.admin.AdminServiceImpl;
 import com.laptrinhjavaweb.service.web.CartServiceImpl;
 
 @Controller(value = "cartControllerOfWeb")
 public class CartController extends BaseController {
 	@Autowired
 	private CartServiceImpl cartService = new CartServiceImpl();
+	@Autowired
+	AdminServiceImpl adminService;
 	
 	@RequestMapping(value = "/gio-hang", method = RequestMethod.GET)
 	public ModelAndView registerPage() {
@@ -26,14 +33,23 @@ public class CartController extends BaseController {
 	}
 	
 	@RequestMapping(value = "them-vao-gio-hang/{slug_name}/{code}")
-	public String AddCart(HttpSession session, @PathVariable String code, @PathVariable String slug_name) {
+	public String AddCart(HttpServletRequest request, HttpSession session, @PathVariable String code, @PathVariable String slug_name) {
 		HashMap<String, CartDto> cart = (HashMap<String, CartDto>) session.getAttribute("Cart");
 		if (cart == null) {
 			cart = new HashMap<String, CartDto>();
 		}
 		cart = cartService.AddCart(code, cart);
 		session.setAttribute("Cart", cart);
-		return "redirect:/sanpham/" +slug_name+"/"+code;
+		session.setAttribute("TotalQuantity", cartService.TotalQuantity(cart));
+		session.setAttribute("TotalPrice", cartService.TotalPrice(cart));
+		System.out.print(cartService.TotalPrice(cart));
+		return "redirect:" + request.getHeader("Referer"); 
 	}
 	
+	@RequestMapping(value = "them-vao-gio-hang/{code}", method = RequestMethod.GET)
+	public String mapLinkAddcart(@PathVariable String code, Model m) {
+		Departments departments = adminService.findSlugNameByCode(code);
+		m.addAttribute("departments", departments);
+		return "redirect:/them-vao-gio-hang/"+departments.getSlug_name()+"/"+code;
+	}
 }
