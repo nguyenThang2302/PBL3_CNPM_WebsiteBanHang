@@ -66,10 +66,13 @@
     <script src="<c:url value='/template/web/js/mdb.min.js'/>"></script>
     <!-- Custom scripts -->
     <script type="text/javascript"></script>
+<<<<<<< HEAD
     
     <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.js"></script>
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+=======
+>>>>>>> 81f8941 (PBL3-8: Cart)
     <dec:getProperty property="page.script"></dec:getProperty>
 </body>
 

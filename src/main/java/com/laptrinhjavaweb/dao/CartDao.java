@@ -30,6 +30,22 @@ public class CartDao extends BaseDao {
 		return cart;
 	}
 	
+	public HashMap<String, CartDto> AddCartWithQuantity(String code,int quantity, HashMap<String, CartDto> cart) {
+		CartDto itemCart = new CartDto();
+		Products product = productDao.findByCode(code);
+		if (product != null && cart.containsKey(code)) {
+			itemCart = cart.get(code);
+			itemCart.setQuantity(itemCart.getQuantity() + quantity);
+			itemCart.setTotalPrice(itemCart.getQuantity() * itemCart.getProduct().getPrice());
+		} else {
+			itemCart.setProduct(product);
+			itemCart.setQuantity(quantity);
+			itemCart.setTotalPrice(product.getPrice());
+		}
+		cart.put(code, itemCart);
+		return cart;
+	}
+	
 	public HashMap<String, CartDto> EditCart(String code, int quantity ,HashMap<String, CartDto> cart) {
 		if (cart == null) {
 			return cart;

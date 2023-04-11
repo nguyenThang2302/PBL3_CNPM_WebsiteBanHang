@@ -37,4 +37,9 @@ public class CartServiceImpl implements ICartService {
 	public double TotalPrice(HashMap<String, CartDto> cart) {
 		return cartDao.TotalPrice(cart);
 	}
+	
+	@Override
+	public HashMap<String, CartDto> AddCartWithQuantity(String code,int quantity, HashMap<String, CartDto> cart) {
+		return cartDao.AddCartWithQuantity(code, quantity, cart);
+	}
 }

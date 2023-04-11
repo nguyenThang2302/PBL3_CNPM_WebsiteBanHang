@@ -79,15 +79,20 @@
                         <div class="product__details__quantity">
                             <div class="quantity">
                                 <div class="pro-qty">
-                                    <input type="text" value="1">
+                                    <input id = "quantity-cart-${ products.code }" type="number" value="1">
                                 </div>
                             </div>
                         </div>
+<<<<<<< HEAD
 <<<<<<< HEAD
                         <a href="#" class="primary-btn">Thêm vào giỏ hàng</a>
                         <a href="/spring-mvc/san-pham-yeu-thich/${products.code}" class="heart-icon"><span class="icon_heart_alt"></span></a>
 =======
                         <a href="/spring-mvc/them-vao-gio-hang/${departmentsSlugName.slug_name}/${desProduct.product_code}" class="primary-btn">Thêm vào giỏ hàng</a>
+=======
+                        <a href="/spring-mvc/them-vao-gio-hang/${departmentsSlugName.slug_name}/${desProduct.product_code}" type = "button" class="primary-btn add-cart" data-id = "${ products.code }">Thêm vào giỏ hàng</a>
+                        <%-- <button class="add-cart" data-id = "${ products.code }" type = "button"></button> --%>
+>>>>>>> 81f8941 (PBL3-8: Cart)
                         <a href="#" class="heart-icon"><span class="icon_heart_alt"></span></a>
 >>>>>>> bde99bb (PBL3-8: Cart)
                         <ul>
@@ -166,6 +171,7 @@
     </section>
     <!-- Related Product Section End -->
     <content tag = "script">
+<<<<<<< HEAD
      	<script>
      	$(document).ready(function() {
     		  $('.heart-icon').click(function(event) {
@@ -194,6 +200,31 @@
     		});
      	</script>
      </content>
+=======
+    	<script>
+    	$(document).ready(function() {
+    		  $('.add-cart').click(function(event) {
+    		    event.preventDefault();
+    		    var code = $(this).data("id");
+    		    var quantity = $("#quantity-cart-" +  code).val();
+    		    var url = $(this).attr('href') + "/" + quantity;
+    		    $.ajax({
+    		      url: url,
+    		      type: 'POST',
+    		      success: function(response) {
+    		        // Cập nhật thông tin giỏ hàng hoặc hiển thị thông báo thêm sản phẩm thành công.
+    		        // Ở đây bạn có thể xử lý kết quả trả về từ controller và cập nhật trang web tương ứng
+    		      },
+    		      error: function(xhr) {
+    		        // Xử lý lỗi khi gửi yêu cầu Ajax.
+    		        alert('Có lỗi xảy ra!');
+    		      }
+    		    });
+    		  });
+    		});
+    	</script>
+    </content>
+>>>>>>> 81f8941 (PBL3-8: Cart)
 </body>
 
 </html>

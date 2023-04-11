@@ -119,11 +119,26 @@
     
     <content tag = "script">
     	<script>
-    		$(".edit-cart").on("click", function() {
-    			var code = $(this).data("id");
-    			var quantity = $("#quantity-cart-" +  code).val();
-    			window.location = "cap-nhat-gio-hang/" + code + "/" + quantity;
-    		})
+    	$(document).ready(function() {
+  		  $('.edit-cart').click(function(event) {
+  		    event.preventDefault();
+  		  	var code = $(this).data("id");
+			var quantity = $("#quantity-cart-" +  code).val();
+			var url = "cap-nhat-gio-hang/" + code + "/" + quantity;
+  		    $.ajax({
+  		      url: url,
+  		      type: 'GET',
+  		      success: function(response) {
+  		        // Cập nhật thông tin giỏ hàng hoặc hiển thị thông báo thêm sản phẩm thành công.
+  		        // Ở đây bạn có thể xử lý kết quả trả về từ controller và cập nhật trang web tương ứng;
+  		      },
+  		      error: function(xhr) {
+  		        // Xử lý lỗi khi gửi yêu cầu Ajax.
+  		        alert('Có lỗi xảy ra!');
+  		      }
+  		    });
+  		  });
+  		});
     	</script>
     </content>
 
