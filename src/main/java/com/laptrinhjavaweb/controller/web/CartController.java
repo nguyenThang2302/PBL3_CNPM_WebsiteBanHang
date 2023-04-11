@@ -71,4 +71,24 @@ public class CartController extends BaseController {
 		session.setAttribute("TotalPrice", cartService.TotalPrice(cart));
 		return "redirect:" + request.getHeader("Referer"); 
 	}
+	
+	@RequestMapping(value = "cap-nhat-gio-hang/{code}/{quantity}", method = RequestMethod.GET)
+	public String mapLinkEditcart(@PathVariable String code, Model m, @PathVariable int quantity) {
+		Departments departments = adminService.findSlugNameByCode(code);
+		m.addAttribute("departments", departments);
+		return "redirect:/cap-nhat-gio-hang/"+departments.getSlug_name()+"/" + code + "/" + quantity;
+	}
+	
+	@RequestMapping(value = "cap-nhat-gio-hang/{slug_name}/{code}/{quantity}")
+	public String EditCart(HttpServletRequest request, HttpSession session, @PathVariable String code, @PathVariable String slug_name, @PathVariable int quantity) {
+		HashMap<String, CartDto> cart = (HashMap<String, CartDto>) session.getAttribute("Cart");
+		if (cart == null) {
+			cart = new HashMap<String, CartDto>();
+		}
+		cart = cartService.EditCart(code, quantity, cart);
+		session.setAttribute("Cart", cart);
+		session.setAttribute("TotalQuantity", cartService.TotalQuantity(cart));
+		session.setAttribute("TotalPrice", cartService.TotalPrice(cart));
+		return "redirect:" + request.getHeader("Referer"); 
+	}
 }

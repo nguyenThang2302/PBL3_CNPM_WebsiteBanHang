@@ -63,14 +63,15 @@
                                     <td class="shoping__cart__quantity">
                                         <div class="quantity">
                                             <div class="pro-qty">
-                                                <input type="text" value="1">
+                                                <input id = "quantity-cart-${ item.value.product.code }" type="number" value="${ item.value.quantity }">
                                             </div>
                                         </div>
                                     </td>
                                     <td class="shoping__cart__total">
-                                        $110.00
+                                        ${ item.value.totalPrice }đ
                                     </td>
                                     <td class="shoping__cart__item__close">
+                                    	<button data-id = "${item.value.product.code}" type = "button" class = "btn edit-cart"><img src = "https://i.imgur.com/mGwEMqM.png"/></button>
                                     	<a href = "xoa-khoi-gio-hang/${ item.value.product.code }"><span class="icon_close"></span></a>
                                     </td>
                                 </tr>
@@ -83,7 +84,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="shoping__cart__btns">
-                        <a href="#" class="primary-btn cart-btn">Tiếp tục mua sắm</a>
+                        <a href="/spring-mvc/trang-chu" class="primary-btn cart-btn">Tiếp tục mua sắm</a>
                         <a href="#" class="primary-btn cart-btn cart-btn-right"><span class="icon_loading"></span>
                             Cập nhật giỏ hàng</a>
                     </div>
@@ -93,7 +94,7 @@
                         <div class="shoping__discount">
                             <h5>Mã giảm giá</h5>
                             <form action="#">
-                                <input type="text" placeholder="Enter your coupon code">
+                                <input type="text" placeholder="Nhập mã giảm giá của bạn">
                                 <button type="submit" class="site-btn">Áp dụng</button>
                             </form>
                         </div>
@@ -104,9 +105,9 @@
                         <h5>Tổng giỏ hàng</h5>
                         <ul>
                         <c:forEach var = "item" items = "${ Cart }">
-                            <li>${ item.value.product.name } <span>${ item.value.product.price }</span></li>
+                            <li>${ item.value.product.name } x${item.value.quantity}đ <span>${ item.value.totalPrice }đ</span></li>
                         </c:forEach>
-                            <li>Tổng tiền <span>${TotalPrice}</span></li>
+                            <li>Tổng tiền <span>${TotalPrice}đ</span></li>
                         </ul>
                         <a href="#" class="primary-btn">Tiến hành thanh toán</a>
                     </div>
@@ -115,6 +116,16 @@
         </div>
     </section>
     <!-- Shoping Cart Section End -->
+    
+    <content tag = "script">
+    	<script>
+    		$(".edit-cart").on("click", function() {
+    			var code = $(this).data("id");
+    			var quantity = $("#quantity-cart-" +  code).val();
+    			window.location = "cap-nhat-gio-hang/" + code + "/" + quantity;
+    		})
+    	</script>
+    </content>
 
 </body>
 
