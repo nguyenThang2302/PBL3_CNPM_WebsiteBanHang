@@ -91,8 +91,11 @@
                         <a href="/spring-mvc/them-vao-gio-hang/${departmentsSlugName.slug_name}/${desProduct.product_code}" class="primary-btn">Thêm vào giỏ hàng</a>
 =======
                         <a href="/spring-mvc/them-vao-gio-hang/${departmentsSlugName.slug_name}/${desProduct.product_code}" type = "button" class="primary-btn add-cart" data-id = "${ products.code }">Thêm vào giỏ hàng</a>
+<<<<<<< HEAD
                         <%-- <button class="add-cart" data-id = "${ products.code }" type = "button"></button> --%>
 >>>>>>> 81f8941 (PBL3-8: Cart)
+=======
+>>>>>>> 64b8917 (PBL3-8: Cart)
                         <a href="#" class="heart-icon"><span class="icon_heart_alt"></span></a>
 >>>>>>> bde99bb (PBL3-8: Cart)
                         <ul>

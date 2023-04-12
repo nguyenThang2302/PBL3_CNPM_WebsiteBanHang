@@ -76,7 +76,7 @@
                             </thead>
                             <tbody>
                             	<c:forEach var = "item" items = "${ Cart }">
-                            	<tr>
+                            	<tr class = "cart-product-${ item.value.product.code }">
                                     <td class="shoping__cart__item">
                                         <h5>${ item.value.product.name }</h5>
                                     </td>
@@ -125,7 +125,7 @@
                         <h5>Tổng giỏ hàng</h5>
                         <ul>
                         <c:forEach var = "item" items = "${ Cart }">
-                            <li>${ item.value.product.name }<span class = "total-price-products-${ item.value.product.code }">${ item.value.totalPrice }đ</span><span class = "total-quantity-${ item.value.product.code }" style = "margin-right: 185px">x${item.value.quantity}</span> </li>
+                            <li class = "cart-product-${ item.value.product.code }">${ item.value.product.name }<span class = "total-price-products-${ item.value.product.code }">${ item.value.totalPrice }đ</span><span class = "total-quantity-${ item.value.product.code }" style = "margin-right: 185px">x${item.value.quantity}</span> </li>
                         </c:forEach>
                             <li>Tổng tiền <span class = "total-price">${TotalPrice}đ</span></li>
                         </ul>
@@ -200,6 +200,27 @@
     		 });
     	  });
     	});
+    	
+    	$(document).ready(function() {
+  		  $('.delete-cart').click(function(event) {
+  		    event.preventDefault();
+  		    var code = $(this).data("id");
+  		    var url = $(this).attr('href');
+  		  $.ajax({
+		      url: url,
+		      type: 'GET',
+		      success: function(response) {
+		    	  var jsonObj = JSON.parse(response);
+		    	  $('.cart-product-' + jsonObj.deletedCode).remove();
+		    	  $('.total-price').html(jsonObj.TotalPrice + '.0đ');
+		      },
+		      error: function(xhr) {
+		        // Xử lý lỗi khi gửi yêu cầu Ajax.
+		        alert('Có lỗi xảy ra!');
+		      }
+		    });
+  		  });
+  		});
     	</script>
     </content>
 
