@@ -1,7 +1,7 @@
 package com.laptrinhjavaweb.controller.web;
 
-import java.net.http.HttpRequest;
 import java.util.HashMap;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -12,8 +12,11 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.laptrinhjavaweb.Dto.CartDto;
 import com.laptrinhjavaweb.entity.Departments;
 import com.laptrinhjavaweb.service.admin.AdminServiceImpl;
@@ -97,9 +100,9 @@ public class CartController extends BaseController {
 		Departments departments = adminService.findSlugNameByCode(code);
 		m.addAttribute("departments", departments);
 		return "redirect:/cap-nhat-gio-hang/"+departments.getSlug_name()+"/" + code + "/" + quantity;
-	}
-	
-	@RequestMapping(value = "cap-nhat-gio-hang/{slug_name}/{code}/{quantity}")
+	}/*
+
+	@RequestMapping(value = "cap-nhat-gio-hang/{slug_name}/{code}/{quantity}", method = RequestMethod.GET)
 	public String EditCart(HttpServletRequest request, HttpSession session, @PathVariable String code, @PathVariable String slug_name, @PathVariable int quantity) {
 		HashMap<String, CartDto> cart = (HashMap<String, CartDto>) session.getAttribute("Cart");
 		if (cart == null) {
@@ -107,8 +110,32 @@ public class CartController extends BaseController {
 		}
 		cart = cartService.EditCart(code, quantity, cart);
 		session.setAttribute("Cart", cart);
+		double updateTotalPrice = cart.get(code).getTotalPrice();
+		session.setAttribute("updateTotalPrice", updateTotalPrice);
 		session.setAttribute("TotalQuantity", cartService.TotalQuantity(cart));
 		session.setAttribute("TotalPrice", cartService.TotalPrice(cart));
 		return "redirect:" + request.getHeader("Referer"); 
+    } */
+	@RequestMapping(value = "cap-nhat-gio-hang/{slug_name}/{code}/{quantity}", method = RequestMethod.GET)
+	public @ResponseBody String EditCart(HttpServletRequest request, HttpSession session, @PathVariable String code, @PathVariable String slug_name, @PathVariable int quantity) {
+		HashMap<String, CartDto> cart = (HashMap<String, CartDto>) session.getAttribute("Cart");
+		if (cart == null) {
+			cart = new HashMap<String, CartDto>();
+		}
+		cart = cartService.EditCart(code, quantity, cart);
+		session.setAttribute("Cart", cart);
+		double updatePrice = cart.get(code).getTotalPrice();
+		Map<String, Object> result = new HashMap<>();
+		result.put("updatePrice", updatePrice);
+		result.put("TotalQuantity", cartService.TotalQuantity(cart));
+		result.put("TotalPrice", cartService.TotalPrice(cart));
+		ObjectMapper objectMapper = new ObjectMapper();
+		String json = "";
+		try {
+			json = objectMapper.writeValueAsString(result);
+		} catch(JsonProcessingException e) {
+			e.printStackTrace();
+		}
+		return json;
 	}
 }

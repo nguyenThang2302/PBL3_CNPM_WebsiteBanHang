@@ -13,7 +13,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>Ogani | Cart</title>
-
 </head>
 
 <body>
@@ -67,12 +66,12 @@
                                             </div>
                                         </div>
                                     </td>
-                                    <td class="shoping__cart__total">
+                                    <td class="shoping__cart__total-${ item.value.product.code }" >
                                         ${ item.value.totalPrice }đ
                                     </td>
                                     <td class="shoping__cart__item__close">
                                     	<button data-id = "${item.value.product.code}" type = "button" class = "btn edit-cart"><img src = "https://i.imgur.com/mGwEMqM.png"/></button>
-                                    	<a href = "xoa-khoi-gio-hang/${ item.value.product.code }"><span class="icon_close"></span></a>
+                                    	<a class = "delete-cart" data-id = "${item.value.product.code}"  href = "xoa-khoi-gio-hang/${ item.value.product.code }"><span class="icon_close"></span></a>
                                     </td>
                                 </tr>
                             	</c:forEach>
@@ -105,9 +104,9 @@
                         <h5>Tổng giỏ hàng</h5>
                         <ul>
                         <c:forEach var = "item" items = "${ Cart }">
-                            <li>${ item.value.product.name } x${item.value.quantity}đ <span>${ item.value.totalPrice }đ</span></li>
+                            <li>${ item.value.product.name }<span class = "total-price-products-${ item.value.product.code }">${ item.value.totalPrice }đ</span><span class = "total-quantity-${ item.value.product.code }" style = "margin-right: 185px">x${item.value.quantity}</span> </li>
                         </c:forEach>
-                            <li>Tổng tiền <span>${TotalPrice}đ</span></li>
+                            <li>Tổng tiền <span class = "total-price">${TotalPrice}đ</span></li>
                         </ul>
                         <a href="#" class="primary-btn">Tiến hành thanh toán</a>
                     </div>
@@ -129,8 +128,11 @@
   		      url: url,
   		      type: 'GET',
   		      success: function(response) {
-  		        // Cập nhật thông tin giỏ hàng hoặc hiển thị thông báo thêm sản phẩm thành công.
-  		        // Ở đây bạn có thể xử lý kết quả trả về từ controller và cập nhật trang web tương ứng;
+  		    	  var jsonObj = JSON.parse(response);
+  		    	  $('.shoping__cart__total-' + code).html(jsonObj.updatePrice + '.0đ');
+  		    	  $('.total-price').html(jsonObj.TotalPrice + '.0đ');
+  		    	  $('.total-price-products-' + code).html(jsonObj.updatePrice + '.0đ')
+  		    	  $('.total-quantity-' + code).html('x' + quantity);
   		      },
   		      error: function(xhr) {
   		        // Xử lý lỗi khi gửi yêu cầu Ajax.
