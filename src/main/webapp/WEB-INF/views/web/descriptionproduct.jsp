@@ -213,10 +213,11 @@
     		    var url = $(this).attr('href') + "/" + quantity;
     		    $.ajax({
     		      url: url,
-    		      type: 'POST',
+    		      type: 'GET',
     		      success: function(response) {
-    		        // Cập nhật thông tin giỏ hàng hoặc hiển thị thông báo thêm sản phẩm thành công.
-    		        // Ở đây bạn có thể xử lý kết quả trả về từ controller và cập nhật trang web tương ứng
+    		    	  var jsonObj = JSON.parse(response);
+    		    	  $('.total-quantity').html(jsonObj.TotalQuantity);
+    		    	  $('.total-price-header').html(jsonObj.TotalPrice + '.0đ');
     		      },
     		      error: function(xhr) {
     		        // Xử lý lỗi khi gửi yêu cầu Ajax.

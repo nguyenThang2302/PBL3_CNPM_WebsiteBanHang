@@ -83,7 +83,7 @@
                             <ul class="featured__item__pic__hover">
                                 <li><a class = "add_favourite_product" href="san-pham-yeu-thich/${item.code}"><i class="fa fa-heart"></i></a></li>
                                 <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                                <li><a href="/spring-mvc/them-vao-gio-hang/${item.code}"><i class="fa fa-shopping-cart"></i></a></li>
+                                <li><a class = "add-cart" href="/spring-mvc/them-vao-gio-hang/${item.code}"><i class="fa fa-shopping-cart"></i></a></li>
                             </ul>
                         </div>
                         <div class="featured__item__text">
@@ -381,6 +381,7 @@
         </div>
     </section>
     <!-- Blog Section End -->
+<<<<<<< HEAD
      <content tag = "script">
      	<script>
      	$(document).ready(function() {
@@ -410,6 +411,31 @@
     		});
      	</script>
      </content>
+=======
+    <content tag = "script">
+    	<script>
+    	$(document).ready(function() {
+  		  $('.add-cart').click(function(event) {
+  		    event.preventDefault();
+  		    var url = $(this).attr('href');
+  		  $.ajax({
+		      url: url,
+		      type: 'GET',
+		      success: function(response) {
+		    	  var jsonObj = JSON.parse(response);
+		    	  $('.total-quantity').html(jsonObj.TotalQuantity);
+		    	  $('.total-price-header').html(jsonObj.TotalPrice + '.0đ');
+		      },
+		      error: function(xhr) {
+		        // Xử lý lỗi khi gửi yêu cầu Ajax.
+		        alert('Có lỗi xảy ra!');
+		      }
+		    });
+  		  });
+  		});
+    	</script>
+    </content>
+>>>>>>> f0052a3 (PBL3-8: Cart)
 </body>
 
 </html>

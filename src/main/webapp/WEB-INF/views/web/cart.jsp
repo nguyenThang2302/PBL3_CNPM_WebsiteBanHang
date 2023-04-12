@@ -166,6 +166,8 @@
     		    	  $('.total-price').html(jsonObj.TotalPrice + '.0đ');
     		    	  $('.total-price-products-' + code).html(jsonObj.updatePrice + '.0đ')
     		    	  $('.total-quantity-' + code).html('x' + quantity);
+    		    	  $('.total-quantity').html(jsonObj.TotalQuantity);
+    		    	  $('.total-price-header').html(jsonObj.TotalPrice);
     		      },
     		      error: function(xhr) {
     		        // Xử lý lỗi khi gửi yêu cầu Ajax.
@@ -192,6 +194,8 @@
     		    	  $('.total-price').html(jsonObj.TotalPrice + '.0đ');
     		    	  $('.total-price-products-' + code).html(jsonObj.updatePrice + '.0đ')
     		    	  $('.total-quantity-' + code).html('x' + quantity);
+    		    	  $('.total-quantity').html(jsonObj.TotalQuantity);
+    		    	  $('.total-price-header').html(jsonObj.TotalPrice);
     		      },
     		      error: function(xhr) {
     		        // Xử lý lỗi khi gửi yêu cầu Ajax.
@@ -213,6 +217,8 @@
 		    	  var jsonObj = JSON.parse(response);
 		    	  $('.cart-product-' + jsonObj.deletedCode).remove();
 		    	  $('.total-price').html(jsonObj.TotalPrice + '.0đ');
+		    	  $('.total-quantity').html(jsonObj.TotalQuantity);
+		    	  $('.total-price-header').html(jsonObj.TotalPrice + '.0đ');
 		      },
 		      error: function(xhr) {
 		        // Xử lý lỗi khi gửi yêu cầu Ajax.

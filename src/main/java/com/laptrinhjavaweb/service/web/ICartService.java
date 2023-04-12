@@ -19,6 +19,4 @@ public interface ICartService {
 	public int TotalQuantity(HashMap<String, CartDto> cart);
 	@Autowired
 	public double TotalPrice(HashMap<String, CartDto> cart);
-	@Autowired
-	public HashMap<String, CartDto> AddCartWithQuantity(String code,int quantity, HashMap<String, CartDto> cart);
 }

@@ -34,29 +34,33 @@ public class CartController extends BaseController {
 		ModelAndView mav = new ModelAndView("web/cart");
 		return mav;
 	}
-	
-/*	@RequestMapping(value = "them-vao-gio-hang/{code}/{quantity}", method = RequestMethod.GET)
-	public String mapLinkAddCartWithQuantity(@PathVariable String code, Model m, @PathVariable int quantity) {
-		Departments departments = adminService.findSlugNameByCode(code);
-		m.addAttribute("departments", departments);
-		return "redirect:/them-vao-gio-hang/"+departments.getSlug_name()+"/"+code+"/"+quantity;
-	}
-*/	
+
 	@RequestMapping(value = "them-vao-gio-hang/{slug_name}/{code}/{quantity}")
-	public String AddCartWithQuantity(HttpServletRequest request, HttpSession session, @PathVariable String code, @PathVariable String slug_name, @PathVariable int quantity) {
+	public @ResponseBody String AddCartWithQuantity(HttpServletRequest request, HttpSession session, @PathVariable String code, @PathVariable String slug_name, @PathVariable int quantity) {
 		HashMap<String, CartDto> cart = (HashMap<String, CartDto>) session.getAttribute("Cart");
 		if (cart == null) {
 			cart = new HashMap<String, CartDto>();
 		}
-		cart = cartService.AddCartWithQuantity(code, quantity, cart);
+		cart = cartService.AddCart(code, cart);
+		cart = cartService.EditCart(code, quantity, cart);
 		session.setAttribute("Cart", cart);
 		session.setAttribute("TotalQuantity", cartService.TotalQuantity(cart));
 		session.setAttribute("TotalPrice", cartService.TotalPrice(cart));
-		return "redirect:" + request.getHeader("Referer"); 
+		Map<String, Object> result = new HashMap<>();
+		result.put("TotalQuantity", cartService.TotalQuantity(cart));
+		result.put("TotalPrice", cartService.TotalPrice(cart));
+		ObjectMapper objectMapper = new ObjectMapper();
+		String json = "";
+		try {
+			json = objectMapper.writeValueAsString(result);
+		} catch(JsonProcessingException e) {
+			e.printStackTrace();
+		}
+		return json;
 	}
 	
 	@RequestMapping(value = "them-vao-gio-hang/{slug_name}/{code}")
-	public String AddCart(HttpServletRequest request, HttpSession session, @PathVariable String code, @PathVariable String slug_name) {
+	public @ResponseBody String AddCart(HttpServletRequest request, HttpSession session, @PathVariable String code, @PathVariable String slug_name) {
 		HashMap<String, CartDto> cart = (HashMap<String, CartDto>) session.getAttribute("Cart");
 		if (cart == null) {
 			cart = new HashMap<String, CartDto>();
@@ -65,7 +69,17 @@ public class CartController extends BaseController {
 		session.setAttribute("Cart", cart);
 		session.setAttribute("TotalQuantity", cartService.TotalQuantity(cart));
 		session.setAttribute("TotalPrice", cartService.TotalPrice(cart));
-		return "redirect:" + request.getHeader("Referer"); 
+		Map<String, Object> result = new HashMap<>();
+		result.put("TotalQuantity", cartService.TotalQuantity(cart));
+		result.put("TotalPrice", cartService.TotalPrice(cart));
+		ObjectMapper objectMapper = new ObjectMapper();
+		String json = "";
+		try {
+			json = objectMapper.writeValueAsString(result);
+		} catch(JsonProcessingException e) {
+			e.printStackTrace();
+		}
+		return json;
 	}
 	
 	@RequestMapping(value = "them-vao-gio-hang/{code}", method = RequestMethod.GET)
@@ -93,6 +107,7 @@ public class CartController extends BaseController {
 		cart = cartService.DeleteCart(code, cart);
 		session.setAttribute("Cart", cart);
 		session.setAttribute("TotalPrice", cartService.TotalPrice(cart));
+		session.setAttribute("TotalQuantity", cartService.TotalQuantity(cart));
 		result.put("TotalQuantity", cartService.TotalQuantity(cart));
 		result.put("TotalPrice", cartService.TotalPrice(cart));
 		ObjectMapper objectMapper = new ObjectMapper();
@@ -121,6 +136,7 @@ public class CartController extends BaseController {
 		cart = cartService.EditCart(code, quantity, cart);
 		session.setAttribute("Cart", cart);
 		session.setAttribute("TotalPrice", cartService.TotalPrice(cart));
+		session.setAttribute("TotalQuantity", cartService.TotalQuantity(cart));
 		double updatePrice = cart.get(code).getTotalPrice();
 		Map<String, Object> result = new HashMap<>();
 		result.put("updatePrice", updatePrice);
@@ -136,3 +152,4 @@ public class CartController extends BaseController {
 		return json;
 	}
 }
+
