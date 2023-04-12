@@ -16,6 +16,30 @@
 </head>
 
 <body>
+	<style>
+	  .cart-button {
+        font-size: 0.8rem;
+        padding: 0.25rem 0.5rem;
+        background-color: #7fad39;
+        color: #fff;
+        border: none;
+        border-radius: 0.25rem;
+        cursor: pointer;
+        margin-right: 0.5rem;
+        height: 100%;
+      }
+
+      .quantity-input {
+        font-size: 0.8rem;
+        margin-right: 0.5rem;
+        height: 100%;
+        width: 40px;
+      }
+
+      .cart-button:hover {
+        background-color: #005ea3;
+      }
+</style>
      <!-- Breadcrumb Section Begin -->
     <section class="breadcrumb-section set-bg" data-setbg="img/breadcrumb.jpg">
         <div class="container">
@@ -61,16 +85,15 @@
                                     </td>
                                     <td class="shoping__cart__quantity">
                                         <div class="quantity">
-                                            <div class="pro-qty">
-                                                <input id = "quantity-cart-${ item.value.product.code }" type="number" value="${ item.value.quantity }">
-                                            </div>
+                                            <button id="decrease-cart" class="decrease-cart cart-button" data-id = "${item.value.product.code}">-</button>
+      											<input type="number" id="quantity-cart" class="quantity-input" value="${ item.value.quantity }" min="1" />
+      										<button id="increase-cart" class="increase-cart cart-button" data-id = "${item.value.product.code}">+</button>			
                                         </div>
                                     </td>
                                     <td class="shoping__cart__total-${ item.value.product.code }" >
                                         ${ item.value.totalPrice }đ
                                     </td>
                                     <td class="shoping__cart__item__close">
-                                    	<button data-id = "${item.value.product.code}" type = "button" class = "btn edit-cart"><img src = "https://i.imgur.com/mGwEMqM.png"/></button>
                                     	<a class = "delete-cart" data-id = "${item.value.product.code}"  href = "xoa-khoi-gio-hang/${ item.value.product.code }"><span class="icon_close"></span></a>
                                     </td>
                                 </tr>
@@ -84,8 +107,6 @@
                 <div class="col-lg-12">
                     <div class="shoping__cart__btns">
                         <a href="/spring-mvc/trang-chu" class="primary-btn cart-btn">Tiếp tục mua sắm</a>
-                        <a href="#" class="primary-btn cart-btn cart-btn-right"><span class="icon_loading"></span>
-                            Cập nhật giỏ hàng</a>
                     </div>
                 </div>
                 <div class="col-lg-6">
@@ -118,29 +139,67 @@
     
     <content tag = "script">
     	<script>
-    	$(document).ready(function() {
-  		  $('.edit-cart').click(function(event) {
-  		    event.preventDefault();
-  		  	var code = $(this).data("id");
-			var quantity = $("#quantity-cart-" +  code).val();
-			var url = "cap-nhat-gio-hang/" + code + "/" + quantity;
-  		    $.ajax({
-  		      url: url,
-  		      type: 'GET',
-  		      success: function(response) {
-  		    	  var jsonObj = JSON.parse(response);
-  		    	  $('.shoping__cart__total-' + code).html(jsonObj.updatePrice + '.0đ');
-  		    	  $('.total-price').html(jsonObj.TotalPrice + '.0đ');
-  		    	  $('.total-price-products-' + code).html(jsonObj.updatePrice + '.0đ')
-  		    	  $('.total-quantity-' + code).html('x' + quantity);
-  		      },
-  		      error: function(xhr) {
-  		        // Xử lý lỗi khi gửi yêu cầu Ajax.
-  		        alert('Có lỗi xảy ra!');
-  		      }
-  		    });
-  		  });
-  		});
+    	const decreaseButtons = document.querySelectorAll(".decrease-cart");
+    	const increaseButtons = document.querySelectorAll(".increase-cart");
+    	const quantityInputs = document.querySelectorAll(".quantity-input");
+
+    	decreaseButtons.forEach((decreaseButton) => {
+    	  decreaseButton.addEventListener("click", (event) => {
+    	    const index = Array.from(decreaseButtons).indexOf(decreaseButton);
+    	    const currentValue = parseInt(quantityInputs[index].value);
+    	    var quantity;
+    	    if (currentValue > 1) {
+    	      quantityInputs[index].value = currentValue - 1;
+    	      quantity = currentValue - 1;
+    	    } else {
+    	      quantityInputs[index].value = 1;
+    	      quantity = 1;
+    	    }
+    	    const code = event.target.getAttribute("data-id");
+    	    var url = "cap-nhat-gio-hang/" + code + "/" + quantity;
+    	    $.ajax({
+    		      url: url,
+    		      type: 'GET',
+    		      success: function(response) {
+    		    	  var jsonObj = JSON.parse(response);
+    		    	  $('.shoping__cart__total-' + code).html(jsonObj.updatePrice + '.0đ');
+    		    	  $('.total-price').html(jsonObj.TotalPrice + '.0đ');
+    		    	  $('.total-price-products-' + code).html(jsonObj.updatePrice + '.0đ')
+    		    	  $('.total-quantity-' + code).html('x' + quantity);
+    		      },
+    		      error: function(xhr) {
+    		        // Xử lý lỗi khi gửi yêu cầu Ajax.
+    		        alert('Có lỗi xảy ra!');
+    		      }
+    		 });
+    	  });
+    	});
+
+    	increaseButtons.forEach((increaseButton) => {
+    	  increaseButton.addEventListener("click", (event) => {
+    	    const index = Array.from(increaseButtons).indexOf(increaseButton);
+    	    const currentValue = parseInt(quantityInputs[index].value);
+    	    quantityInputs[index].value = currentValue + 1;
+    	    const code = event.target.getAttribute("data-id");
+    	    const quantity = currentValue + 1;
+    	    var url = "cap-nhat-gio-hang/" + code + "/" + quantity;
+    	    $.ajax({
+    		      url: url,
+    		      type: 'GET',
+    		      success: function(response) {
+    		    	  var jsonObj = JSON.parse(response);
+    		    	  $('.shoping__cart__total-' + code).html(jsonObj.updatePrice + '.0đ');
+    		    	  $('.total-price').html(jsonObj.TotalPrice + '.0đ');
+    		    	  $('.total-price-products-' + code).html(jsonObj.updatePrice + '.0đ')
+    		    	  $('.total-quantity-' + code).html('x' + quantity);
+    		      },
+    		      error: function(xhr) {
+    		        // Xử lý lỗi khi gửi yêu cầu Ajax.
+    		        alert('Có lỗi xảy ra!');
+    		      }
+    		 });
+    	  });
+    	});
     	</script>
     </content>
 
