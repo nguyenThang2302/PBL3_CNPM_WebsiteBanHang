@@ -39,6 +39,7 @@
       .cart-button:hover {
         background-color: #005ea3;
       }
+      
 </style>
      <!-- Breadcrumb Section Begin -->
     <section class="breadcrumb-section set-bg" data-setbg="img/breadcrumb.jpg">
@@ -113,9 +114,15 @@
                     <div class="shoping__continue">
                         <div class="shoping__discount">
                             <h5>Mã giảm giá</h5>
-                            <form action="#">
-                                <input type="text" placeholder="Nhập mã giảm giá của bạn">
-                                <button type="submit" class="site-btn">Áp dụng</button>
+                            <form id="discount-form" action="check/discount">
+                                <input type="text" id="discount-code" placeholder="Nhập mã giảm giá của bạn" required = "required">
+                                <select class = "dropdown-discount" onchange="updateDiscountCode()">
+							        <option value="">Chọn mã giảm giá</option>
+							        <c:forEach var = "item" items = "${discountCodes}">
+							        <option value="${item.code}">${item.name}</option>
+							        </c:forEach>
+    							</select>
+                                <button type="submit" class="site-btn" onclick="updateAction()">Áp dụng</button>
                             </form>
                         </div>
                     </div>
@@ -227,6 +234,53 @@
 		    });
   		  });
   		});
+    	
+    	function updateDiscountCode() {
+            var discountCodeInput = document.getElementById("discount-code");
+            var dropdown = document.querySelector(".dropdown-discount");
+            var selectedDiscountCode = dropdown.value;
+            discountCodeInput.value = selectedDiscountCode;
+        }
+    	
+    	function updateAction() {
+    		  var form = document.getElementById("discount-form");
+    		  var select = document.querySelector(".dropdown-discount");
+    		  var value = select.value;
+    		  if (value) {
+    		    form.action = "check/discount/" + value;
+    		  }
+    	}
+    	
+    	$(document).ready(function() {
+    		  $("#discount-form").submit(function(event) {
+    		    event.preventDefault();
+    		    var code = $("#discount-code").val();
+    		    var url = "check/discount/" + code;
+    		    $.ajax({
+    			      url: url,
+    			      type: 'GET',
+    			      success: function(response) {
+    			    	  var jsonObj = JSON.parse(response);
+    			    	  $('.total-price').html(jsonObj.TotalPrice + '.0đ');
+    			    	  $('.total-price-header').html(jsonObj.TotalPrice + '.0đ');
+    			    	  
+    			    	  Toastify({
+  							text: "Áp dụng mã giảm giá thành công!",
+  							duration: 3000,
+  							newWindow: true,
+  							close: true,
+  							gravity: "top",
+  							position: "center",
+  							backgroundColor: "linear-gradient(to right, #00b09b, #96c93d)",
+  						}).showToast();
+    			      },
+    			      error: function(xhr) {
+    			        // Xử lý lỗi khi gửi yêu cầu Ajax.
+    			        alert('Có lỗi xảy ra!');
+    			      }
+    			    });
+    		    });
+    		  });
     	</script>
     </content>
 

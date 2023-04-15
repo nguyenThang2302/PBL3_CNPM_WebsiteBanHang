@@ -42,4 +42,8 @@ public interface IAdminService {
 	public DiscountCode findByIdDiscountCode(int id);
 	@Autowired
 	public int updateOneDiscountCode(DiscountCode d);
+	@Autowired
+	public int checkDiscountCode(String code);
+	@Autowired
+	public DiscountCode findByCode(String code);
 }

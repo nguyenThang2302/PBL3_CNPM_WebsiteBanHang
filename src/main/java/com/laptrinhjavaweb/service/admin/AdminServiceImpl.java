@@ -89,4 +89,14 @@ public class AdminServiceImpl implements IAdminService {
 	public int updateOneDiscountCode(DiscountCode d) {
 		return discountcodeDao.updateOneDiscountCode(d);
 	}
+	
+	@Override
+	public int checkDiscountCode(String code) {
+		return discountcodeDao.checkDiscountCode(code);
+	}
+	
+	@Override
+	public DiscountCode findByCode(String code) {
+		return discountcodeDao.findByCode(code);
+	}
 }

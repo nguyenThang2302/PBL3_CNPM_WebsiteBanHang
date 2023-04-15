@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +20,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.laptrinhjavaweb.Dto.CartDto;
 import com.laptrinhjavaweb.entity.Departments;
+import com.laptrinhjavaweb.entity.DiscountCode;
 import com.laptrinhjavaweb.service.admin.AdminServiceImpl;
 import com.laptrinhjavaweb.service.web.CartServiceImpl;
 
@@ -32,9 +34,30 @@ public class CartController extends BaseController {
 	@RequestMapping(value = "/gio-hang", method = RequestMethod.GET)
 	public ModelAndView registerPage() {
 		ModelAndView mav = new ModelAndView("web/cart");
+		mav.addObject("discountCodes", adminService.findAllDiscountCode());
 		return mav;
 	}
-
+	
+	@RequestMapping(value = "/check/discount/{code}", method = RequestMethod.GET)
+	public @ResponseBody String checkDiscount(HttpServletRequest request, HttpSession session, @PathVariable String code) {
+		DiscountCode discountcode = adminService.findByCode(code);
+		HashMap<String, CartDto> cart = (HashMap<String, CartDto>) session.getAttribute("Cart");
+		if (cart == null) {
+			cart = new HashMap<String, CartDto>();
+		}
+		session.setAttribute("TotalPrice", cartService.TotalPrice(cart) * (1 - discountcode.getPercent()));
+		Map<String, Object> result = new HashMap<>();
+		result.put("TotalPrice", cartService.TotalPrice(cart) * (1 - discountcode.getPercent()));
+		ObjectMapper objectMapper = new ObjectMapper();
+		String json = "";
+		try {
+			json = objectMapper.writeValueAsString(result);
+		} catch(JsonProcessingException e) {
+			e.printStackTrace();
+		}
+		return json; 
+	}
+	
 	@RequestMapping(value = "them-vao-gio-hang/{slug_name}/{code}/{quantity}")
 	public @ResponseBody String AddCartWithQuantity(HttpServletRequest request, HttpSession session, @PathVariable String code, @PathVariable String slug_name, @PathVariable int quantity) {
 		HashMap<String, CartDto> cart = (HashMap<String, CartDto>) session.getAttribute("Cart");
@@ -70,6 +93,10 @@ public class CartController extends BaseController {
 		session.setAttribute("TotalQuantity", cartService.TotalQuantity(cart));
 		session.setAttribute("TotalPrice", cartService.TotalPrice(cart));
 		Map<String, Object> result = new HashMap<>();
+		result.put("Name", cart.get(code).getProduct().getName());
+		result.put("Price", cart.get(code).getProduct().getPrice());
+		result.put("Quantity", 1);
+		result.put("TotalPriceProduct", cart.get(code).getTotalPrice());
 		result.put("TotalQuantity", cartService.TotalQuantity(cart));
 		result.put("TotalPrice", cartService.TotalPrice(cart));
 		ObjectMapper objectMapper = new ObjectMapper();

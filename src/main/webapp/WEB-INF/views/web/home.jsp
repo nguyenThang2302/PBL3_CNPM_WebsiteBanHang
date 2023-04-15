@@ -8,7 +8,7 @@
 
 <head>
 
-<meta charset="UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Trang chủ</title>
 
 </head>
@@ -418,13 +418,24 @@
   		  $('.add-cart').click(function(event) {
   		    event.preventDefault();
   		    var url = $(this).attr('href');
+  		  	var code = $(this).attr('href').split('/').pop();
   		  $.ajax({
 		      url: url,
 		      type: 'GET',
-		      success: function(response) {
+		      success: function(response) {	
 		    	  var jsonObj = JSON.parse(response);
 		    	  $('.total-quantity').html(jsonObj.TotalQuantity);
 		    	  $('.total-price-header').html(jsonObj.TotalPrice + '.0đ');
+		    	  
+		    	  Toastify({
+		    		  text: "Thêm vào giỏ hàng thành công!",
+		    		  duration: 3000,
+		    		  newWindow: true,
+		    		  close: true,
+		    		  gravity: "top", // hiển thị ở trên cùng màn hình
+		    		  position: "center", // căn giữa theo chiều ngang
+		    		  backgroundColor: "linear-gradient(to right, #00b09b, #96c93d)",
+		    		}).showToast();
 		      },
 		      error: function(xhr) {
 		        // Xử lý lỗi khi gửi yêu cầu Ajax.
