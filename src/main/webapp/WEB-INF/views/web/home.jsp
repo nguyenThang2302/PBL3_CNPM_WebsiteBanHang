@@ -381,9 +381,8 @@
         </div>
     </section>
     <!-- Blog Section End -->
-<<<<<<< HEAD
      <content tag = "script">
-     	<script>
+     <script>
      	$(document).ready(function() {
     		  $('.add_favourite_product').click(function(event) {
     		    event.preventDefault();
@@ -409,11 +408,6 @@
   		    });
     		  });
     		});
-     	</script>
-     </content>
-=======
-    <content tag = "script">
-    	<script>
     	$(document).ready(function() {
   		  $('.add-cart').click(function(event) {
   		    event.preventDefault();
@@ -446,7 +440,6 @@
   		});
     	</script>
     </content>
->>>>>>> f0052a3 (PBL3-8: Cart)
 </body>
 
 </html>
