@@ -35,6 +35,7 @@ public class CartController extends BaseController {
 	public ModelAndView registerPage() {
 		ModelAndView mav = new ModelAndView("web/cart");
 		mav.addObject("discountCodes", adminService.findAllDiscountCode());
+		mav.addObject("departments", adminService.findAll());
 		return mav;
 	}
 	
@@ -45,9 +46,11 @@ public class CartController extends BaseController {
 		if (cart == null) {
 			cart = new HashMap<String, CartDto>();
 		}
-		session.setAttribute("TotalPrice", cartService.TotalPrice(cart) * (1 - discountcode.getPercent()));
+		session.setAttribute("TotalPrice", cartService.TotalPrice(cart));
 		Map<String, Object> result = new HashMap<>();
-		result.put("TotalPrice", cartService.TotalPrice(cart) * (1 - discountcode.getPercent()));
+		double tempTotalPrice = cartService.TotalPrice(cart);
+		result.put("TotalPrice", cartService.TotalPrice(cart));
+		result.put("TotalPriceDiscount", tempTotalPrice * (1- discountcode.getPercent()));
 		ObjectMapper objectMapper = new ObjectMapper();
 		String json = "";
 		try {

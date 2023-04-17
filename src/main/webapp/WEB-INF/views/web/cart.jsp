@@ -40,6 +40,12 @@
         background-color: #005ea3;
       }
       
+      .shoping__checkout ul li span {
+	    font-size: 18px;
+	    color: black;
+	    float: right;
+		}
+      
 </style>
      <!-- Breadcrumb Section Begin -->
     <section class="breadcrumb-section set-bg" data-setbg="img/breadcrumb.jpg">
@@ -134,7 +140,9 @@
                         <c:forEach var = "item" items = "${ Cart }">
                             <li class = "cart-product-${ item.value.product.code }">${ item.value.product.name }<span class = "total-price-products-${ item.value.product.code }">${ item.value.totalPrice }đ</span><span class = "total-quantity-${ item.value.product.code }" style = "margin-right: 185px">x${item.value.quantity}</span> </li>
                         </c:forEach>
-                            <li>Tổng tiền <span class = "total-price">${TotalPrice}đ</span></li>
+                            <li>Tạm tính <span class = "total-price">${TotalPrice}đ</span></li>
+                            <li>Giảm <span class = "total-price-discount">Chưa áp dụng mã giảm giá</span></li>
+                            <li>Tổng tiền giỏ hàng <span class = "total-price-cart">${TotalPrice}đ</span></li>
                         </ul>
                         <a href="#" class="primary-btn">Tiến hành thanh toán</a>
                     </div>
@@ -175,6 +183,7 @@
     		    	  $('.total-quantity-' + code).html('x' + quantity);
     		    	  $('.total-quantity').html(jsonObj.TotalQuantity);
     		    	  $('.total-price-header').html(jsonObj.TotalPrice);
+    		    	  $('.total-price-cart').html(Math.floor(jsonObj.TotalPrice) + '.0đ');
     		      },
     		      error: function(xhr) {
     		        // Xử lý lỗi khi gửi yêu cầu Ajax.
@@ -203,6 +212,7 @@
     		    	  $('.total-quantity-' + code).html('x' + quantity);
     		    	  $('.total-quantity').html(jsonObj.TotalQuantity);
     		    	  $('.total-price-header').html(jsonObj.TotalPrice);
+    		    	  $('.total-price-cart').html(Math.floor(jsonObj.TotalPrice) + '.0đ');
     		      },
     		      error: function(xhr) {
     		        // Xử lý lỗi khi gửi yêu cầu Ajax.
@@ -226,6 +236,7 @@
 		    	  $('.total-price').html(jsonObj.TotalPrice + '.0đ');
 		    	  $('.total-quantity').html(jsonObj.TotalQuantity);
 		    	  $('.total-price-header').html(jsonObj.TotalPrice + '.0đ');
+		    	  $('.total-price-cart').html(Math.floor(jsonObj.TotalPrice) + '.0đ');   	  
 		      },
 		      error: function(xhr) {
 		        // Xử lý lỗi khi gửi yêu cầu Ajax.
@@ -261,8 +272,8 @@
     			      type: 'GET',
     			      success: function(response) {
     			    	  var jsonObj = JSON.parse(response);
-    			    	  $('.total-price').html(jsonObj.TotalPrice + '.0đ');
-    			    	  $('.total-price-header').html(jsonObj.TotalPrice + '.0đ');
+    			    	  $('.total-price-discount').html(Math.floor(jsonObj.TotalPrice - jsonObj.TotalPriceDiscount) + '.0đ');
+    			    	  $('.total-price-cart').html(Math.floor(jsonObj.TotalPriceDiscount) + '.0đ');
     			    	  
     			    	  Toastify({
   							text: "Áp dụng mã giảm giá thành công!",
