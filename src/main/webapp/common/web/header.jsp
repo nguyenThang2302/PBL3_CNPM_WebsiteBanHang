@@ -145,18 +145,9 @@
                 <div class="col-lg-3">
                     <div class="header__cart">
                         <ul>
-<<<<<<< HEAD
-                            <li><a href="/spring-mvc/san-pham-yeu-thich"><i class="fa fa-heart"></i></a></li>
-                            <li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
-=======
-                            <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
-<<<<<<< HEAD
-                            <li><a href="/spring-mvc/gio-hang"><i class="fa fa-shopping-bag"></i> <span>${TotalQuantity}</span></a></li>
->>>>>>> bde99bb (PBL3-8: Cart)
-=======
-                            <li><a href="/spring-mvc/gio-hang"><i class="fa fa-shopping-bag"></i> <span class = "total-quantity">${TotalQuantity}</span></a></li>
->>>>>>> f0052a3 (PBL3-8: Cart)
-                        </ul>
+						<li><a href="/spring-mvc/san-pham-yeu-thich"><i class="fa fa-heart"></i></a></li>
+						<li><a href="/spring-mvc/gio-hang"><i class="fa fa-shopping-bag"></i> <span class = "total-quantity">${TotalQuantity}</span></a></li>
+						</ul>
                         <div class="header__cart__price"><span class = "total-price-header">${TotalPrice}đ</span></div>
                     </div>
                 </div>

@@ -83,21 +83,8 @@
                                 </div>
                             </div>
                         </div>
-<<<<<<< HEAD
-<<<<<<< HEAD
-                        <a href="#" class="primary-btn">Thêm vào giỏ hàng</a>
                         <a href="/spring-mvc/san-pham-yeu-thich/${products.code}" class="heart-icon"><span class="icon_heart_alt"></span></a>
-=======
-                        <a href="/spring-mvc/them-vao-gio-hang/${departmentsSlugName.slug_name}/${desProduct.product_code}" class="primary-btn">Thêm vào giỏ hàng</a>
-=======
                         <a href="/spring-mvc/them-vao-gio-hang/${departmentsSlugName.slug_name}/${desProduct.product_code}" type = "button" class="primary-btn add-cart" data-id = "${ products.code }">Thêm vào giỏ hàng</a>
-<<<<<<< HEAD
-                        <%-- <button class="add-cart" data-id = "${ products.code }" type = "button"></button> --%>
->>>>>>> 81f8941 (PBL3-8: Cart)
-=======
->>>>>>> 64b8917 (PBL3-8: Cart)
-                        <a href="#" class="heart-icon"><span class="icon_heart_alt"></span></a>
->>>>>>> bde99bb (PBL3-8: Cart)
                         <ul>
                             <li><b>Thương hiệu</b> <span>${desProduct.brand}</span></li>
                             <li><b>Màu sắc</b> <span>${desProduct.color}</span></li>
@@ -175,7 +162,6 @@
     </section>
     <!-- Related Product Section End -->
     <content tag = "script">
-<<<<<<< HEAD
      	<script>
      	$(document).ready(function() {
     		  $('.heart-icon').click(function(event) {
@@ -200,47 +186,41 @@
   		        alert('Có lỗi xảy ra!');
   		      }
   		    });
-    		  });
     		});
-     	</script>
-     </content>
-=======
-    	<script>
-    	
-    	$(document).ready(function() {
-    		  $('.add-cart').click(function(event) {
-    		    event.preventDefault();
-    		    var code = $(this).data("id");
-    		    var quantity = $("#quantity-cart-" +  code).val();
-    		    var url = $(this).attr('href') + "/" + quantity;
-    		    $.ajax({
-    		      url: url,
-    		      type: 'GET',
-    		      success: function(response) {
-    		    	  var jsonObj = JSON.parse(response);
-    		    	  $('.total-quantity').html(jsonObj.TotalQuantity);
-    		    	  $('.total-price-header').html(jsonObj.TotalPrice + '.0đ');
-    		    	  
-    		    	  Toastify({
-    		    		  text: "Thêm vào giỏ hàng thành công!",
-    		    		  duration: 3000,
-    		    		  newWindow: true,
-    		    		  close: true,
-    		    		  gravity: "top", // hiển thị ở trên cùng màn hình
-    		    		  position: "center", // căn giữa theo chiều ngang
-    		    		  backgroundColor: "linear-gradient(to right, #00b09b, #96c93d)",
-    		    		}).showToast();
-    		      },
-    		      error: function(xhr) {
-    		        // Xử lý lỗi khi gửi yêu cầu Ajax.
-    		        alert('Có lỗi xảy ra!');
-    		      }
-    		    });
-    		  });
     		});
+     	$(document).ready(function() {
+  		  $('.add-cart').click(function(event) {
+  		    event.preventDefault();
+  		    var code = $(this).data("id");
+  		    var quantity = $("#quantity-cart-" +  code).val();
+  		    var url = $(this).attr('href') + "/" + quantity;
+  		    $.ajax({
+  		      url: url,
+  		      type: 'GET',
+  		      success: function(response) {
+  		    	  var jsonObj = JSON.parse(response);
+  		    	  $('.total-quantity').html(jsonObj.TotalQuantity);
+  		    	  $('.total-price-header').html(jsonObj.TotalPrice + '.0đ');
+  		    	  
+  		    	  Toastify({
+  		    		  text: "Thêm vào giỏ hàng thành công!",
+  		    		  duration: 3000,
+  		    		  newWindow: true,
+  		    		  close: true,
+  		    		  gravity: "top", // hiển thị ở trên cùng màn hình
+  		    		  position: "center", // căn giữa theo chiều ngang
+  		    		  backgroundColor: "linear-gradient(to right, #00b09b, #96c93d)",
+  		    		}).showToast();
+  		      },
+  		      error: function(xhr) {
+  		        // Xử lý lỗi khi gửi yêu cầu Ajax.
+  		        alert('Có lỗi xảy ra!');
+  		      }
+  		    });
+  		  });
+  		});
     	</script>
     </content>
->>>>>>> 81f8941 (PBL3-8: Cart)
 </body>
 
 </html>
