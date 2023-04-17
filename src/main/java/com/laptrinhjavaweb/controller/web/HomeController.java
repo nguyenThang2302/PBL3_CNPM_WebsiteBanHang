@@ -34,19 +34,21 @@ public class HomeController extends BaseController {
 		return mav;
 	}
 
-	
 	@RequestMapping(value = "/{code}", method = RequestMethod.GET)
-	public String DescriptionProduct1(@PathVariable String code) {
+	public String DescriptionProduct1(@PathVariable String code, Model m) {
 		Departments departments = adminService.findSlugNameByCode(code);
+		m.addAttribute("departments", departments);
 		return "redirect:/sanpham/"+departments.getSlug_name()+"/"+code;
 	}
 	
 	@RequestMapping(value = "sanpham/{slug_name}/{code}", method = RequestMethod.GET)
 	public String ShowDescriptionProduct(@PathVariable String code, @PathVariable String slug_name, Model m) {
+		Departments departmentsSlugName = adminService.findSlugNameByCode(code);
 		DescriptionProduct desProduct= adminService.findProductDescription(code);
 		Products products = homeService.findByCode(code);
 		m.addAttribute("products",products);
 		m.addAttribute("desProduct",desProduct);
+		m.addAttribute("departmentsSlugName", departmentsSlugName);
 		return "web/descriptionproduct";
 	}
 }

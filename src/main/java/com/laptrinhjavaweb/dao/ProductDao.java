@@ -82,4 +82,10 @@ public class ProductDao {
 		list = _jdbcTemplate.query(sql, new MapperProducts(), id);
 		return list;
 	}
+	
+	public Products findProductById(int id) {
+		String sql = "select * from products where id = "+id+"";
+		Products product = _jdbcTemplate.queryForObject(sql, new MapperProducts());
+		return product;
+	}
 }

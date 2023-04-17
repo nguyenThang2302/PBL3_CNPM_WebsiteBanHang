@@ -1,5 +1,6 @@
 package com.laptrinhjavaweb.dao;
 
+import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -52,4 +53,18 @@ public class DiscountCodeDao {
 		String sql = "UPDATE discount_codes set name = ?, slug_name = ?, code = ?, percent = ?, amount = ?, valid_date = ? where id = ?";
 		return _jdbcTemplate.update(sql, d.getName(), slug_name, d.getCode(), d.getPercent(), d.getAmount(), d.getValid_date(), d.getId());
 	}
+	
+	public int checkDiscountCode(String code) {
+		String sql = "SELECT COUNT(*) AS count FROM discount_codes WHERE code = ?";
+		 Integer count = _jdbcTemplate.queryForObject(sql, new Object[] { code }, Integer.class);
+		    return count != null ? count.intValue() : 0;
+	}
+	
+	public DiscountCode findByCode(String code) {
+		List<DiscountCode> list = new ArrayList<DiscountCode>();
+		String sql="select * from discount_codes where code = ?";    
+			 return _jdbcTemplate.queryForObject(sql, new Object[]{code},new
+			 BeanPropertyRowMapper<DiscountCode>(DiscountCode.class));
+	}
+	
  }
