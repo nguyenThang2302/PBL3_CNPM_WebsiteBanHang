@@ -84,7 +84,7 @@
                             </div>
                         </div>
                         <a href="#" class="primary-btn">Thêm vào giỏ hàng</a>
-                        <a href="#" class="heart-icon"><span class="icon_heart_alt"></span></a>
+                        <a href="/spring-mvc/san-pham-yeu-thich/${products.code}" class="heart-icon"><span class="icon_heart_alt"></span></a>
                         <ul>
                             <li><b>Thương hiệu</b> <span>${desProduct.brand}</span></li>
                             <li><b>Màu sắc</b> <span>${desProduct.color}</span></li>
@@ -160,6 +160,35 @@
         </div>
     </section>
     <!-- Related Product Section End -->
+    <content tag = "script">
+     	<script>
+     	$(document).ready(function() {
+    		  $('.heart-icon').click(function(event) {
+    		    event.preventDefault();
+    		    var url = $(this).attr('href');
+    		  $.ajax({
+  		      url: url,
+  		      type: 'GET',
+  		      success: function(response) {	  		    	  
+  		    	  Toastify({
+  		    		  text: "Bạn đã thích sản phẩm này!",
+  		    		  duration: 3000,
+  		    		  newWindow: true,
+  		    		  close: true,
+  		    		  gravity: "top", // hiển thị ở trên cùng màn hình
+  		    		  position: "center", // căn giữa theo chiều ngang
+  		    		  backgroundColor: "linear-gradient(to right, #00b09b, #96c93d)",
+  		    		}).showToast();
+  		      },
+  		      error: function(xhr) {
+  		        // Xử lý lỗi khi gửi yêu cầu Ajax.
+  		        alert('Có lỗi xảy ra!');
+  		      }
+  		    });
+    		  });
+    		});
+     	</script>
+     </content>
 </body>
 
 </html>

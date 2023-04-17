@@ -5,12 +5,12 @@
 <html lang="zxx">
 
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta charset="UTF-8">
     <meta name="description" content="Ogani Template">
     <meta name="keywords" content="Ogani, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Ogani | Trang Chủ</title>
+    <title>Ogani | Sản phẩm yêu thích</title>
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
@@ -36,9 +36,6 @@
     />
     <!-- MDB -->
     <link rel="stylesheet" href="<c:url value='/template/web/css/mdb.min.css'/>" type="text/css">
-    
-    <link href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css" rel="stylesheet">
-    <dec:head></dec:head>
 </head>
 
 <body>
@@ -62,7 +59,7 @@
 	<script src="<c:url value='/template/web/js/owl.carousel.min.js'/>"></script>
     <script src="<c:url value='/template/web/js/main.js'/>"></script>
     
-    <!-- MDB -->
+        <!-- MDB -->
     <script src="<c:url value='/template/web/js/mdb.min.js'/>"></script>
     <!-- Custom scripts -->
     <script type="text/javascript"></script>
@@ -70,7 +67,7 @@
     <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.js"></script>
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <dec:getProperty property="page.script"></dec:getProperty>
+	<dec:getProperty property="page.script"></dec:getProperty>
 </body>
 
 </html>

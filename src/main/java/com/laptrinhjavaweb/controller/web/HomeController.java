@@ -43,7 +43,6 @@ public class HomeController extends BaseController {
 	
 	@RequestMapping(value = "sanpham/{slug_name}/{code}", method = RequestMethod.GET)
 	public String ShowDescriptionProduct(@PathVariable String code, @PathVariable String slug_name, Model m) {
-		System.out.print("Hello");
 		DescriptionProduct desProduct= adminService.findProductDescription(code);
 		Products products = homeService.findByCode(code);
 		m.addAttribute("products",products);

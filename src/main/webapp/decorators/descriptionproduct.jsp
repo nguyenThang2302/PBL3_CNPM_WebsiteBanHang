@@ -36,6 +36,7 @@
     />
     <!-- MDB -->
     <link rel="stylesheet" href="<c:url value='/template/web/css/mdb.min.css'/>" type="text/css">
+    <link href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css" rel="stylesheet">
     <dec:head></dec:head>
 </head>
 
@@ -62,8 +63,12 @@
     
     <!-- MDB -->
     <script src="<c:url value='/template/web/js/mdb.min.js'/>"></script>
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <!-- Custom scripts -->
     <script type="text/javascript"></script>
+    <dec:getProperty property="page.script"></dec:getProperty>
 </body>
 
 </html>
