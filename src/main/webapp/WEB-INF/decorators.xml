@@ -72,4 +72,8 @@
     <decorator name="ma-giam-gia" page="discountcode.jsp">
        <pattern>/ma-giam-gia</pattern>
     </decorator>
+    
+    <decorator name="san-pham-yeu-thich" page="favouriteproduct.jsp">
+       <pattern>/san-pham-yeu-thich</pattern>
+    </decorator>
 </decorators>
