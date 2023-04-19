@@ -115,13 +115,13 @@ body {
 			<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
 				<div class="form-group">
 					<form:label for="fullName" path="name">Full Name</form:label>
-					<form:input type="text" class="form-control" id="fullName" placeholder="${ LoginInfor.name }" path="name"/>
+					<form:input type="text" class="form-control" id="fullName" value="${ LoginInfor.name }" path="name"/>
 				</div>
 			</div>
 			<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
 				<div class="form-group">
 					<form:label for="eMail" path="email">Email</form:label>
-					<form:input type="email" class="form-control" id="eMail" placeholder="${ LoginInfor.email }" path="email"/>
+					<form:input type="email" class="form-control" id="eMail" value="${ LoginInfor.email }" path="email"/>
 				</div>
 			</div>
 			<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
@@ -131,7 +131,7 @@ body {
 					<form:input type="text" class="form-control" id="phone" placeholder="Enter your phone" path="phone"/>
 					</c:if>
 					<c:if test = "${ not empty LoginInfor.phone }">
-					<form:input type="text" class="form-control" id="phone" placeholder="${ LoginInfor.phone }" path="phone"/>
+					<form:input type="text" class="form-control" id="phone" value="${ LoginInfor.phone }" path="phone"/>
 					</c:if>
 				</div>
 			</div>
@@ -142,7 +142,7 @@ body {
 					<form:input type="name" class="form-control" id="address" placeholder="Enter your address" path="address"/>
 					</c:if>
 					<c:if test = "${ not empty LoginInfor.address }">
-					<form:input type="name" class="form-control" id="address" placeholder="${ LoginInfor.address }" path="address"/>
+					<form:input type="name" class="form-control" id="address" value="${ LoginInfor.address }" path="address"/>
 					</c:if>
 				</div>
 			</div>
