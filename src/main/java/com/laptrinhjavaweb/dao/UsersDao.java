@@ -34,10 +34,20 @@ public class UsersDao extends BaseDao{
 	    return result;
 	};
 	
+	public Users getUserByUserCode(String user_code) {
+	    String sql = "SELECT * FROM users WHERE user_code = ?";
+	    Users result = _jdbcTemplate.queryForObject(sql, new Object[]{user_code}, new MapperUsers());
+	    return result;
+	};
+	
 	public boolean isUserExists(String email) {
 	    String sql = "SELECT COUNT(*) FROM users WHERE email = ?";
 	    int count = _jdbcTemplate.queryForObject(sql, new Object[] {email}, Integer.class);
 	    return count > 0;
 	}
-
+	
+	public void updateUser(Users user) {
+	    String sql = "UPDATE users SET name=?, email=?, phone=?, address=? WHERE user_code=?";
+	    _jdbcTemplate.update(sql, user.getName(), user.getEmail(), user.getPhone(), user.getAddress(), user.getUser_code());
+	}
 }

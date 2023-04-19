@@ -45,7 +45,7 @@
   <div class="tab-pane fade show active" id="pills-login" role="tabpanel" aria-labelledby="tab-login">
     <form:form action="hoan-thanh" method="post" modelAttribute="user"> 
       <div class="text-center mb-3">
-            <a href="/spring-mvc/trang-chu"><img src="<c:url value='/template/web/img/logo.png'/>"alt=""></a>
+            <a href="/spring-mvc/trang-chu"><img src="<c:url value='/template/web/img/logo2.png'/>"alt=""></a>
       </div>
 
       <!-- Email input -->

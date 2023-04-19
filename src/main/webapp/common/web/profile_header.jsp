@@ -150,10 +150,10 @@
                 <div class="col-lg-3">
                     <div class="header__cart">
                         <ul>
-						<li><a href="/spring-mvc/san-pham-yeu-thich"><i class="fa fa-heart"></i></a></li>
-						<li><a href="/spring-mvc/gio-hang"><i class="fa fa-shopping-bag"></i> <span class = "total-quantity">${TotalQuantity}</span></a></li>
-						</ul>
-                        <div class="header__cart__price"><span class = "total-price-header">${TotalPrice}đ</span></div>
+                            <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
+                            <li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
+                        </ul>
+                        <div class="header__cart__price">item: <span>$150.00</span></div>
                     </div>
                 </div>
             </div>
@@ -203,95 +203,30 @@
                             </div>
                         </div>
                     </div>
-				    <!-- Carousel wrapper -->
-				    <div
-				      id="carouselBasicExample"
-				      class="carousel slide carousel-fade"
-				      data-mdb-ride="carousel"
-				    >
-				      <!-- Indicators -->
-				      <div class="carousel-indicators">
-				        <button
-				          type="button"
-				          data-mdb-target="#carouselBasicExample"
-				          data-mdb-slide-to="0"
-				          class="active"
-				          aria-current="true"
-				          aria-label="Slide 1"
-				        ></button>
-				        <button
-				          type="button"
-				          data-mdb-target="#carouselBasicExample"
-				          data-mdb-slide-to="1"
-				          aria-label="Slide 2"
-				        ></button>
-				        <button
-				          type="button"
-				          data-mdb-target="#carouselBasicExample"
-				          data-mdb-slide-to="2"
-				          aria-label="Slide 3"
-				        ></button>
-				      </div>
-				
-				      <!-- Inner -->
-				      <div class="carousel-inner">
-				        <!-- Single item -->
-				        <div class="carousel-item active">
-				          <img
-				            src="<c:url value='/template/web/img/slide1.jpg'/>"
-				            class="d-block w-100"
-				            alt="Sunset Over the City"
-				          />
-				          <div class="carousel-caption d-none d-md-block">
-				          </div>
-				        </div>
-				
-				        <!-- Single item -->
-				        <div class="carousel-item">
-				          <img
-				            src="<c:url value='/template/web/img/slide2.jpg'/>"
-				            class="d-block w-100"
-				            alt="Canyon at Nigh"
-				          />
-				          <div class="carousel-caption d-none d-md-block">
-				          </div>
-				        </div>
-				
-				        <!-- Single item -->
-				        <div class="carousel-item">
-				          <img
-				            src="<c:url value='/template/web/img/slide3.jpg'/>"
-				            class="d-block w-100"
-				            alt="Cliff Above a Stormy Sea"
-				          />
-				          <div class="carousel-caption d-none d-md-block">
-				        </div>
-				      </div>
-				      <!-- Inner -->
-				
-				      <!-- Controls -->
-				      <button
-				        class="carousel-control-prev"
-				        type="button"
-				        data-mdb-target="#carouselBasicExample"
-				        data-mdb-slide="prev"
-				      >
-				        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-				        <span class="visually-hidden">Previous</span>
-				      </button>
-				      <button
-				        class="carousel-control-next"
-				        type="button"
-				        data-mdb-target="#carouselBasicExample"
-				        data-mdb-slide="next"
-				      >
-				        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-				        <span class="visually-hidden">Next</span>
-				      </button>
-				    </div>
-				    <!-- Carousel wrapper -->
+                    <%-- <div class="hero__item set-bg" data-setbg="<c:url value='/template/web/img/posterposter.jpg'/>">
+                        <div class="hero__text">
+                            <a href="/spring-mvc/trang-chu" class="primary-btn">SHOP NOW</a>
+                        </div>
+                    </div> --%>
                 </div>
             </div>
         </div>
     </section>
     <!-- Hero Section End -->
+        <!-- Breadcrumb Section Begin -->
+<%--     <section class="breadcrumb-section set-bg" data-setbg="<c:url value='resources/img/breadcrumb.jpg'/>">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <div class="breadcrumb__text">
+                        <h2>THÔNG TIN NGƯỜI DÙNG</h2>
+                        <div class="breadcrumb__option">
+                            <a href="./index.html">Home</a>
+                            <span>Profile</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Breadcrumb Section End --> --%>

@@ -13,9 +13,11 @@ public class BaseController {
 	HomeServiceImpl _homeService;
 	public ModelAndView _mvShare = new ModelAndView();
 	
-	@PostConstruct
-	public ModelAndView Init () {
-		_mvShare.addObject("products", _homeService.findAllProducts());
-		return _mvShare;
-	}
+
+	  @PostConstruct public ModelAndView Init () { 
+	  _mvShare.addObject("products",
+	  _homeService.findAllProducts());
+	  return _mvShare; 
+	  }
+	 
 }
