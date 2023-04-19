@@ -35,6 +35,12 @@ public class ProfileController extends BaseController {
 		if(currentUser != null) {
 			user.setUser_code(currentUser.getUser_code()); //set user_code for user
 			accountService.updateUserProfile(user); // update user infor
+			
+	        currentUser.setName(user.getName());
+	        currentUser.setEmail(user.getEmail());
+	        currentUser.setPhone(user.getPhone());
+	        currentUser.setAddress(user.getAddress());
+
 			redirectAttributes.addFlashAttribute("successMsg", "Cập nhật thông tin thành công!");
 		}
 		else {

@@ -75,6 +75,12 @@ body {
     border: 0;
     margin-bottom: 1rem;
 }
+.form-infor-user {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 63px;
+}
 </style>
 <div class="container-lg">
 <div class="row gutters">
@@ -100,7 +106,8 @@ body {
 <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12">
 <div class="card h-100">
 	<div class="card-body">
-	<form:form action="cap-nhat-thong-tin" method="post" modelAttribute="user"> 
+	<div class = "form-infor-user">
+		<form:form action="cap-nhat-thong-tin" method="post" modelAttribute="user"> 
 		<div class="row gutters">
 			<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
 				<h6 class="mb-2 text-primary">Personal Details</h6>
@@ -108,62 +115,41 @@ body {
 			<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
 				<div class="form-group">
 					<form:label for="fullName" path="name">Full Name</form:label>
-					<form:input type="text" class="form-control" id="fullName" placeholder="Enter Full Name" path="name"/>
+					<form:input type="text" class="form-control" id="fullName" placeholder="${ LoginInfor.name }" path="name"/>
 				</div>
 			</div>
 			<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
 				<div class="form-group">
 					<form:label for="eMail" path="email">Email</form:label>
-					<form:input type="email" class="form-control" id="eMail" placeholder="Enter email ID" path="email"/>
+					<form:input type="email" class="form-control" id="eMail" placeholder="${ LoginInfor.email }" path="email"/>
 				</div>
 			</div>
 			<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
 				<div class="form-group">
 					<form:label for="phone" path="phone">Phone</form:label>
-					<form:input type="text" class="form-control" id="phone" placeholder="Enter phone number" path="phone"/>
+					<c:if test = "${ empty LoginInfor.phone }">
+					<form:input type="text" class="form-control" id="phone" placeholder="Enter your phone" path="phone"/>
+					</c:if>
+					<c:if test = "${ not empty LoginInfor.phone }">
+					<form:input type="text" class="form-control" id="phone" placeholder="${ LoginInfor.phone }" path="phone"/>
+					</c:if>
 				</div>
 			</div>
 			<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
 				<div class="form-group">
 					<form:label for="address" path="address">Address</form:label>
-					<form:input type="name" class="form-control" id="address" placeholder="Enter address" path="address"/>
-				</div>
-			</div>
-		</div>
-		<div class="row gutters">
-			<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-				<h6 class="mt-3 mb-2 text-primary">Address</h6>
-			</div>
-			<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-				<div class="form-group">
-					<label for="Street">Street</label>
-					<input type="name" class="form-control" id="Street" placeholder="Enter Street">
-				</div>
-			</div>
-			<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-				<div class="form-group">
-					<label for="ciTy">City</label>
-					<input type="name" class="form-control" id="ciTy" placeholder="Enter City">
-				</div>
-			</div>
-			<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-				<div class="form-group">
-					<label for="sTate">State</label>
-					<input type="text" class="form-control" id="sTate" placeholder="Enter State">
-				</div>
-			</div>
-			<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-				<div class="form-group">
-					<label for="zIp">Zip Code</label>
-					<input type="text" class="form-control" id="zIp" placeholder="Zip Code">
+					<c:if test = "${ empty LoginInfor.address }">
+					<form:input type="name" class="form-control" id="address" placeholder="Enter your address" path="address"/>
+					</c:if>
+					<c:if test = "${ not empty LoginInfor.address }">
+					<form:input type="name" class="form-control" id="address" placeholder="${ LoginInfor.address }" path="address"/>
+					</c:if>
 				</div>
 			</div>
 		</div>
 		<div class="row gutters">
 			<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
 				<div class="text-right">
-					<!-- <button type="button" id="submit" name="submit" class="btn btn-secondary">Cancel</button> -->
-					<!-- <button type="button" id="submit" name="submit" class="btn btn-primary" >Update</button> -->
  					<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">CẬP NHẬT</button>
 				</div>
 			</div>
@@ -183,13 +169,13 @@ body {
 		      </div>
 		      <div class="modal-footer">
 		        <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
-		        <!-- <button type="button" class="btn btn-primary">Lưu thay đổi</button> -->
 		        <input type="submit" value="lưu thay đổi" class="btn btn-primary"/>
 		      </div>
 		    </div>
 		  </div>
 		</div>
     	</form:form>
+	</div>
 	</div>
 </div>
 </div>
