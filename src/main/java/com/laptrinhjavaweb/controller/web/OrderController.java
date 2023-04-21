@@ -5,10 +5,13 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.laptrinhjavaweb.entity.Bills;
 import com.laptrinhjavaweb.entity.Users;
 import com.laptrinhjavaweb.service.admin.AdminServiceImpl;
 import com.laptrinhjavaweb.service.web.BillsServiceImpl;
@@ -29,6 +32,15 @@ public class OrderController {
 			String user_code = currentUser.getUser_code();
 			mav.addObject("orders", billsService.findAllBillsByUserCode(user_code));
 		}
+		return mav;
+	}
+	
+	@RequestMapping(value = "/chi-tiet-don-hang/{code}", method = RequestMethod.GET) 
+	public ModelAndView detailOrder(@PathVariable String code, Model m) {
+		ModelAndView mav = new ModelAndView("web/detailorder");
+		m.addAttribute("bills", billsService.findBillsByCode(code));
+		mav.addObject("billproduct", billsService.findProductInBillByCode(code));
+		mav.addObject("departments", adminService.findAll());
 		return mav;
 	}
 }

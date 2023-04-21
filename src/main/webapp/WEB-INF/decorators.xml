@@ -84,4 +84,8 @@
     <decorator name="don-hang" page="order.jsp">
        <pattern>/don-hang</pattern>
     </decorator>
+    
+    <decorator name="chi-tiet-don-hang" page="detailorder.jsp">
+       <pattern>/chi-tiet-don-hang/*</pattern>
+    </decorator>
 </decorators>

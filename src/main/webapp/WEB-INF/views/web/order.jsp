@@ -64,7 +64,7 @@
 				                <td class="shoping__cart__price table-cell">${item.quantity}</td>
 				                <td class="count_favourite table-cell">${item.total_price}đ</td>
 				                <td class="time-created table-cell">${item.created_at}</td>
-				                <td class="detail-order table-cell"><a href="#">Chi tiết >></a></td>
+				                <td class="detail-order table-cell"><a href="chi-tiet-don-hang/${item.code}">Chi tiết >></a></td>
 				                <td class="table-cell"></td>
 				            </tr>
                             </c:forEach>

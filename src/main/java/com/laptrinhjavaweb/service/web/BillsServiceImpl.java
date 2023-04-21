@@ -11,6 +11,7 @@ import com.laptrinhjavaweb.Dto.CartDto;
 import com.laptrinhjavaweb.dao.BillDetailDao;
 import com.laptrinhjavaweb.dao.BillsDao;
 import com.laptrinhjavaweb.entity.BillDetail;
+import com.laptrinhjavaweb.entity.BillProduct;
 import com.laptrinhjavaweb.entity.Bills;
 
 @Service
@@ -41,5 +42,15 @@ public class BillsServiceImpl implements IBillsService {
 	@Override
 	public List<Bills> findAllBillsByUserCode(String user_code) {
 		return billsDao.findAllBillsByUserCode(user_code);
+	}
+	
+	@Override
+	public Bills findBillsByCode(String code) {
+		return billsDao.findBillsByCode(code);
+	}
+	
+	@Override
+	public List<BillProduct> findProductInBillByCode(String bill_code) {
+		return billDetailDao.findProductInBillByCode(bill_code);
 	}
 }

@@ -47,4 +47,10 @@ public class BillsDao {
 		list = _jdbcTemplate.query(sql, new MapperBills(), user_code);
 		return list;
 	}
+	
+	public Bills findBillsByCode(String code) {
+		String sql = "select * from bills where code = ?";
+		return _jdbcTemplate.queryForObject(sql, new Object[]{code},new
+				 BeanPropertyRowMapper<Bills>(Bills.class));
+	}
 }
