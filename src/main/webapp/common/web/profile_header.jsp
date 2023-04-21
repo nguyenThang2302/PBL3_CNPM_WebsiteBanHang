@@ -112,6 +112,7 @@
                                 <span class="arrow_carrot-down"></span>
                                 <ul>
                                     <li><a href="/spring-mvc/thong-tin-nguoi-dung">Tài khoản</a></li>
+                                    <li><a href="/spring-mvc/don-hang">Đơn hàng</a></li>
                     				<li><a href="/spring-mvc/dang-xuat">Đăng xuất</a></li>
                                 </ul>
 							</div>

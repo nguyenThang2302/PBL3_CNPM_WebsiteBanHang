@@ -15,6 +15,7 @@ public class MapperBills implements org.springframework.jdbc.core.RowMapper<Bill
 		sliders.setTotal_price(res.getDouble("total_price"));
 		sliders.setUser_code(res.getString("user_code"));
 		sliders.setNote(res.getString("note"));
+		sliders.setCreated_at(res.getString("created_at"));
 		return sliders;
 	}
 }

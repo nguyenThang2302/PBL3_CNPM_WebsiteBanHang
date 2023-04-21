@@ -1,5 +1,7 @@
 package com.laptrinhjavaweb.dao;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +11,7 @@ import org.springframework.stereotype.Repository;
 
 import com.laptrinhjavaweb.entity.Bills;
 import com.laptrinhjavaweb.entity.Departments;
+import com.laptrinhjavaweb.entity.MapperBills;
 
 @Repository
 public class BillsDao {
@@ -36,5 +39,12 @@ public class BillsDao {
 	public String getLastBillCode() {
 		String sql = "select code from bills where id = (select MAX(id) from bills)";
 		return _jdbcTemplate.queryForObject(sql.toString(), new Object[]{}, String.class);
+	}
+	
+	public List<Bills> findAllBillsByUserCode(String user_code) {
+		List<Bills> list = new ArrayList<Bills>();
+		String sql = "select * from bills where user_code = ?";
+		list = _jdbcTemplate.query(sql, new MapperBills(), user_code);
+		return list;
 	}
 }

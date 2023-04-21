@@ -112,12 +112,10 @@
                                 <span class="arrow_carrot-down"></span>
                                 <ul>
                                     <li><a href="/spring-mvc/thong-tin-nguoi-dung">Tài khoản</a></li>
+                                    <li><a href="/spring-mvc/don-hang">Đơn hàng</a></li>
                     				<li><a href="/spring-mvc/dang-xuat">Đăng xuất</a></li>
                                 </ul>
 							</div>
-<!-- 							<div class="header__top__right__auth">
-								<a href="/spring-mvc/dang-xuat"><i class="fas fa-sign-out-alt"></i>&nbsp;&nbsp;Đăng Xuất</a>
-							</div> -->
 						</c:if>
                         </div>
                     </div>

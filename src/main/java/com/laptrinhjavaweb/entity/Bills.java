@@ -11,13 +11,14 @@ public class Bills {
 	private int quantity;
 	private double total_price;
 	private String note;
+	private String created_at;
 	
 	public Bills() {
 		super();
 	}
 
 	public Bills(int id, String code, String phone, String email, String name, int quantity, double total_price,
-			String note, String address, String user_code) {
+			String note, String address, String user_code, String created_at) {
 		super();
 		this.id = id;
 		this.code = code;
@@ -29,6 +30,7 @@ public class Bills {
 		this.note = note;
 		this.address = address;
 		this.user_code = user_code;
+		this.created_at = created_at;
 	}
 
 	public int getId() {
@@ -110,5 +112,14 @@ public class Bills {
 	public void setUser_code(String user_code) {
 		this.user_code = user_code;
 	}
+
+	public String getCreated_at() {
+		return created_at;
+	}
+
+	public void setCreated_at(String created_at) {
+		this.created_at = created_at;
+	}
+	
 	
 }

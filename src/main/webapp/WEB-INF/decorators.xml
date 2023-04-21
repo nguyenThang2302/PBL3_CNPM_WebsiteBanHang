@@ -80,4 +80,8 @@
     <decorator name="thong-tin-nguoi-dung" page="profile.jsp">
        <pattern>/thong-tin-nguoi-dung</pattern>
     </decorator>
+    
+    <decorator name="don-hang" page="order.jsp">
+       <pattern>/don-hang</pattern>
+    </decorator>
 </decorators>
