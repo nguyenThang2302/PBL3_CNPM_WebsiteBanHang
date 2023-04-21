@@ -69,15 +69,7 @@ public class UserController extends BaseController {
 		}
 		return "redirect:/dang-nhap";
 	}
-	
-	/*
-	 * @RequestMapping(value = "/dang-xuat", method = RequestMethod.GET) public
-	 * String DangXuat(HttpSession session, HttpServletRequest request,
-	 * HttpServletResponse response) { session.removeAttribute("LoginInfor"); return
-	 * "redirect:" + request.getHeader("Referer");
-	 * 
-	 * }
-	 */
+
 	@RequestMapping(value = "/dang-xuat", method = RequestMethod.GET)
 	public String DangXuat(HttpSession session) {
 	    session.removeAttribute("LoginInfor");

@@ -151,7 +151,7 @@
                     <div class="header__cart">
                         <ul>
                             <li><a href="/spring-mvc/san-pham-yeu-thich"><i class="fa fa-heart"></i></a></li>
-						    <li><a href="/spring-mvc/gio-hang"><i class="fa fa-shopping-bag"></i> <span class = "total-quantity">${TotalQuantity}</span></a></li>
+						    <li><a href="/spring-mvc/gio-hang"><i class="fa fa-shopping-cart"></i> <span class = "total-quantity">${TotalQuantity}</span></a></li>
                         </ul>
                         <div class="header__cart__price"><span class = "total-price-header">${TotalPrice}đ</span></div>
                     </div>

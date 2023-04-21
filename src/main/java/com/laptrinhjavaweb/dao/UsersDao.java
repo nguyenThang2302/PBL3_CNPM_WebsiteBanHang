@@ -28,6 +28,11 @@ public class UsersDao extends BaseDao{
 		return insert;
 	};
 	
+	public int InsertGuest(String guest_code) {
+		String sql = "INSERT INTO users (user_code) VALUES (?)";
+		return _jdbcTemplate.update(sql, guest_code);
+	}
+	
 	public Users getUserByAcc(Users user) {
 	    String sql = "SELECT * FROM users WHERE email = ?";
 	    Users result = _jdbcTemplate.queryForObject(sql, new Object[]{user.getEmail()}, new MapperUsers());

@@ -32,10 +32,11 @@ public class CartController extends BaseController {
 	AdminServiceImpl adminService;
 	
 	@RequestMapping(value = "/gio-hang", method = RequestMethod.GET)
-	public ModelAndView registerPage() {
+	public ModelAndView registerPage(HttpSession session) {
 		ModelAndView mav = new ModelAndView("web/cart");
 		mav.addObject("discountCodes", adminService.findAllDiscountCode());
 		mav.addObject("departments", adminService.findAll());
+		session.setAttribute("PercentDiscount", 0);
 		return mav;
 	}
 	
@@ -47,6 +48,7 @@ public class CartController extends BaseController {
 			cart = new HashMap<String, CartDto>();
 		}
 		session.setAttribute("TotalPrice", cartService.TotalPrice(cart));
+		session.setAttribute("PercentDiscount", discountcode.getPercent());
 		Map<String, Object> result = new HashMap<>();
 		double tempTotalPrice = cartService.TotalPrice(cart);
 		result.put("TotalPrice", cartService.TotalPrice(cart));

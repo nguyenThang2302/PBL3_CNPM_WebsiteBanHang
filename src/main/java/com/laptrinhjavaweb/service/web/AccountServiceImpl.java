@@ -20,6 +20,11 @@ public class AccountServiceImpl implements IAccountService {
 	        return usersDao.AddAccount(user);
 	    }
 	}
+	
+	@Override
+	public int InsertGuest(String guest_code) {
+		return usersDao.InsertGuest(guest_code);
+	}
 
 	@Override
 	public Users CheckAccount(Users user) {

@@ -101,7 +101,7 @@
                                         ${ item.value.totalPrice }đ
                                     </td>
                                     <td class="shoping__cart__item__close">
-                                    	<a class = "delete-cart" data-id = "${item.value.product.code}"  href = "xoa-khoi-gio-hang/${ item.value.product.code }"><span class="icon_close"></span></a>
+                                    	<a id = "btn-delete-cart" class = "delete-cart" data-id = "${item.value.product.code}"  href = "xoa-khoi-gio-hang/${ item.value.product.code }"><span class="icon_close"></span></a>
                                     </td>
                                 </tr>
                             	</c:forEach>
@@ -128,7 +128,7 @@
 							        <option value="${item.code}">${item.name}</option>
 							        </c:forEach>
     							</select>
-                                <button type="submit" class="site-btn" onclick="updateAction()">Áp dụng</button>
+                                <button id = "btn-apply-discount" type="submit" class="site-btn" onclick="updateAction()">Áp dụng</button>
                             </form>
                         </div>
                     </div>
@@ -144,7 +144,16 @@
                             <li>Giảm <span class = "total-price-discount">Chưa áp dụng mã giảm giá</span></li>
                             <li>Tổng tiền giỏ hàng <span class = "total-price-cart">${TotalPrice}đ</span></li>
                         </ul>
-                        <a href="#" class="primary-btn">Tiến hành thanh toán</a>
+                        <c:choose>
+						    <c:when test="${ empty Cart }">
+						        <a href="#" class="primary-btn btn-checkout disabled" id="checkout-button">Tiến hành thanh toán</a>
+						    </c:when>
+						    <c:otherwise>
+						        <!-- <a href="thanh-toan" class="primary-btn btn-checkout">Tiến hành thanh toán</a> -->
+						        <!-- <a href="javascript:window.location.href='thanh-toan?redirect=' + encodeURIComponent(window.location.href);" class="primary-btn btn-checkout">Tiến hành thanh toán</a> -->
+						        <a href="thanh-toan?redirect=<%= java.net.URLEncoder.encode(request.getRequestURL().toString(), "UTF-8") %>&secret_key=pbl3_cnpm" class="primary-btn btn-checkout">Tiến hành thanh toán</a>
+						    </c:otherwise>
+						</c:choose>
                     </div>
                 </div>
             </div>
@@ -232,6 +241,9 @@
 		      type: 'GET',
 		      success: function(response) {
 		    	  var jsonObj = JSON.parse(response);
+		    	  if( jsonObj.TotalPrice == 0) {
+		    		  location.reload();
+		    	  }
 		    	  $('.cart-product-' + jsonObj.deletedCode).remove();
 		    	  $('.total-price').html(jsonObj.TotalPrice + '.0đ');
 		    	  $('.total-quantity').html(jsonObj.TotalQuantity);
@@ -292,6 +304,48 @@
     			    });
     		    });
     		  });
+    	
+    	 document.getElementById("checkout-button").addEventListener("click", function(event) {
+    	        if (${empty Cart}) {
+    	            event.preventDefault(); // Ngăn chặn hành động mặc định của nút thanh toán
+    	            Toastify({
+    	                text: "Giỏ hàng của bạn đang trống!",
+    	                duration: 3000,
+    	                newWindow: true,
+    	                close: true,
+    	                gravity: "top",
+    	                position: "center",
+    	                backgroundColor: "linear-gradient(to right, #00b09b, #96c93d)",
+    	          }).showToast(); // Hiển thị thông báo
+    	        }
+    	    });
+    	 
+    	 document.getElementById("btn-apply-discount").addEventListener("click", function(event) {
+    		 var discountCode = document.getElementById("discount-code").value;
+   		     if (!discountCode) {
+   			    Toastify({
+  	                text: "Bạn chưa chọn mã giảm giá!",
+  	                duration: 3000,
+  	                newWindow: true,
+  	                close: true,
+  	                gravity: "top",
+  	                position: "center",
+  	                backgroundColor: "linear-gradient(to right, #00b09b, #96c93d)",
+  	          }).showToast(); // Hiển thị thông báo
+   		        return;
+   		      } else if (${empty Cart}) {
+ 	            event.preventDefault(); // Ngăn chặn hành động mặc định của nút thanh toán
+ 	            Toastify({
+ 	                text: "Giỏ hàng của bạn đang trống!",
+ 	                duration: 3000,
+ 	                newWindow: true,
+ 	                close: true,
+ 	                gravity: "top",
+ 	                position: "center",
+ 	                backgroundColor: "linear-gradient(to right, #00b09b, #96c93d)",
+ 	          }).showToast(); // Hiển thị thông báo
+ 	        }
+ 	    });
     	</script>
     </content>
 

@@ -10,4 +10,6 @@ public interface IAccountService {
 	public int AddAccount(Users user);
 	@Autowired
 	public Users CheckAccount(Users user);
+	@Autowired
+	public int InsertGuest(String guest_code);
 }
