@@ -41,8 +41,22 @@ public class BillNotificationDao {
 	}
 	
 	public Bills findBillUnconfirmedByCode(String code) {
-		String sql = "select code, status, quantity, total_price, created_at from bills inner join bills_notification on bills.code = bills_notification.bill_code where bills.code = ?";
-		return _jdbcTemplate.queryForObject(sql, new Object[]{code},new
-				 BeanPropertyRowMapper<Bills>(Bills.class));
+		String sql = "select * from bills where code = ? and status = 'Chờ xác nhận'";
+		List<Bills> bills = _jdbcTemplate.query(sql, new Object[]{code}, new BeanPropertyRowMapper<>(Bills.class));
+	    if (bills.isEmpty()) {
+	        return null;
+	    } else {
+	        return bills.get(0);
+	    }
+	}
+	
+	public Bills findBillComfirmedByCode(String code) {
+		String sql = "select * from bills where code = ? and status = 'Đã xác nhận'";
+		List<Bills> bills = _jdbcTemplate.query(sql, new Object[]{code}, new BeanPropertyRowMapper<>(Bills.class));
+	    if (bills.isEmpty()) {
+	        return null;
+	    } else {
+	        return bills.get(0);
+	    }
 	}
 }

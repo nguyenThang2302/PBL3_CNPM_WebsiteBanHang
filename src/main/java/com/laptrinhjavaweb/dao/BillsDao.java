@@ -22,8 +22,8 @@ public class BillsDao {
 		String code = generateOrderCode();
 		b.setCode(code);
 		b.setStatus("Chờ xác nhận");
-		String sql = "INSERT INTO bills (code, user_code, phone, address, email, quantity, total_price, note, status) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
-		return _jdbcTemplate.update(sql, b.getCode(), b.getUser_code(), b.getPhone(), b.getAddress(), b.getEmail(), b.getQuantity(), b.getTotal_price(), b.getNote(), b.getStatus());
+		String sql = "INSERT INTO bills (code, name, user_code, phone, address, email, quantity, total_price, note, status) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+		return _jdbcTemplate.update(sql, b.getCode(), b.getName(), b.getUser_code(), b.getPhone(), b.getAddress(), b.getEmail(), b.getQuantity(), b.getTotal_price(), b.getNote(), b.getStatus());
 	}
 	
 	public String generateOrderCode() {

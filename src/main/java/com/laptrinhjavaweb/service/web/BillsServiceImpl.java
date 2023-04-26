@@ -101,4 +101,9 @@ public class BillsServiceImpl implements IBillsService {
 	public Bills findBillUnconfirmedByCode(String code) {
 		return billNotificationDao.findBillUnconfirmedByCode(code);
 	}
+	
+	@Override
+	public Bills findBillComfirmedByCode(String code) {
+		return billNotificationDao.findBillComfirmedByCode(code);
+	}
 }

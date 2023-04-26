@@ -39,4 +39,6 @@ public interface IBillsService {
 	public List<Bills> findAllBillsConfimred();
 	@Autowired
 	public Bills findBillUnconfirmedByCode(String code);
+	@Autowired
+	public Bills findBillComfirmedByCode(String code);
 }

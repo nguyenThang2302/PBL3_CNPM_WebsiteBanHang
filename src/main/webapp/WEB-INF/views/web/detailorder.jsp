@@ -166,6 +166,7 @@
       <div>
         <p>Khách hàng:</p>
         <p>Mã khách hàng: ${bills.user_code}</p>
+        <p>Họ và tên: ${bills.name}</p>
         <p>Địa chỉ: ${bills.address}</p>
         <p>Điện thoại: ${bills.phone}</p>
         <p>Email: ${bills.email}</p>

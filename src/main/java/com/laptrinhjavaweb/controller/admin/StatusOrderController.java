@@ -48,15 +48,34 @@ public class StatusOrderController {
 		return mav;
 	}
 	
-	@RequestMapping(value = "/quan-li-don-hang/tim-kiem-don-hang/{code}", method = RequestMethod.GET)
-	public @ResponseBody String searchOrder(HttpServletRequest request, @PathVariable String code) {
+	@RequestMapping(value = "/quan-li-don-hang/tim-kiem-don-hang/da-xac-nhan/{code}", method = RequestMethod.GET)
+	public @ResponseBody String searchOrderConfimred(HttpServletRequest request, @PathVariable String code) {
 		Map<String, Object> result = new HashMap<>();
-			Bills bills = billsService.findBillsByCode(code);
-			result.put("code", bills.getCode());
-			result.put("status", bills.getStatus());
-			result.put("quantity", bills.getQuantity());
-			result.put("total_price", bills.getTotal_price());
-			result.put("created_at", bills.getCreated_at());
+		Bills bills = billsService.findBillComfirmedByCode(code);
+		result.put("code", bills.getCode());
+		result.put("status", bills.getStatus());
+		result.put("quantity", bills.getQuantity());
+		result.put("total_price", bills.getTotal_price());
+		result.put("created_at", bills.getCreated_at());
+		ObjectMapper objectMapper = new ObjectMapper();
+		String json = "";
+		try {
+			json = objectMapper.writeValueAsString(result);
+		} catch(JsonProcessingException e) {
+			e.printStackTrace();
+		}
+		return json;
+	}
+	
+	@RequestMapping(value = "/quan-li-don-hang/tim-kiem-don-hang/cho-xac-nhan/{code}", method = RequestMethod.GET)
+	public @ResponseBody String searchOrderUnonfimred(HttpServletRequest request, @PathVariable String code) {
+		Map<String, Object> result = new HashMap<>();
+		Bills bills = billsService.findBillUnconfirmedByCode(code);
+		result.put("code", bills.getCode());
+		result.put("status", bills.getStatus());
+		result.put("quantity", bills.getQuantity());
+		result.put("total_price", bills.getTotal_price());
+		result.put("created_at", bills.getCreated_at());
 		ObjectMapper objectMapper = new ObjectMapper();
 		String json = "";
 		try {

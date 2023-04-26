@@ -303,7 +303,7 @@ $(document).ready(function(){
 							<h1>Đơn hàng chưa xác nhận</h1>
 						</div>
 					</div>
-					<form id = "search-form" action="tim-kiem-don-hang">
+					<form id = "search-form" action="tim-kiem-don-hang/cho-xac-nhan">
 						<label for="code">Tìm kiếm đơn hàng:</label>
 						<input type="text" id="order-id" name="code" placeholder="Mã đơn hàng...">
 						<input type="submit" value="Tìm kiếm">
@@ -346,14 +346,14 @@ $(document).ready(function(){
   		  $("#search-form").submit(function(event) {
   		    event.preventDefault();
   		    var code = $("#order-id").val();
-  		    var url = "tim-kiem-don-hang/" + code;
+  		    var url = "tim-kiem-don-hang/cho-xac-nhan/" + code;
   		    $.ajax({
   			      url: url,
   			      type: 'GET',
   			      success: function(response) {
   			    	  var jsonObj = JSON.parse(response);
   			    	  console.log(jsonObj.length);
-  			    	  jsonObj.status = "Đã xác nhận";
+  			    	  jsonObj.status = "Chờ xác nhận";
   			    	  $("#bill_row").empty();
 	  			    	    var item = jsonObj;
 	  			    	    var row = "<tr>" +
@@ -363,8 +363,8 @@ $(document).ready(function(){
 	  			    	      "<td>" + item.total_price + "</td>" +
 	  			    	      "<td>" + item.created_at + "</td>" +
 	  			    	      "<td><a href='/spring-mvc/chi-tiet-don-hang/" + item.code + "'>Chi tiết >></a></td>" +
+	  			    	      "<td><a href='xac-nhan-don-hang/" + item.code + "' data-toggle='modal'><img src='https://i.imgur.com/Yhyk8IO.png' style='margin-left:11px;''></img></a></td>" +
 	  			    	      "</tr>";
-	  			    	      "<td>"
 	  			    	    $("#bill_row").append(row);
   			      },
   			      error: function(xhr) {

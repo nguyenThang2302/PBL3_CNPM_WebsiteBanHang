@@ -301,7 +301,7 @@ $(document).ready(function(){
 							<h1>Đơn hàng đã xác nhận</h1>
 						</div>
 					</div>
-					<form id = "search-form" action="tim-kiem-don-hang">
+					<form id = "search-form" action="tim-kiem-don-hang/da-xac-nhan">
 						<label for="code">Tìm kiếm đơn hàng:</label>
 						<input type="text" id="order-id" name="code" placeholder="Mã đơn hàng...">
 						<input type="submit" value="Tìm kiếm">
@@ -340,7 +340,7 @@ $(document).ready(function(){
   		  $("#search-form").submit(function(event) {
   		    event.preventDefault();
   		    var code = $("#order-id").val();
-  		    var url = "tim-kiem-don-hang/" + code;
+  		    var url = "tim-kiem-don-hang/da-xac-nhan/" + code;
   		    $.ajax({
   			      url: url,
   			      type: 'GET',
