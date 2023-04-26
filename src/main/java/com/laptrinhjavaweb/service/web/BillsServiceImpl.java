@@ -9,8 +9,10 @@ import org.springframework.stereotype.Service;
 
 import com.laptrinhjavaweb.Dto.CartDto;
 import com.laptrinhjavaweb.dao.BillDetailDao;
+import com.laptrinhjavaweb.dao.BillNotificationDao;
 import com.laptrinhjavaweb.dao.BillsDao;
 import com.laptrinhjavaweb.entity.BillDetail;
+import com.laptrinhjavaweb.entity.BillNotification;
 import com.laptrinhjavaweb.entity.BillProduct;
 import com.laptrinhjavaweb.entity.Bills;
 
@@ -20,6 +22,8 @@ public class BillsServiceImpl implements IBillsService {
 	private BillsDao billsDao;
 	@Autowired
 	private BillDetailDao billDetailDao;
+	@Autowired
+	private BillNotificationDao billNotificationDao;
 	
 	@Override
 	public int createOneBill(Bills b) {
@@ -28,6 +32,9 @@ public class BillsServiceImpl implements IBillsService {
 	
 	public void AddBillDetail(HashMap<String, CartDto> carts) {
 		String billCode = billsDao.getLastBillCode();
+		BillNotification billNotification = new BillNotification();
+		billNotification.setBill_code(billCode);
+		
 		
 		for(Map.Entry<String, CartDto> itemCart : carts.entrySet()) {
 			BillDetail billDetail = new BillDetail();
@@ -37,6 +44,7 @@ public class BillsServiceImpl implements IBillsService {
 			billDetail.setTotal_price(itemCart.getValue().getTotalPrice());
 			billDetailDao.createBillDetail(billDetail);
 		}
+		billNotificationDao.createBillNotification(billNotification);
 	}
 	
 	@Override
@@ -52,5 +60,45 @@ public class BillsServiceImpl implements IBillsService {
 	@Override
 	public List<BillProduct> findProductInBillByCode(String bill_code) {
 		return billDetailDao.findProductInBillByCode(bill_code);
+	}
+	
+	@Override
+	public int createBillNotification(BillNotification bn) {
+		return billNotificationDao.createBillNotification(bn);
+	}
+	
+	@Override
+	public List<BillNotification> findAllBillNotification() {
+		return billNotificationDao.findAllBillNotification();
+	}
+	
+	@Override
+	public int CountNotification() {
+		return billNotificationDao.CountNotification();
+	}
+	
+	@Override
+	public List<Bills> findAllBillsUnconfimred() {
+		return billsDao.findAllBillsUnconfimred();
+	}
+	
+	@Override
+	public int updateStatusOrder(String code) {
+		return billsDao.updateStatusOrder(code);
+	}
+	
+	@Override
+	public int deleteNotificationByCode(String bill_code) {
+		return billNotificationDao.deleteNotificationByCode(bill_code);
+	}
+	
+	@Override
+	public List<Bills> findAllBillsConfimred() {
+		return billsDao.findAllBillsConfimred();
+	}
+	
+	@Override
+	public Bills findBillUnconfirmedByCode(String code) {
+		return billNotificationDao.findBillUnconfirmedByCode(code);
 	}
 }

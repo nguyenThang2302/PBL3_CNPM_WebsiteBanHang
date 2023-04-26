@@ -9,10 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import com.laptrinhjavaweb.entity.BillDetail;
 import com.laptrinhjavaweb.entity.BillProduct;
-import com.laptrinhjavaweb.entity.Bills;
-import com.laptrinhjavaweb.entity.MapperBillDetail;
 import com.laptrinhjavaweb.entity.MapperBillProduct;
-import com.laptrinhjavaweb.entity.MapperDepartments;
 
 @Repository
 public class BillDetailDao {

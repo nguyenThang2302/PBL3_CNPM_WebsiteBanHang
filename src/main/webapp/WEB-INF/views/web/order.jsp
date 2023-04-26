@@ -50,6 +50,7 @@
                             <thead>
                                 <tr>
                                     <th class="shoping__product table-cell">Mã đơn hàng</th>
+                                    <th class="table-cell">Tình trạng đơn hàng</th>
                                     <th class="table-cell">Số lượng</th>
 						            <th class="table-cell">Tổng tiền đơn hàng</th>
 						            <th class="table-cell">Thời gian tạo đơn hàng</th>
@@ -61,6 +62,7 @@
                              <c:forEach var = "item" items = "${orders}">
                              <tr>
 				                <td class="shoping__cart__item table-cell">${item.code}</td>
+				                <td class="status_order">${item.status}</td>
 				                <td class="shoping__cart__price table-cell">${item.quantity}</td>
 				                <td class="count_favourite table-cell">${item.total_price}đ</td>
 				                <td class="time-created table-cell">${item.created_at}</td>

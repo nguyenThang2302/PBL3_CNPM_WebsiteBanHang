@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.laptrinhjavaweb.Dto.CartDto;
-import com.laptrinhjavaweb.entity.BillDetail;
+import com.laptrinhjavaweb.entity.BillNotification;
 import com.laptrinhjavaweb.entity.BillProduct;
 import com.laptrinhjavaweb.entity.Bills;
 
@@ -23,4 +23,20 @@ public interface IBillsService {
 	public Bills findBillsByCode(String code);
 	@Autowired
 	public List<BillProduct> findProductInBillByCode(String bill_code);
+	@Autowired
+	public int createBillNotification(BillNotification bn);
+	@Autowired
+	public List<BillNotification> findAllBillNotification();
+	@Autowired
+	public int CountNotification();
+	@Autowired
+	public List<Bills> findAllBillsUnconfimred();
+	@Autowired
+	public int updateStatusOrder(String code);
+	@Autowired
+	public int deleteNotificationByCode(String bill_code);
+	@Autowired
+	public List<Bills> findAllBillsConfimred();
+	@Autowired
+	public Bills findBillUnconfirmedByCode(String code);
 }

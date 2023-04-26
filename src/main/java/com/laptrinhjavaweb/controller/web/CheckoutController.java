@@ -73,6 +73,6 @@ public class CheckoutController {
 		session.removeAttribute("Cart");
 		session.setAttribute("TotalPrice", 0);
 	    session.setAttribute("TotalQuantity", 0);
-		return "redirect:gio-hang";
+		return "redirect:don-hang";
 	}
 }

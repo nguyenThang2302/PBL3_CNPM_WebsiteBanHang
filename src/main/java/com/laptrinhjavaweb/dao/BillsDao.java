@@ -21,8 +21,9 @@ public class BillsDao {
 	public int createOneBill(Bills b) {
 		String code = generateOrderCode();
 		b.setCode(code);
-		String sql = "INSERT INTO bills (code, user_code, phone, address, email, quantity, total_price, note) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
-		return _jdbcTemplate.update(sql, b.getCode(), b.getUser_code(), b.getPhone(), b.getAddress(), b.getEmail(), b.getQuantity(), b.getTotal_price(), b.getNote());
+		b.setStatus("Chờ xác nhận");
+		String sql = "INSERT INTO bills (code, user_code, phone, address, email, quantity, total_price, note, status) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+		return _jdbcTemplate.update(sql, b.getCode(), b.getUser_code(), b.getPhone(), b.getAddress(), b.getEmail(), b.getQuantity(), b.getTotal_price(), b.getNote(), b.getStatus());
 	}
 	
 	public String generateOrderCode() {
@@ -43,7 +44,7 @@ public class BillsDao {
 	
 	public List<Bills> findAllBillsByUserCode(String user_code) {
 		List<Bills> list = new ArrayList<Bills>();
-		String sql = "select * from bills where user_code = ?";
+		String sql = "select * from bills where user_code = ? order by created_at DESC";
 		list = _jdbcTemplate.query(sql, new MapperBills(), user_code);
 		return list;
 	}
@@ -53,4 +54,24 @@ public class BillsDao {
 		return _jdbcTemplate.queryForObject(sql, new Object[]{code},new
 				 BeanPropertyRowMapper<Bills>(Bills.class));
 	}
+	
+	public List<Bills> findAllBillsUnconfimred() {
+		List<Bills> list = new ArrayList<Bills>();
+		String sql = "select * from bills where status = 'Chờ xác nhận' order by created_at ASC";
+		list = _jdbcTemplate.query(sql, new MapperBills());
+		return list;
+	}
+	
+	public List<Bills> findAllBillsConfimred() {
+		List<Bills> list = new ArrayList<Bills>();
+		String sql = "select * from bills where status = 'Đã xác nhận' order by created_at ASC";
+		list = _jdbcTemplate.query(sql, new MapperBills());
+		return list;
+	}
+	
+	public int updateStatusOrder(String code) {
+		String sql = "UPDATE bills set status = 'Đã xác nhận' where code = ?";
+		return _jdbcTemplate.update(sql, code);
+	}
+	
 }
