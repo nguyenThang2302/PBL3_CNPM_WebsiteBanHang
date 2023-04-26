@@ -28,9 +28,38 @@
             <i class="bi bi-search"></i>
           </a>
         </li><!-- End Search Icon-->
+        <li class="nav-item dropdown">
+
+          <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
+            <i class="bi bi-bell"></i>
+            <span class="badge bg-primary badge-number">${count_notification}</span>
+          </a><!-- End Notification Icon -->
+
+          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow notifications">
+            <li class="dropdown-header">
+              Bạn đang có thông báo mới
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+            <c:forEach var="item" items = "${billnotification}">
+            	<li class="notification-item">
+					<i class="bi bi-check-circle text-success"></i>
+	              <div>
+	                <h4>Bạn có đơn đặt hàng mới</h4>
+	                <p> Đơn hàng ${item.bill_code} đang chờ xác nhận</p>
+	              </div>
+	            </li>
+	            <li>
+	              <hr class="dropdown-divider">
+	            </li>
+            </c:forEach>
+
+          </ul><!-- End Notification Dropdown Items -->
+
+        </li><!-- End Notification Nav -->
 
         <li class="nav-item dropdown pe-3">
-
           <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
             <span class="d-none d-md-block dropdown-toggle ps-2">Thắng</span>
           </a><!-- End Profile Iamge Icon -->
@@ -116,13 +145,13 @@
         </a>
         <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="forms-elements.html">
-              <i class="bi bi-circle"></i><span>Thành viên</span>
+            <a href="quan-li-don-hang/chua-xac-nhan">
+              <i class="bi bi-circle"></i><span>Chưa xác nhận</span>
             </a>
           </li>
           <li>
-            <a href="forms-layouts.html">
-              <i class="bi bi-circle"></i><span>Khách hàng</span>
+            <a href="quan-li-don-hang/da-xac-nhan">
+              <i class="bi bi-circle"></i><span>Đã xác nhận</span>
             </a>
           </li>
           <li>

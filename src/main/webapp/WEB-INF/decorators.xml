@@ -80,4 +80,20 @@
     <decorator name="thong-tin-nguoi-dung" page="profile.jsp">
        <pattern>/thong-tin-nguoi-dung</pattern>
     </decorator>
+    
+    <decorator name="don-hang" page="order.jsp">
+       <pattern>/don-hang</pattern>
+    </decorator>
+    
+    <decorator name="chi-tiet-don-hang" page="detailorder.jsp">
+       <pattern>/chi-tiet-don-hang/*</pattern>
+    </decorator>
+    
+    <decorator name="don-hang-chua-xac-nhan" page="unconfimredorder.jsp">
+       <pattern>/quan-li-don-hang/chua-xac-nhan</pattern>
+    </decorator>
+    
+    <decorator name="don-hang-da-xac-nhan" page="confimredorder.jsp">
+       <pattern>/quan-li-don-hang/da-xac-nhan</pattern>
+    </decorator>
 </decorators>

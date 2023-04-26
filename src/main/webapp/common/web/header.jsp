@@ -112,12 +112,10 @@
                                 <span class="arrow_carrot-down"></span>
                                 <ul>
                                     <li><a href="/spring-mvc/thong-tin-nguoi-dung">Tài khoản</a></li>
+                                    <li><a href="/spring-mvc/don-hang">Đơn hàng</a></li>
                     				<li><a href="/spring-mvc/dang-xuat">Đăng xuất</a></li>
                                 </ul>
 							</div>
-<!-- 							<div class="header__top__right__auth">
-								<a href="/spring-mvc/dang-xuat"><i class="fas fa-sign-out-alt"></i>&nbsp;&nbsp;Đăng Xuất</a>
-							</div> -->
 						</c:if>
                         </div>
                     </div>
@@ -151,7 +149,7 @@
                     <div class="header__cart">
                         <ul>
 						<li><a href="/spring-mvc/san-pham-yeu-thich"><i class="fa fa-heart"></i></a></li>
-						<li><a href="/spring-mvc/gio-hang"><i class="fa fa-shopping-bag"></i> <span class = "total-quantity">${TotalQuantity}</span></a></li>
+						<li><a href="/spring-mvc/gio-hang"><i class="fa fa-shopping-cart"></i> <span class = "total-quantity">${TotalQuantity}</span></a></li>
 						</ul>
                         <div class="header__cart__price"><span class = "total-price-header">${TotalPrice}đ</span></div>
                     </div>

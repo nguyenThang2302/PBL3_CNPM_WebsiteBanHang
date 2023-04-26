@@ -10,7 +10,7 @@ public class CartDto {
 	public CartDto() {
 	}
 	
-	public CartDto(int quantity, double totalPrice, Products product) {
+	public CartDto(int quantity, double totalPrice, Products product, double totalPriceDiscount) {
 		this.quantity = quantity;
 		this.totalPrice = totalPrice;
 		this.product = product;
@@ -34,4 +34,5 @@ public class CartDto {
 	public void setProduct(Products product) {
 		this.product = product;
 	}
+	
 }
