@@ -12,7 +12,9 @@ import com.laptrinhjavaweb.entity.Departments;
 import com.laptrinhjavaweb.entity.DescriptionProduct;
 import com.laptrinhjavaweb.entity.Products;
 import com.laptrinhjavaweb.service.admin.AdminServiceImpl;
+import com.laptrinhjavaweb.service.web.FavouriteProductServiceImpl;
 import com.laptrinhjavaweb.service.web.HomeServiceImpl;
+import com.laptrinhjavaweb.service.web.ProductDescriptionServiceImpl;
 
 @Controller(value = "shoppingControllerOfWeb")
 public class ShoppingController {
@@ -20,6 +22,10 @@ public class ShoppingController {
 	HomeServiceImpl homeService;
 	@Autowired
 	AdminServiceImpl adminService;
+	@Autowired
+	FavouriteProductServiceImpl favouriteProductService;
+	@Autowired
+	ProductDescriptionServiceImpl productDescriptionService;
 	
 	@RequestMapping(value = "/danh-muc-san-pham/{slug_name}", method = RequestMethod.GET)
 	public ModelAndView shoppingProduct(@PathVariable String slug_name, Model m) {
@@ -27,6 +33,7 @@ public class ShoppingController {
 		Departments departmentsSlugName  = adminService.findBySlugName(slug_name);
 		m.addAttribute("departmentsSlugName", departmentsSlugName);
 		mav.addObject("departments", adminService.findAll());
+		mav.addObject("top_products", productDescriptionService.findAllProductTop(slug_name));
 		mav.addObject("products", homeService.findByDepartmentId(departmentsSlugName.getId()));
 		return mav;
 	}

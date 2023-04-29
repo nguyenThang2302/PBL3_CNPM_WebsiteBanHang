@@ -144,14 +144,14 @@
                         </div>
                         <div class="row">
                             <div class="product__discount__slider owl-carousel">
-                            <c:forEach var = "item" items = "${products}">
+                            <c:forEach var = "item" items = "${top_products}">
                             <div class="col-lg-4">
 	                              <div class="featured__item">
 			                        <div class="featured__item__pic set-bg" data-setbg="${item.image}">
 			                            <ul class="featured__item__pic__hover">
-			                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
+			                                <li><a class = "add_favourite_product" href="/spring-mvc/san-pham-yeu-thich/${item.code}"><i class="fa fa-heart"></i></a></li>
 			                                <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-			                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+			                                <li><a class = "add-cart" href="/spring-mvc/them-vao-gio-hang/${item.code}"><i class="fa fa-shopping-cart"></i></a></li>
 			                            </ul>
 			                        </div>
 			                        <div class="featured__item__text">
@@ -197,6 +197,65 @@
         </div>
     </section>
     <!-- Product Section End -->
+    <content tag = "script">
+     <script>
+     	$(document).ready(function() {
+    		  $('.add_favourite_product').click(function(event) {
+    		    event.preventDefault();
+    		    var url = $(this).attr('href');
+    		  $.ajax({
+  		      url: url,
+  		      type: 'GET',
+  		      success: function(response) {	  		    	  
+  		    	  Toastify({
+  		    		  text: "Bạn đã thích sản phẩm này!",
+  		    		  duration: 3000,
+  		    		  newWindow: true,
+  		    		  close: true,
+  		    		  gravity: "top", // hiển thị ở trên cùng màn hình
+  		    		  position: "center", // căn giữa theo chiều ngang
+  		    		  backgroundColor: "linear-gradient(to right, #00b09b, #96c93d)",
+  		    		}).showToast();
+  		      },
+  		      error: function(xhr) {
+  		        // Xử lý lỗi khi gửi yêu cầu Ajax.
+  		        alert('Có lỗi xảy ra!');
+  		      }
+  		    });
+    		  });
+    		});
+    	$(document).ready(function() {
+  		  $('.add-cart').click(function(event) {
+  		    event.preventDefault();
+  		    var url = $(this).attr('href');
+  		  	var code = $(this).attr('href').split('/').pop();
+  		  $.ajax({
+		      url: url,
+		      type: 'GET',
+		      success: function(response) {	
+		    	  var jsonObj = JSON.parse(response);
+		    	  $('.total-quantity').html(jsonObj.TotalQuantity);
+		    	  $('.total-price-header').html(jsonObj.TotalPrice + '.0đ');
+		    	  
+		    	  Toastify({
+		    		  text: "Thêm vào giỏ hàng thành công!",
+		    		  duration: 3000,
+		    		  newWindow: true,
+		    		  close: true,
+		    		  gravity: "top", // hiển thị ở trên cùng màn hình
+		    		  position: "center", // căn giữa theo chiều ngang
+		    		  backgroundColor: "linear-gradient(to right, #00b09b, #96c93d)",
+		    		}).showToast();
+		      },
+		      error: function(xhr) {
+		        // Xử lý lỗi khi gửi yêu cầu Ajax.
+		        alert('Có lỗi xảy ra!');
+		      }
+		    });
+  		  });
+  		});
+    	</script>
+    </content>
 </body>
 
 </html>
