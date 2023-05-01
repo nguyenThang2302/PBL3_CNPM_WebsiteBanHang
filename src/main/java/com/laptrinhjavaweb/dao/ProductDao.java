@@ -110,4 +110,14 @@ public class ProductDao {
 		list = _jdbcTemplate.query(sql, new MapperProducts(), slug_name);
 		return list;
 	}
+	
+	public List<Products> findAllRelatedProduct(String slug_name) {
+		List<Products> list = new ArrayList<Products>();
+		String sql = "select products.id, products.code, products.department_id, products.name, products.price, products.image\n"
+				+ "from products inner join departments\n"
+				+ "on products.department_id = departments.id\n"
+				+ "where departments.slug_name = ?";
+		list = _jdbcTemplate.query(sql, new MapperProducts(), slug_name);
+		return list;
+	}
 }
