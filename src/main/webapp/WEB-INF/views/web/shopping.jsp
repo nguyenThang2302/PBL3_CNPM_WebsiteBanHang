@@ -120,7 +120,7 @@
                                 <h4>Sản phẩm mới</h4>
                                 <div class="latest-product__slider owl-carousel">
                                     <div class="latest-prdouct__slider__item">
-                                    <c:forEach var = "item" items = "${products}">
+                                    <c:forEach var = "item" items = "${new_products}">
                                     	<a href="/spring-mvc/${item.code}" class="latest-product__item">
                                             <div class="latest-product__item__pic">
                                                 <img src="${item.image}" alt="">
