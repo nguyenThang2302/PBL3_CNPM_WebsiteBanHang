@@ -11,4 +11,6 @@ import com.laptrinhjavaweb.entity.Products;
 public interface IProductDescriptionService {
 	@Autowired
 	public List<Products> findAllProductTop(String slug_name);
+	@Autowired
+	public List<Products> findAllProductsNew(String slug_name);
 }

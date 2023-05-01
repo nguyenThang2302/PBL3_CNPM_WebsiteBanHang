@@ -34,6 +34,7 @@ public class ShoppingController {
 		m.addAttribute("departmentsSlugName", departmentsSlugName);
 		mav.addObject("departments", adminService.findAll());
 		mav.addObject("top_products", productDescriptionService.findAllProductTop(slug_name));
+		mav.addObject("new_products", productDescriptionService.findAllProductsNew(slug_name));
 		mav.addObject("products", homeService.findByDepartmentId(departmentsSlugName.getId()));
 		return mav;
 	}

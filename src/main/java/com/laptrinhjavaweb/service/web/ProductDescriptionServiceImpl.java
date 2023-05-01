@@ -17,4 +17,9 @@ public class ProductDescriptionServiceImpl implements IProductDescriptionService
 	public List<Products> findAllProductTop(String slug_name) {
 		return productDao.findAllProductTop(slug_name);
 	}
+	
+	@Override
+	public List<Products> findAllProductsNew(String slug_name) {
+		return productDao.findAllProductsNew(slug_name);
+	}
 }
