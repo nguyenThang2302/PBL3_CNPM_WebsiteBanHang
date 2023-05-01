@@ -13,4 +13,6 @@ public interface IProductDescriptionService {
 	public List<Products> findAllProductTop(String slug_name);
 	@Autowired
 	public List<Products> findAllProductsNew(String slug_name);
+	@Autowired
+	public List<Products> findAllRelatedProduct(String slug_name);
 }

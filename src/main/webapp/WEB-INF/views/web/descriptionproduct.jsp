@@ -144,15 +144,18 @@
                 </div>
             </div>
             <div class="row">
-            <c:forEach var="item" items ="${departments}">
-            <div class="col-lg-3 col-md-4 col-sm-6">
+            <c:forEach var="item" items ="${related_products}">
+            	<div class="col-lg-3 col-md-4 col-sm-6">
                     <div class="product__item">
-                        <div class="product__item__pic set-bg" data-setbg="">
-                            
+                        <div class="product__item__pic set-bg" data-setbg="${item.image}">
+                            <ul class="product__item__pic__hover">
+                                <li><a href="/spring-mvc/san-pham-yeu-thich/${item.code}" class="heart-icon"><i class="fa fa-heart"></i></a></li>
+                                <li><a href="/spring-mvc/them-vao-gio-hang/${item.code}" class = "add-cart-no-quantity"><i class="fa fa-shopping-cart"></i></a></li>
+                            </ul>
                         </div>
                         <div class="product__item__text">
-                            <h6><a href="#"></a></h6>
-                            <h5></h5>
+                            <h6><a href="/spring-mvc/${item.code}">${item.name}</a></h6>
+                            <h5>${item.price}đ</h5>
                         </div>
                     </div>
                 </div>  
@@ -163,6 +166,36 @@
     <!-- Related Product Section End -->
     <content tag = "script">
      	<script>
+     	$(document).ready(function() {
+    		  $('.add-cart-no-quantity').click(function(event) {
+    		    event.preventDefault();
+    		    var url = $(this).attr('href');
+    		  	var code = $(this).attr('href').split('/').pop();
+    		  $.ajax({
+  		      url: url,
+  		      type: 'GET',
+  		      success: function(response) {	
+  		    	  var jsonObj = JSON.parse(response);
+  		    	  $('.total-quantity').html(jsonObj.TotalQuantity);
+  		    	  $('.total-price-header').html(jsonObj.TotalPrice + '.0đ');
+  		    	  
+  		    	  Toastify({
+  		    		  text: "Thêm vào giỏ hàng thành công!",
+  		    		  duration: 3000,
+  		    		  newWindow: true,
+  		    		  close: true,
+  		    		  gravity: "top", // hiển thị ở trên cùng màn hình
+  		    		  position: "center", // căn giữa theo chiều ngang
+  		    		  backgroundColor: "linear-gradient(to right, #00b09b, #96c93d)",
+  		    		}).showToast();
+  		      },
+  		      error: function(xhr) {
+  		        // Xử lý lỗi khi gửi yêu cầu Ajax.
+  		        alert('Có lỗi xảy ra!');
+  		         }
+  		       });
+    		  });
+    		});
      	$(document).ready(function() {
     		  $('.heart-icon').click(function(event) {
     		    event.preventDefault();

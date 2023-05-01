@@ -17,6 +17,7 @@ import com.laptrinhjavaweb.entity.DescriptionProduct;
 import com.laptrinhjavaweb.entity.Products;
 import com.laptrinhjavaweb.service.admin.AdminServiceImpl;
 import com.laptrinhjavaweb.service.web.HomeServiceImpl;
+import com.laptrinhjavaweb.service.web.ProductDescriptionServiceImpl;
 
 @Controller
 public class HomeController extends BaseController {
@@ -24,6 +25,8 @@ public class HomeController extends BaseController {
 	HomeServiceImpl homeService;
 	@Autowired
 	AdminServiceImpl adminService;
+	@Autowired
+	ProductDescriptionServiceImpl productDescriptionService;
 
 	@RequestMapping(value = "/trang-chu", method = RequestMethod.GET)
 	public ModelAndView homePage() {
@@ -46,9 +49,11 @@ public class HomeController extends BaseController {
 		Departments departmentsSlugName = adminService.findSlugNameByCode(code);
 		DescriptionProduct desProduct= adminService.findProductDescription(code);
 		Products products = homeService.findByCode(code);
+		m.addAttribute("departments", adminService.findAll());
 		m.addAttribute("products",products);
 		m.addAttribute("desProduct",desProduct);
 		m.addAttribute("departmentsSlugName", departmentsSlugName);
+		m.addAttribute("related_products",productDescriptionService.findAllRelatedProduct(slug_name));
 		return "web/descriptionproduct";
 	}
 }

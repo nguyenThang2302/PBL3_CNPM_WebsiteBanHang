@@ -22,4 +22,9 @@ public class ProductDescriptionServiceImpl implements IProductDescriptionService
 	public List<Products> findAllProductsNew(String slug_name) {
 		return productDao.findAllProductsNew(slug_name);
 	}
+	
+	@Override
+	public List<Products> findAllRelatedProduct(String slug_name) {
+		return productDao.findAllRelatedProduct(slug_name);
+	}
 }
