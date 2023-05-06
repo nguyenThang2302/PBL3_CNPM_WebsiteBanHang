@@ -185,9 +185,8 @@
                             <form action="#">
                                 <div class="hero__search__categories">
                                     Tất cả sản phẩm
-                                    <span class="arrow_carrot-down"></span>
                                 </div>
-                                <input type="text" placeholder="Tìm kiếm sản phẩm ...">
+                                <input type="text" placeholder="Tìm kiếm sản phẩm ..." id="search-input">
                                 <button type="submit" class="site-btn">Tìm kiếm</button>
                             </form>
                         </div>
@@ -290,6 +289,7 @@
 				    <!-- Carousel wrapper -->
                 </div>
             </div>
+        </div>
         </div>
     </section>
     <!-- Hero Section End -->

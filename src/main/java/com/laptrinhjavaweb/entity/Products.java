@@ -7,6 +7,7 @@ public class Products {
 	private String image;
 	private String name;
 	private double price;
+	private String search_name;
 
 	public Products() {
 		super();
@@ -58,6 +59,14 @@ public class Products {
 
 	public void setCode(String code) {
 		this.code = code;
+	}
+
+	public String getSearch_name() {
+		return search_name;
+	}
+
+	public void setSearch_name(String search_name) {
+		this.search_name = search_name;
 	}
 	
 }

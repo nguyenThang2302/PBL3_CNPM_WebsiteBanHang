@@ -3,6 +3,7 @@ package com.laptrinhjavaweb.dao;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.commons.lang.StringEscapeUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
@@ -28,9 +29,9 @@ public class ProductDao {
 	
 	public List<Products> findAllProducts() {
 		List<Products> list = new ArrayList<Products>();
-		String sql = "select * from products";
-		list = _jdbcTemplate.query(sql, new MapperProducts());
-		return list;
+	    String sql = "select * from products order by products.id ASC";
+	    list = _jdbcTemplate.query(sql, new MapperProducts());	    
+	    return list;
 	}
 
 	public int deleteOne(String code) {

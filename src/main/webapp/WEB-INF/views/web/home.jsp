@@ -438,6 +438,46 @@
 		    });
   		  });
   		});
+    	
+    	function searchProducts(keyword) {
+    		  return fetch('http://localhost:8080/spring-mvc/api/products')
+    		    .then(res => {
+    		      return res.json();
+    		    })
+    		    .then(products => {
+    		      let result = [];
+    		      let searchWords = keyword.split("-");
+    		      products.forEach(product => {
+    		        let searchName = product.search_name.toLowerCase();
+    		        let matchCount = 0;
+    		        searchWords.forEach(word => {
+    		          if (searchName.includes(word)) {
+    		            matchCount++;
+    		          }
+    		        });
+    		        if (matchCount === searchWords.length) {
+    		          result.push(product);
+    		        }
+    		      });
+    		      return result;
+    		    })
+    		    .catch(err => {
+    		      console.error(err);
+    		    });
+    		}
+
+    		let userInput = prompt("Nhập từ khóa tìm kiếm: ");
+    		searchProducts(userInput.toLowerCase()).then(productsFound => {
+    		  if (productsFound.length > 0) {
+    		    console.log("Sản phẩm được tìm thấy:");
+    		    productsFound.forEach(product => {
+    		      console.log(product.name);
+    		    });
+    		  } else {
+    		    console.log("Không tìm thấy sản phẩm nào phù hợp.");
+    		  }
+    		});
+
     	</script>
     </content>
 </body>
