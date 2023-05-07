@@ -182,12 +182,13 @@
                 <div class="col-lg-9">
                     <div class="hero__search">
                         <div class="hero__search__form">
-                            <form action="#">
+                            <form id = "search_form" action="#">
                                 <div class="hero__search__categories">
                                     Tất cả sản phẩm
                                 </div>
-                                <input type="text" placeholder="Tìm kiếm sản phẩm ..." id="search-input">
+                                <input type="text" placeholder="Tìm kiếm sản phẩm ..." id="search-input" required="required">
                                 <button type="submit" class="site-btn">Tìm kiếm</button>
+                                <div id = "search-result" style="display: block;"></div>
                             </form>
                         </div>
                         <div class="hero__search__phone">
