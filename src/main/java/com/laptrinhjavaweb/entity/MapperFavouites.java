@@ -13,6 +13,7 @@ public class MapperFavouites implements org.springframework.jdbc.core.RowMapper<
 		sliders.setPrice(res.getInt("price"));
 		sliders.setCode(res.getString("code"));
 		sliders.setCount_favourite(res.getInt("count_favourite"));
+		sliders.setImage(res.getString("image"));
 		return sliders;
 	} 
 }
