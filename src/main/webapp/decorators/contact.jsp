@@ -63,6 +63,7 @@
     <script src="<c:url value='/template/web/js/mdb.min.js'/>"></script>
     <!-- Custom scripts -->
     <script type="text/javascript"></script>
+    <dec:getProperty property="page.script"></dec:getProperty>
 </body>
 
 </html>

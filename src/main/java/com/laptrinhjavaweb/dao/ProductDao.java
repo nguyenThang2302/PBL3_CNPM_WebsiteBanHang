@@ -1,15 +1,15 @@
 package com.laptrinhjavaweb.dao;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
-import com.laptrinhjavaweb.entity.Departments;
 import com.laptrinhjavaweb.entity.MapperProducts;
 import com.laptrinhjavaweb.entity.Products;
 
@@ -28,9 +28,9 @@ public class ProductDao {
 	
 	public List<Products> findAllProducts() {
 		List<Products> list = new ArrayList<Products>();
-		String sql = "select * from products";
-		list = _jdbcTemplate.query(sql, new MapperProducts());
-		return list;
+	    String sql = "select * from products order by products.id ASC";
+	    list = _jdbcTemplate.query(sql, new MapperProducts());	    
+	    return list;
 	}
 
 	public int deleteOne(String code) {
@@ -42,9 +42,9 @@ public class ProductDao {
 	}
 
 	public int createOne(Products p, int department_id) {
-		String sql = "INSERT INTO products (code, department_id, name, image, price) VALUES (?, ?, ?, ?, ?)";
-	    int result = _jdbcTemplate.update(sql, p.getCode(), department_id, p.getName(), p.getImage(), p.getPrice());
-	    
+		p.setSearch_name(convertToUnsignedString(p.getName()));
+		String sql = "INSERT INTO products (code, department_id, name, image, price, search_name) VALUES (?, ?, ?, ?, ?, ?)";
+	    int result = _jdbcTemplate.update(sql, p.getCode(), department_id, p.getName(), p.getImage(), p.getPrice(), p.getSearch_name());
 	    String descriptionSql = "INSERT INTO product_descriptions (product_code) VALUES (?)";
 	    _jdbcTemplate.update(descriptionSql, p.getCode());
 	    
@@ -52,8 +52,9 @@ public class ProductDao {
 	}
 	
 	public int updateOne(Products p) {
-		String sql = "UPDATE products set name = ?, image = ?, price = ? where code = ?";
-		return _jdbcTemplate.update(sql, p.getName(), p.getImage(), p.getPrice(), p.getCode());
+		p.setSearch_name(convertToUnsignedString(p.getName()));
+		String sql = "UPDATE products set name = ?, image = ?, price = ?, search_name = ? where code = ?";
+		return _jdbcTemplate.update(sql, p.getName(), p.getImage(), p.getPrice(),p.getSearch_name(), p.getCode());
 	}
 	
 	public Products findById(int id) {
@@ -91,7 +92,7 @@ public class ProductDao {
 	
 	public List<Products> findAllProductTop(String slug_name) {
 		List<Products> list = new ArrayList<Products>();
-		String sql = "select products.id, products.code, products.department_id, products.name, products.price, products.image\n"
+		String sql = "select products.id, products.code, products.department_id, products.name, products.price, products.search_name, products.image\n"
 				+ "from products inner join bills_detail on products.code = bills_detail.product_code\n"
 				+ "inner join departments on products.department_id = departments.id\n"
 				+ "where departments.slug_name = ?\n"
@@ -102,7 +103,7 @@ public class ProductDao {
 	
 	public List<Products> findAllProductsNew(String slug_name) {
 		List<Products> list = new ArrayList<Products>();
-		String sql = "select products.id, products.code, products.department_id, products.name, products.image, products.price\n"
+		String sql = "select products.id, products.code, products.department_id, products.name, products.image, products.price, products.search_name\n"
 				+ "from products inner join departments on products.department_id = departments.id\n"
 				+ "where departments.slug_name = ?\n"
 				+ "order by products.id DESC\n"
@@ -113,11 +114,101 @@ public class ProductDao {
 	
 	public List<Products> findAllRelatedProduct(String slug_name) {
 		List<Products> list = new ArrayList<Products>();
-		String sql = "select products.id, products.code, products.department_id, products.name, products.price, products.image\n"
+		String sql = "select products.id, products.code, products.department_id, products.name, products.price, products.search_name, products.image\n"
 				+ "from products inner join departments\n"
 				+ "on products.department_id = departments.id\n"
 				+ "where departments.slug_name = ?";
 		list = _jdbcTemplate.query(sql, new MapperProducts(), slug_name);
 		return list;
+	}
+	
+	public String convertToUnsignedString(String str) {
+		Map<Character, Character> charMap = new HashMap<>();
+	    charMap.put('à', 'a');
+	    charMap.put('á', 'a');
+	    charMap.put('ả', 'a');
+	    charMap.put('ã', 'a');
+	    charMap.put('ạ', 'a');
+	    charMap.put('ă', 'a');
+	    charMap.put('ằ', 'a');
+	    charMap.put('ắ', 'a');
+	    charMap.put('ẳ', 'a');
+	    charMap.put('ẵ', 'a');
+	    charMap.put('ặ', 'a');
+	    charMap.put('â', 'a');
+	    charMap.put('ầ', 'a');
+	    charMap.put('ấ', 'a');
+	    charMap.put('ẩ', 'a');
+	    charMap.put('ẫ', 'a');
+	    charMap.put('ậ', 'a');
+	    charMap.put('đ', 'd');
+	    charMap.put('è', 'e');
+	    charMap.put('é', 'e');
+	    charMap.put('ẻ', 'e');
+	    charMap.put('ẽ', 'e');
+	    charMap.put('ẹ', 'e');
+	    charMap.put('ê', 'e');
+	    charMap.put('ề', 'e');
+	    charMap.put('ế', 'e');
+	    charMap.put('ể', 'e');
+	    charMap.put('ễ', 'e');
+	    charMap.put('ệ', 'e');
+	    charMap.put('ì', 'i');
+	    charMap.put('í', 'i');
+	    charMap.put('ỉ', 'i');
+	    charMap.put('ĩ', 'i');
+	    charMap.put('ị', 'i');
+	    charMap.put('ò', 'o');
+	    charMap.put('ó', 'o');
+	    charMap.put('ỏ', 'o');
+	    charMap.put('õ', 'o');
+	    charMap.put('ọ', 'o');
+	    charMap.put('ô', 'o');
+	    charMap.put('ồ', 'o');
+	    charMap.put('ố', 'o');
+	    charMap.put('ổ', 'o');
+	    charMap.put('ỗ', 'o');
+	    charMap.put('ộ', 'o');
+	    charMap.put('ơ', 'o');
+	    charMap.put('ờ', 'o');
+	    charMap.put('ớ', 'o');
+	    charMap.put('ở', 'o');
+	    charMap.put('ỡ', 'o');
+	    charMap.put('ợ', 'o');
+	    charMap.put('ù', 'u');
+	    charMap.put('ú', 'u');
+	    charMap.put('ủ', 'u');
+	    charMap.put('ũ', 'u');
+	    charMap.put('ụ', 'u');
+	    charMap.put('ư', 'u');
+	    charMap.put('ừ', 'u');
+	    charMap.put('ứ', 'u');
+	    charMap.put('ử', 'u');
+	    charMap.put('ữ', 'u');
+	    charMap.put('ự', 'u');
+	    charMap.put('ỳ', 'y');
+	    charMap.put('ý', 'y');
+	    charMap.put('ỷ', 'y');
+	    charMap.put('ỹ', 'y');
+	    charMap.put('ỵ', 'y');
+	 // Chuỗi kết quả sau khi chuyển đổi
+	    StringBuilder result = new StringBuilder();
+	    // Duyệt từng ký tự trong chuỗi đầu vào
+	    for (int i = 0; i < str.length(); i++) {
+	        char ch = str.charAt(i);
+	        Character unsignedChar = charMap.get(Character.toLowerCase(ch));
+	        
+	        // Nếu ký tự là tiếng Việt có dấu, thêm ký tự không dấu vào chuỗi kết quả
+	        if (unsignedChar != null) {
+	            result.append(unsignedChar);
+	        }
+	        // Nếu ký tự không phải tiếng Việt có dấu, thêm ký tự đó vào chuỗi kết quả
+	        else {
+	            result.append(ch);
+	        }
+	    }
+	    // Chuyển đổi chuỗi kết quả thành chuỗi viết thường và cách nhau bằng dấu "-"
+	    String unsignedStr = result.toString().toLowerCase().replaceAll("\\s+", "-");
+	    return unsignedStr;
 	}
 }

@@ -15,6 +15,7 @@ public class MapperProducts implements org.springframework.jdbc.core.RowMapper<P
 		sliders.setName(res.getString("name"));
 		sliders.setPrice(res.getDouble("price"));
 		sliders.setDepartment_id(res.getInt("department_id"));
+		sliders.setSearch_name(res.getString("search_name"));
 		return sliders;
 	}
 }
