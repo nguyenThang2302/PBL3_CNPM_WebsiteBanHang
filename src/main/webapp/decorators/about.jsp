@@ -89,6 +89,7 @@
 
   <!-- Template Main JS File -->
   	<script src="<c:url value='/template/web/assets/js/main.js'/>"></script>
+  	<dec:getProperty property="page.script"></dec:getProperty>
     
 </body>
 
