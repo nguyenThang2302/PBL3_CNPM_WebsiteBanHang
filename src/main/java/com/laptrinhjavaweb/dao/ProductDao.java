@@ -10,6 +10,8 @@ import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
+import com.laptrinhjavaweb.entity.Favourites;
+import com.laptrinhjavaweb.entity.MapperFavouites;
 import com.laptrinhjavaweb.entity.MapperProducts;
 import com.laptrinhjavaweb.entity.Products;
 
@@ -119,6 +121,30 @@ public class ProductDao {
 				+ "on products.department_id = departments.id\n"
 				+ "where departments.slug_name = ?";
 		list = _jdbcTemplate.query(sql, new MapperProducts(), slug_name);
+		return list;
+	}
+	
+	public List<Products> findAllNewProductHome() {
+		List<Products> list = new ArrayList<Products>();
+		String sql = "select * from products order by(products.id) DESC limit 3";
+		list = _jdbcTemplate.query(sql, new MapperProducts());
+		return list;
+	}
+	
+	public List<Favourites> findAllFavouriteProductHome() {
+		List<Favourites> list = new ArrayList<Favourites>();
+		String sql = "select distinct name, price, code, count(code) AS count_favourite, image from products inner join favourite_products on products.code = favourite_products.product_code group by name, price, code order by count_favourite DESC limit 3";
+		list = _jdbcTemplate.query(sql, new MapperFavouites());
+		return list;
+	}
+	
+	public List<Products> findAllProductTopHome() {
+		List<Products> list = new ArrayList<Products>();
+		String sql = "select products.id, products.code, products.department_id, products.name, products.price, products.search_name, products.image from products \n"
+				+ "inner join bills_detail on products.code = bills_detail.product_code \n"
+				+ "group by products.code\n"
+				+ "order by count(products.code) DESC limit 3";
+		list = _jdbcTemplate.query(sql, new MapperProducts());
 		return list;
 	}
 	

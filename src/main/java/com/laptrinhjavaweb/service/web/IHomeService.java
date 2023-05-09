@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.laptrinhjavaweb.entity.Departments;
+import com.laptrinhjavaweb.entity.Favourites;
 import com.laptrinhjavaweb.entity.Products;
 import com.laptrinhjavaweb.entity.Trademarks;
 @Service
@@ -30,4 +31,10 @@ public interface IHomeService {
 	public Products findByCode(String code);
 	@Autowired
 	public List<Products> findByDepartmentId(int id);
+	@Autowired
+	public List<Products> findAllNewProductHome();
+	@Autowired
+	public List<Favourites> findAllFavouriteProductHome();
+	@Autowired
+	public List<Products> findAllProductTopHome();
 }

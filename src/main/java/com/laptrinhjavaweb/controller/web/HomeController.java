@@ -46,6 +46,9 @@ public class HomeController extends BaseController {
 		mav.addObject("products", homeService.findAllProducts());
 		mav.addObject("departments", adminService.findAll());
 		mav.addObject("trademarks",homeService.GetDataTradeMark());
+		mav.addObject("new_products", homeService.findAllNewProductHome());
+		mav.addObject("top_products", homeService.findAllProductTopHome());
+		mav.addObject("favourite_products", homeService.findAllFavouriteProductHome());
 		return mav;
 	}
 

@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.laptrinhjavaweb.dao.ProductDao;
 import com.laptrinhjavaweb.dao.TradeMarksDao;
 import com.laptrinhjavaweb.entity.Departments;
+import com.laptrinhjavaweb.entity.Favourites;
 import com.laptrinhjavaweb.entity.Products;
 import com.laptrinhjavaweb.entity.Trademarks;
 @Service
@@ -51,16 +52,34 @@ public class HomeServiceImpl implements IHomeService {
 	public Products findById(int id) {
 		return productDao.findById(id);
 	}
+	
 	@Override
 	public List<Products> getProductById(int id) {
 		return productDao.getProductById(id);
 	}
+	
 	@Override
 	public Products findByCode(String code) {
 		return productDao.findByCode(code);
 	}
+	
 	@Override
 	public List<Products>  findByDepartmentId(int id) {
 		return productDao.findByDepartmentId(id);
+	}
+	
+	@Override
+	public List<Products> findAllNewProductHome() {
+		return productDao.findAllNewProductHome();
+	}
+	
+	@Override
+	public List<Favourites> findAllFavouriteProductHome() {
+		return productDao.findAllFavouriteProductHome();
+	}
+	
+	@Override
+	public List<Products> findAllProductTopHome() {
+		return productDao.findAllProductTopHome();
 	}
 }

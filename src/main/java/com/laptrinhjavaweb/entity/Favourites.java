@@ -5,17 +5,19 @@ public class Favourites {
 	private String code;
 	private double price;
 	private int count_favourite;
+	private String image;
 	
 	public Favourites() {
 		super();
 	}
 
-	public Favourites(String name, String code, double price, int count_favourite) {
+	public Favourites(String name, String code, double price, int count_favourite, String image) {
 		super();
 		this.name = name;
 		this.code = code;
 		this.price = price;
 		this.count_favourite = count_favourite;
+		this.image = image;
 	}
 
 	public String getName() {
@@ -49,4 +51,13 @@ public class Favourites {
 	public void setCount_favourite(int count_favourite) {
 		this.count_favourite = count_favourite;
 	}
+
+	public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
+	}
+	
 }
