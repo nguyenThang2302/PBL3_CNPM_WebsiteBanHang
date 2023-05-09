@@ -15,6 +15,8 @@ import com.laptrinhjavaweb.entity.BillDetail;
 import com.laptrinhjavaweb.entity.BillNotification;
 import com.laptrinhjavaweb.entity.BillProduct;
 import com.laptrinhjavaweb.entity.Bills;
+import com.laptrinhjavaweb.entity.OrderStatistics;
+import com.laptrinhjavaweb.entity.Products;
 
 @Service
 public class BillsServiceImpl implements IBillsService {
@@ -105,5 +107,15 @@ public class BillsServiceImpl implements IBillsService {
 	@Override
 	public Bills findBillComfirmedByCode(String code) {
 		return billNotificationDao.findBillComfirmedByCode(code);
+	}
+	
+	@Override
+	public Products findProductBestSale(String start_date, String end_date) {
+		return billsDao.findProductBestSale(start_date, end_date);
+	}
+	
+	@Override
+	public OrderStatistics findBestInforOrder(String start_date, String end_date) {
+		return billsDao.findBestInforOrder(start_date, end_date);
 	}
 }

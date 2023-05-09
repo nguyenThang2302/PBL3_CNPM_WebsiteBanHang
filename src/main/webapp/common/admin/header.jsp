@@ -155,7 +155,7 @@
             </a>
           </li>
           <li>
-            <a href="forms-editors.html">
+            <a href="quan-li-don-hang/thong-ke">
               <i class="bi bi-circle"></i><span>Thống kê đơn hàng</span>
             </a>
           </li>
