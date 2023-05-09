@@ -96,4 +96,8 @@
     <decorator name="don-hang-da-xac-nhan" page="confimredorder.jsp">
        <pattern>/quan-li-don-hang/da-xac-nhan</pattern>
     </decorator>
+    
+    <decorator name="thong-ke-don-hang" page="orderstatistics.jsp">
+       <pattern>/quan-li-don-hang/thong-ke</pattern>
+    </decorator>
 </decorators>
