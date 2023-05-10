@@ -10,10 +10,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import com.laptrinhjavaweb.entity.Bills;
-import com.laptrinhjavaweb.entity.Departments;
 import com.laptrinhjavaweb.entity.MapperBills;
-import com.laptrinhjavaweb.entity.MapperOrderStatistics;
-import com.laptrinhjavaweb.entity.MapperProducts;
 import com.laptrinhjavaweb.entity.OrderStatistics;
 import com.laptrinhjavaweb.entity.Products;
 
