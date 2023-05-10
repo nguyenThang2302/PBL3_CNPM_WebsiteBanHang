@@ -1,11 +1,15 @@
 package com.laptrinhjavaweb.controller.web;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.laptrinhjavaweb.entity.Departments;
@@ -37,5 +41,17 @@ public class ShoppingController {
 		mav.addObject("new_products", productDescriptionService.findAllProductsNew(slug_name));
 		mav.addObject("products", homeService.findByDepartmentId(departmentsSlugName.getId()));
 		return mav;
+	}
+	
+	@GetMapping("/danh-muc/{slug_name}")
+	public @ResponseBody List<Products> MapperProducts(@PathVariable String slug_name) {
+		List<Products> products = null;
+		if (slug_name.equals("tat-ca-san-pham")) {
+			products = homeService.findAllProducts();
+		} else {
+			Departments departmentsSlugName  = adminService.findBySlugName(slug_name);
+		    products = homeService.findByDepartmentId(departmentsSlugName.getId());
+		}
+	    return products;
 	}
 }

@@ -177,30 +177,28 @@
                 <div class="col-lg-12">
                     <div class="featured__controls">
                         <ul>
-                            <li class="active" data-filter="*">Tất cả</li>
-                            <li data-filter=".oranges">Nồi Chiên Không Dầu</li>
-                            <li data-filter=".fresh-meat">Lò Nướng</li>
-                            <li data-filter=".vegetables">Bếp Các Loại</li>
-                            <li data-filter=".fastfood">Máy Xay Và Máy Ép</li>
+                            <li><a class = "mapper_products" href = "/spring-mvc/danh-muc/tat-ca-san-pham" style="color: #1c1c1c;">Tất cả</a></li>
+                            <li><a class = "mapper_products" href = "/spring-mvc/danh-muc/noi-chien-khong-dau" style="color: #1c1c1c;">Nồi Chiên Không Dầu</a></li>
+                            <li><a class = "mapper_products" href = "/spring-mvc/danh-muc/lo-nuong" style="color: #1c1c1c;">Lò Nướng</a></li>
+                            <li><a class = "mapper_products" href = "/spring-mvc/danh-muc/bep-cac-loai" style="color: #1c1c1c;">Bếp Các Loại</a></li>
+                            <li><a class = "mapper_products" href = "/spring-mvc/danh-muc/may-xay-va-may-ep" style="color: #1c1c1c;">Máy Xay Và Máy Ép</a></li>
                         </ul>
                         <ul>
-                            <li data-filter=".oranges">Quạt Lạnh</li>
-                            <li data-filter=".fresh-meat">Máy Chế Biến Thực Phẩm</li>
-                            <li data-filter=".vegetables">Nồi Cơm Điện Tử</li>
-                            <li data-filter=".fastfood">Gia Dụng Khác</li>
+                        	<li><a class = "mapper_products" href = "/spring-mvc/danh-muc/quat-lanh" style="color: #1c1c1c;">Quạt Lạnh</a></li>
+                        	<li><a class = "mapper_products" href = "/spring-mvc/danh-muc/may-che-bien-thuc-pham" style="color: #1c1c1c;">Máy Chế Biến Thực Phẩm</a></li>
+                        	<li><a class = "mapper_products" href = "/spring-mvc/danh-muc/noi-com-dien-tu" style="color: #1c1c1c;">Nồi Cơm Điện Tử</a></li>
                         </ul>
                     </div>
                 </div>
             </div>
             
-            <div class="row featured__filter">
+            <div class="row featured__filter" id="product-list">
             <c:forEach var="item" items = "${ products }">
              		<div class="col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat">
                     <div class="featured__item">
                         <div class="featured__item__pic set-bg" data-setbg="${item.image}">
                             <ul class="featured__item__pic__hover">
                                 <li><a class = "add_favourite_product" href="san-pham-yeu-thich/${item.code}"><i class="fa fa-heart"></i></a></li>
-                                <li><a href="#"><i class="fa fa-retweet"></i></a></li>
                                 <li><a class = "add-cart" href="/spring-mvc/them-vao-gio-hang/${item.code}"><i class="fa fa-shopping-cart"></i></a></li>
                             </ul>
                         </div>
@@ -315,11 +313,11 @@
   		    		  backgroundColor: "linear-gradient(to right, #00b09b, #96c93d)",
   		    		}).showToast();
   		      },
-  		      error: function(xhr) {
-  		        // Xử lý lỗi khi gửi yêu cầu Ajax.
-  		        alert('Có lỗi xảy ra!');
-  		      }
-  		    });
+	  		      error: function(xhr) {
+	  		        // Xử lý lỗi khi gửi yêu cầu Ajax.
+	  		        alert('Có lỗi xảy ra!');
+	  		      }
+	  		    });
     		  });
     		});
     	$(document).ready(function() {
@@ -454,6 +452,100 @@
     		  if (target !== searchResult && target !== searchInput) {
     		    searchResult.innerHTML = '';
     		  }
+    		});
+    	
+    	$(document).ready(function() {
+    		var productList = document.getElementById('product-list');
+    		  $('.mapper_products').click(function(event) {
+    		    event.preventDefault();
+    		    var url = $(this).attr('href');
+	    		  $.ajax({
+	  		      url: url,
+	  		      type: 'GET',
+	  		      success: function(response) {	
+	  		    	var newProductsHtml = ""; // chuỗi html mới
+	  		        response.forEach(function(item) { // lặp qua các sản phẩm trả về
+	  		        newProductsHtml += "<div class='col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat'>"
+	  		        newProductsHtml += "<div class='featured__item'>"
+	  		        newProductsHtml += "<div class='featured__item__pic set-bg' data-setbg='" + item.image + "'style='background-image: url(&quot;" + item.image + "'&quot;);>"
+	  		        newProductsHtml += "<ul class='featured__item__pic__hover'>"
+	  		        newProductsHtml += "<li><a class = 'add_favourite_product' href='san-pham-yeu-thich/" + item.code + "'><i class='fa fa-heart'></i></a></li>"
+	  		        newProductsHtml += "<li><a class = 'add-cart' href='/spring-mvc/them-vao-gio-hang/" + item.code + "'><i class='fa fa-shopping-cart'></i></a></li>"
+	  		        newProductsHtml += "</ul>"
+	  		    	newProductsHtml += "</div>"
+	  		        newProductsHtml += "<div class='featured__item__text'>"
+	  		        newProductsHtml += "<h6><a href='" +item.code + "'>" + item.name + "</a></h6>"
+	  		        newProductsHtml += "<h5>" + item.price + "đ</h5>"
+	  		        newProductsHtml += "</div>"
+	  		    	newProductsHtml += "</div>"
+	  		    	newProductsHtml += "</div>"
+	  		    		$(document).ready(function() {
+	  		      		  $('.add-cart').click(function(event) {
+	  		      		    event.preventDefault();
+	  		      		    var url = $(this).attr('href');
+	  		      		  	var code = $(this).attr('href').split('/').pop();
+	  		      		  $.ajax({
+	  		    		      url: url,
+	  		    		      type: 'GET',
+	  		    		      success: function(response) {	
+	  		    		    	  var jsonObj = JSON.parse(response);
+	  		    		    	  $('.total-quantity').html(jsonObj.TotalQuantity);
+	  		    		    	  $('.total-price-header').html(jsonObj.TotalPrice + '.0đ');
+	  		    		    	  
+	  		    		    	  Toastify({
+	  		    		    		  text: "Thêm vào giỏ hàng thành công!",
+	  		    		    		  duration: 3000,
+	  		    		    		  newWindow: true,
+	  		    		    		  close: true,
+	  		    		    		  gravity: "top", // hiển thị ở trên cùng màn hình
+	  		    		    		  position: "center", // căn giữa theo chiều ngang
+	  		    		    		  backgroundColor: "linear-gradient(to right, #00b09b, #96c93d)",
+	  		    		    		}).showToast();
+	  		    		    	  
+	  		    		      },
+	  		    		      error: function(xhr) {
+	  		    		        // Xử lý lỗi khi gửi yêu cầu Ajax.
+	  		    		        alert('Có lỗi xảy ra!');
+	  		    		      }
+	  		    		    });
+	  		      		  });
+	  		      		});
+	  		    	
+	  		      $(document).ready(function() {
+	  	    		  $('.add_favourite_product').click(function(event) {
+	  	    		    event.preventDefault();
+	  	    		    var url = $(this).attr('href');
+	  	    		  $.ajax({
+	  	  		      url: url,
+	  	  		      type: 'GET',
+	  	  		      success: function(response) {	  		    	  
+	  	  		    	  Toastify({
+	  	  		    		  text: "Bạn đã thích sản phẩm này!",
+	  	  		    		  duration: 3000,
+	  	  		    		  newWindow: true,
+	  	  		    		  close: true,
+	  	  		    		  gravity: "top", // hiển thị ở trên cùng màn hình
+	  	  		    		  position: "center", // căn giữa theo chiều ngang
+	  	  		    		  backgroundColor: "linear-gradient(to right, #00b09b, #96c93d)",
+	  	  		    		}).showToast();
+	  	  		      },
+	  		  		      error: function(xhr) {
+	  		  		        // Xử lý lỗi khi gửi yêu cầu Ajax.
+	  		  		        alert('Có lỗi xảy ra!');
+	  		  		      }
+	  		  		    });
+	  	    		  });
+	  	    		});
+	  		    });
+	  		    // Cập nhật dữ liệu mới vào giao diện
+	  		    $('.featured__filter').html(newProductsHtml);
+	  		      },
+	  		      error: function(xhr) {
+	  		        // Xử lý lỗi khi gửi yêu cầu Ajax.
+	  		        alert('Có lỗi xảy ra!');
+	  		      }
+	  		    });
+    		  });
     		});
     	</script>
     </content>
