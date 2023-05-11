@@ -82,4 +82,19 @@ public class HomeServiceImpl implements IHomeService {
 	public List<Products> findAllProductTopHome() {
 		return productDao.findAllProductTopHome();
 	}
+	
+	@Override
+	public List<Products> findProductWithDepartmentAndBrand(String brand, String slug_name) {
+		return productDao.findProductWithDepartmentAndBrand(brand, slug_name);
+	}
+	
+	@Override
+	public List<Products> findProductWithAroundPrice(String slug_name, double fromPrice, double toPrice) {
+		return productDao.findProductWithAroundPrice(slug_name, fromPrice, toPrice);
+	}
+	
+	@Override
+	public List<Products> findProductWithDepartmentAndColor(String color, String slug_name) {
+		return productDao.findProductWithDepartmentAndColor(color, slug_name);
+	}
 }

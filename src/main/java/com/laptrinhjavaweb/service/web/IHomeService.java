@@ -37,4 +37,10 @@ public interface IHomeService {
 	public List<Favourites> findAllFavouriteProductHome();
 	@Autowired
 	public List<Products> findAllProductTopHome();
+	@Autowired
+	public List<Products> findProductWithDepartmentAndBrand(String brand, String slug_name);
+	@Autowired
+	public List<Products> findProductWithAroundPrice(String slug_name, double fromPrice, double toPrice);
+	@Autowired
+	public List<Products> findProductWithDepartmentAndColor(String color, String slug_name);
 }

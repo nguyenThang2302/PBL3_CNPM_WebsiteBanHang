@@ -37,6 +37,7 @@ public class ShoppingController {
 		Departments departmentsSlugName  = adminService.findBySlugName(slug_name);
 		m.addAttribute("departmentsSlugName", departmentsSlugName);
 		mav.addObject("departments", adminService.findAll());
+		mav.addObject("trademarks",homeService.GetDataTradeMark());
 		mav.addObject("top_products", productDescriptionService.findAllProductTop(slug_name));
 		mav.addObject("new_products", productDescriptionService.findAllProductsNew(slug_name));
 		mav.addObject("products", homeService.findByDepartmentId(departmentsSlugName.getId()));
@@ -53,5 +54,37 @@ public class ShoppingController {
 		    products = homeService.findByDepartmentId(departmentsSlugName.getId());
 		}
 	    return products;
+	}
+	
+	@GetMapping("/danh-muc-san-pham/{slug_name}/{brand}")
+	public @ResponseBody List<Products> findProductsByBrand(@PathVariable String brand, @PathVariable String slug_name) {
+		List<Products> products = homeService.findProductWithDepartmentAndBrand(brand, slug_name);
+		return products;
+	}
+	
+	@GetMapping("/danh-muc-san-pham/{slug_name}/{fromPrice}/{toPrice}")
+	public @ResponseBody List<Products> findProductsByAroundPrice(@PathVariable String slug_name, @PathVariable double fromPrice, @PathVariable double toPrice) {
+		List<Products> products = homeService.findProductWithAroundPrice(slug_name, fromPrice, toPrice);
+		return products;
+	}
+	
+	@GetMapping("/danh-muc-san-pham/{slug_name}/color/{color}")
+	public @ResponseBody List<Products> findProductsByColor(@PathVariable String color, @PathVariable String slug_name) {
+		String newColor = "";
+		if (color.equals("white")) {
+			newColor = "Trắng";
+		} else if (color.equals("yellow")) {
+			newColor = "Vàng";
+		} else if (color.equals("red")) {
+			newColor = "Đỏ";
+		} else if (color.equals("blue")) {
+			newColor = "Xanh biển";
+		} else if (color.equals("black")) {
+			newColor = "Đen";
+		} else {
+			newColor = "Xanh lá";
+		}
+		List<Products> products = homeService.findProductWithDepartmentAndColor(newColor, slug_name);
+		return products;
 	}
 }
