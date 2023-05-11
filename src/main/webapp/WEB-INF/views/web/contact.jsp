@@ -147,16 +147,19 @@
                     </div>
                 </div>
             </div>
-            <form action="#">
+            <form action="send-message" method="post">
                 <div class="row">
                     <div class="col-lg-6 col-md-6">
-                        <input type="text" placeholder="Tên của bạn">
+                        <input type="text" placeholder="Tên của bạn" name="name" required="required">
                     </div>
                     <div class="col-lg-6 col-md-6">
-                        <input type="text" placeholder="Email của bạn">
+                        <input type="text" placeholder="Số điện thoại của bạn" name="phone" required="required">
+                    </div>
+                    <div class="col-lg-6 col-md-6">
+                        <input type="text" placeholder="Email của bạn" name = "email" required="required">
                     </div>
                     <div class="col-lg-12 text-center">
-                        <textarea placeholder="Lời nhắn của bạn"></textarea>
+                        <textarea placeholder="Lời nhắn của bạn" name = "message" required="required"></textarea>
                         <button type="submit" class="site-btn">GỬI TIN NHẮN</button>
                     </div>
                 </div>
