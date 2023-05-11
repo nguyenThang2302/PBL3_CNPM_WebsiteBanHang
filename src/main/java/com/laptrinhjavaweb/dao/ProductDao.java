@@ -148,6 +148,43 @@ public class ProductDao {
 		return list;
 	}
 	
+	public List<Products> findProductWithDepartmentAndBrand(String brand, String slug_name) {
+		List<Products> list = new ArrayList<Products>();
+		String sql = "select products.id, products.code, products.department_id, products.name, products.price, products.search_name, products.image\n"
+				+ "from products \n"
+				+ "inner join product_descriptions\n"
+				+ "on products.code = product_descriptions.product_code\n"
+				+ "inner join departments\n"
+				+ "on products.department_id = departments.id\n"
+				+ "where product_descriptions.brand = ? AND departments.slug_name = ?";
+		list = _jdbcTemplate.query(sql, new MapperProducts(), brand, slug_name);
+		return list;
+	}
+	
+	public List<Products> findProductWithAroundPrice(String slug_name, double fromPrice, double toPrice) {
+		List<Products> list = new ArrayList<Products>();
+		String sql = "select products.id, products.code, products.department_id, products.name, products.price, products.search_name, products.image\n"
+				+ "from products \n"
+				+ "inner join departments\n"
+				+ "on products.department_id = departments.id\n"
+				+ "where departments.slug_name = ? and products.price between ? and ?";
+		list = _jdbcTemplate.query(sql, new MapperProducts(), slug_name, fromPrice, toPrice);
+		return list;
+	}
+	
+	public List<Products> findProductWithDepartmentAndColor(String color, String slug_name) {
+		List<Products> list = new ArrayList<Products>();
+		String sql = "select products.id, products.code, products.department_id, products.name, products.price, products.search_name, products.image\n"
+				+ "from products \n"
+				+ "inner join product_descriptions\n"
+				+ "on products.code = product_descriptions.product_code\n"
+				+ "inner join departments\n"
+				+ "on products.department_id = departments.id\n"
+				+ "where product_descriptions.color = ? AND departments.slug_name = ?";
+		list = _jdbcTemplate.query(sql, new MapperProducts(), color, slug_name);
+		return list;
+	}
+	
 	public String convertToUnsignedString(String str) {
 		Map<Character, Character> charMap = new HashMap<>();
 	    charMap.put('à', 'a');

@@ -78,6 +78,29 @@
 		  z-index: 999;
 		  margin-left: 180px;
 		}
+		.item_brand {
+		  	border: 1px solid;
+		    padding: 4px;
+		    border-radius: 10px;
+		}
+		.c-btnbox, .item_brand {
+		    align-items: center;
+		    border: 1px solid #e0e0e0;
+		    border-radius: 4px;
+		    color: #333;
+		    display: flex;
+		    font-size: 14px;
+		    justify-content: center;
+		    line-height: 17px;
+		    margin-bottom: 10px;
+		    margin-right: 10px;
+		    padding: 2px;
+		}
+		.filter-list {
+		    display: flex;
+		    flex-wrap: wrap;
+		    margin-left: -32px;
+		}
 </style>
     <!-- Product Section Begin -->
     <section class="product spad">
@@ -87,81 +110,64 @@
                     <div class="sidebar">
                         <div class="sidebar__item">
                             <h4>Giá</h4>
-                            <div class="price-range-wrap">
-                                <div class="price-range ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content"
-                                    data-min="10" data-max="540">
-                                    <div class="ui-slider-range ui-corner-all ui-widget-header"></div>
-                                    <span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default"></span>
-                                    <span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default"></span>
-                                </div>
-                                <div class="range-slider">
-                                    <div class="price-input">
-                                        <input type="text" id="minamount">
-                                        <input type="text" id="maxamount">
-                                    </div>
-                                </div>
-                            </div>
+                            <ul class = "filter-list">
+                            	<li class = "item_price"><a href = "0/1000000" class = "c-btnbox">Dưới 1 triệu</a></li>
+                            	<li class = "item_price"><a href = "1000000/5000000" class = "c-btnbox">Từ 1 đến 5 triệu</a></li>
+                            	<li class = "item_price"><a href = "5000000/90000000" class = "c-btnbox">Từ 5 đến 9 triệu</a></li>
+                            	<li class = "item_price"><a href = "9000000/50000000" class = "c-btnbox">Trên 9 triệu</a></li>
+                            </ul>
                         </div>
                         <div class="sidebar__item sidebar__item__color--option">
                             <h4>Màu sắc</h4>
-                            <div class="sidebar__item__color sidebar__item__color--white">
-                                <label for="white">
-                                    Trắng
-                                    <input type="radio" id="white">
-                                </label>
+                            <!-- <ul class = "filter-list">
+                            	<li><a href = "Trắng" class = "item_color">Màu Trắng</a></li>
+                            	<li><a href = "Vàng" class = "item_color" style="background-color: yellow;">Màu Vàng</a></li>
+                            	<li><a href = "Xám" class = "item_color" style="background-color: gray;">Màu Xám</a></li>
+                            	<li><a href = "Đen" class = "item_color" style="background-color: black; color: white;">Màu Đen</a></li>
+                            	<li><a href = "Đỏ" class = "item_color" style="background-color: #D62D2D; color: white;">Màu Đỏ</a></li>
+                            	<li><a href = "Xanh" class = "item_color" style="background-color: #249BC8; color: white;">Màu Xanh</a></li>
+                            </ul> -->
+                             <div class="sidebar__item__color sidebar__item__color--white">
+                                 <a href = "color/white" class = "item_color" id = "white">
+                                     <label for = "white">Trắng</label>
+                                 </a>
                             </div>
                             <div class="sidebar__item__color sidebar__item__color--gray">
-                                <label for="gray">
-                                    Vàng
-                                    <input type="radio" id="gray">
-                                </label>
+                                <a href = "color/yellow" class = "item_color" id = "gray">
+                                     <label for = "gray">Vàng</label>
+                                </a>
                             </div>
                             <div class="sidebar__item__color sidebar__item__color--red">
-                                <label for="red">
-                                    Đỏ
-                                    <input type="radio" id="red">
-                                </label>
+                                <a href = "color/red" class = "item_color" id = "red">
+                                     <label for = "red">Đỏ</label>
+                                </a>
                             </div>
                             <div class="sidebar__item__color sidebar__item__color--black">
-                                <label for="black">
-                                    Đen
-                                    <input type="radio" id="black">
-                                </label>
+                                <a href = "color/black" class = "item_color" id = "black">
+                                     <label for = "black">Đen</label>
+                                </a>
                             </div>
                             <div class="sidebar__item__color sidebar__item__color--blue">
-                                <label for="blue">
-                                    Xanh biển
-                                    <input type="radio" id="blue">
-                                </label>
+                                <a href = "color/blue" class = "item_color" id = "blue">
+                                     <label for = "blue">Xanh biển</label>
+                                </a>
                             </div>
                             <div class="sidebar__item__color sidebar__item__color--green">
-                                <label for="green">
-                                    Xanh lá
-                                    <input type="radio" id="green">
-                                </label>
+                                <a href = "color/green" class = "item_color" id = "green">
+                                     <label for = "green">Xanh lá</label>
+                                </a>
                             </div>
                         </div>
-                        <div class="sidebar__item">
-                            <h4>Kích cỡ</h4>
-                            <div class="sidebar__item__size">
-                                <label for="large">
-                                    Lớn
-                                    <input type="radio" id="large">
-                                </label>
-                            </div>
-                            <div class="sidebar__item__size">
-                                <label for="medium">
-                                    Trung bình
-                                    <input type="radio" id="medium">
-                                </label>
-                            </div>
-                            <div class="sidebar__item__size">
-                                <label for="small">
-                                    Nhỏ
-                                    <input type="radio" id="small">
-                                </label>
-                            </div>
-                        </div>
+                        	<div class="sidebar__item">
+	                            <h4>Thương Hiệu</h4>
+	                            <ul class = "filter-list">
+	                            	<c:forEach var = "item" items = "${trademarks}">
+		                            	<div class="sidebar__item__size">
+			                                <li class = "item_price"><a href = "${item.name}" class = "item_brand">Hiệu ${item.name}</a></li>
+			                            </div>
+		                            </c:forEach>
+	                            </ul>
+	                        </div>
                         <div class="sidebar__item">
                             <div class="latest-product__text">
                                 <h4>Sản phẩm mới</h4>
@@ -220,15 +226,14 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="row featured__filter">
                     <c:forEach var="item" items = "${ products }">
              		<div class="col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat">
 	                    <div class="featured__item">
 	                        <div class="featured__item__pic set-bg" data-setbg="${item.image}">
 	                            <ul class="featured__item__pic__hover">
-	                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
-	                                <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-	                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+	                                <li><a class = "add_favourite_product" href="/spring-mvc/san-pham-yeu-thich/${item.code}"><i class="fa fa-heart"></i></a></li>
+	                                <li><a class = "add-cart" href="/spring-mvc/them-vao-gio-hang/${item.code}"><i class="fa fa-shopping-cart"></i></a></li>
 	                            </ul>
 	                        </div>
 	                        <div class="featured__item__text">
@@ -404,6 +409,318 @@
   		    searchResult.innerHTML = '';
   		  }
   		});
+  	
+  	$(document).ready(function() {
+		  $('.item_brand').click(function(event) {
+		    event.preventDefault();
+		    var url = $(this).attr('href');
+		    $.ajax({
+		      url: url,
+		      type: 'GET',
+		      success: function(response) {	
+		    	  if (response == 0) {
+		    		  Toastify({
+	    		    		  text: "Không tìm thấy sản phẩm tương ứng!",
+	    		    		  duration: 3000,
+	    		    		  newWindow: true,
+	    		    		  close: true,
+	    		    		  gravity: "top", // hiển thị ở trên cùng màn hình
+	    		    		  position: "center", // căn giữa theo chiều ngang
+	    		    		  backgroundColor: "linear-gradient(to right, #00b09b, #96c93d)",
+	    		    		}).showToast();
+		    	  }
+		    	  var newProductsHtml = ""; // chuỗi html mới
+	  		        response.forEach(function(item) { // lặp qua các sản phẩm trả về
+	  		        newProductsHtml += "<div class='col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat'>"
+	  		        newProductsHtml += "<div class='featured__item'>"
+	  		        newProductsHtml += "<div class='featured__item__pic set-bg' data-setbg='" + item.image + "'style='background-image: url(&quot;" + item.image + "'&quot;);>"
+	  		        newProductsHtml += "<ul class='featured__item__pic__hover'>"
+	  		        newProductsHtml += "<li><a class = 'add_favourite_product' href='/spring-mvc/san-pham-yeu-thich/" + item.code + "'><i class='fa fa-heart'></i></a></li>"
+	  		        newProductsHtml += "<li><a class = 'add-cart' href='/spring-mvc/them-vao-gio-hang/" + item.code + "'><i class='fa fa-shopping-cart'></i></a></li>"
+	  		        newProductsHtml += "</ul>"
+	  		    	newProductsHtml += "</div>"
+	  		        newProductsHtml += "<div class='featured__item__text'>"
+	  		        newProductsHtml += "<h6><a href='" +item.code + "'>" + item.name + "</a></h6>"
+	  		        newProductsHtml += "<h5>" + item.price + "đ</h5>"
+	  		        newProductsHtml += "</div>"
+	  		    	newProductsHtml += "</div>"
+	  		    	newProductsHtml += "</div>"
+	  		    		$(document).ready(function() {
+	  		      		  $('.add-cart').click(function(event) {
+	  		      		    event.preventDefault();
+	  		      		    var url = $(this).attr('href');
+	  		      		  	var code = $(this).attr('href').split('/').pop();
+	  		      		  $.ajax({
+	  		    		      url: url,
+	  		    		      type: 'GET',
+	  		    		      success: function(response) {	
+	  		    		    	  var jsonObj = JSON.parse(response);
+	  		    		    	  $('.total-quantity').html(jsonObj.TotalQuantity);
+	  		    		    	  $('.total-price-header').html(jsonObj.TotalPrice + '.0đ');
+	  		    		    	  
+	  		    		    	  Toastify({
+	  		    		    		  text: "Thêm vào giỏ hàng thành công!",
+	  		    		    		  duration: 3000,
+	  		    		    		  newWindow: true,
+	  		    		    		  close: true,
+	  		    		    		  gravity: "top", // hiển thị ở trên cùng màn hình
+	  		    		    		  position: "center", // căn giữa theo chiều ngang
+	  		    		    		  backgroundColor: "linear-gradient(to right, #00b09b, #96c93d)",
+	  		    		    		}).showToast();
+	  		    		    	  
+	  		    		      },
+	  		    		      error: function(xhr) {
+	  		    		        // Xử lý lỗi khi gửi yêu cầu Ajax.
+	  		    		        alert('Có lỗi xảy ra!');
+	  		    		      }
+	  		    		    });
+	  		      		  });
+	  		      		});
+	  		    	
+	  		      $(document).ready(function() {
+	  	    		  $('.add_favourite_product').click(function(event) {
+	  	    		    event.preventDefault();
+	  	    		    var url = $(this).attr('href');
+	  	    		  $.ajax({
+	  	  		      url: url,
+	  	  		      type: 'GET',
+	  	  		      success: function(response) {	  		    	  
+	  	  		    	  Toastify({
+	  	  		    		  text: "Bạn đã thích sản phẩm này!",
+	  	  		    		  duration: 3000,
+	  	  		    		  newWindow: true,
+	  	  		    		  close: true,
+	  	  		    		  gravity: "top", // hiển thị ở trên cùng màn hình
+	  	  		    		  position: "center", // căn giữa theo chiều ngang
+	  	  		    		  backgroundColor: "linear-gradient(to right, #00b09b, #96c93d)",
+	  	  		    		}).showToast();
+	  	  		      },
+	  		  		      error: function(xhr) {
+	  		  		        // Xử lý lỗi khi gửi yêu cầu Ajax.
+	  		  		        alert('Có lỗi xảy ra!');
+	  		  		      }
+	  		  		    });
+	  	    		  });
+	  	    		});
+	  		    });
+	  		    // Cập nhật dữ liệu mới vào giao diện
+	  		    $('.featured__filter').html(newProductsHtml);
+		      },
+		      error: function(xhr) {
+		        // Xử lý lỗi khi gửi yêu cầu Ajax.
+		        alert('Có lỗi xảy ra!');
+		      }
+		    });
+		  });
+		});
+  	
+  	$(document).ready(function() {
+		  $('.c-btnbox').click(function(event) {
+		    event.preventDefault();
+		    var url = $(this).attr('href');
+		    $.ajax({
+		      url: url,
+		      type: 'GET',
+		      success: function(response) {
+		    	  if (response == 0) {
+		    		  Toastify({
+	    		    		  text: "Không tìm thấy sản phẩm tương ứng!",
+	    		    		  duration: 3000,
+	    		    		  newWindow: true,
+	    		    		  close: true,
+	    		    		  gravity: "top", // hiển thị ở trên cùng màn hình
+	    		    		  position: "center", // căn giữa theo chiều ngang
+	    		    		  backgroundColor: "linear-gradient(to right, #00b09b, #96c93d)",
+	    		    		}).showToast();
+		    	  }
+		    	  var newProductsHtml = ""; // chuỗi html mới
+	  		        response.forEach(function(item) { // lặp qua các sản phẩm trả về
+	  		        newProductsHtml += "<div class='col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat'>"
+	  		        newProductsHtml += "<div class='featured__item'>"
+	  		        newProductsHtml += "<div class='featured__item__pic set-bg' data-setbg='" + item.image + "'style='background-image: url(&quot;" + item.image + "'&quot;);>"
+	  		        newProductsHtml += "<ul class='featured__item__pic__hover'>"
+	  		        newProductsHtml += "<li><a class = 'add_favourite_product' href='/spring-mvc/san-pham-yeu-thich/" + item.code + "'><i class='fa fa-heart'></i></a></li>"
+	  		        newProductsHtml += "<li><a class = 'add-cart' href='/spring-mvc/them-vao-gio-hang/" + item.code + "'><i class='fa fa-shopping-cart'></i></a></li>"
+	  		        newProductsHtml += "</ul>"
+	  		    	newProductsHtml += "</div>"
+	  		        newProductsHtml += "<div class='featured__item__text'>"
+	  		        newProductsHtml += "<h6><a href='" +item.code + "'>" + item.name + "</a></h6>"
+	  		        newProductsHtml += "<h5>" + item.price + "đ</h5>"
+	  		        newProductsHtml += "</div>"
+	  		    	newProductsHtml += "</div>"
+	  		    	newProductsHtml += "</div>"
+	  		    		$(document).ready(function() {
+	  		      		  $('.add-cart').click(function(event) {
+	  		      		    event.preventDefault();
+	  		      		    var url = $(this).attr('href');
+	  		      		  	var code = $(this).attr('href').split('/').pop();
+	  		      		  $.ajax({
+	  		    		      url: url,
+	  		    		      type: 'GET',
+	  		    		      success: function(response) {	
+	  		    		    	  var jsonObj = JSON.parse(response);
+	  		    		    	  $('.total-quantity').html(jsonObj.TotalQuantity);
+	  		    		    	  $('.total-price-header').html(jsonObj.TotalPrice + '.0đ');
+	  		    		    	  
+	  		    		    	  Toastify({
+	  		    		    		  text: "Thêm vào giỏ hàng thành công!",
+	  		    		    		  duration: 3000,
+	  		    		    		  newWindow: true,
+	  		    		    		  close: true,
+	  		    		    		  gravity: "top", // hiển thị ở trên cùng màn hình
+	  		    		    		  position: "center", // căn giữa theo chiều ngang
+	  		    		    		  backgroundColor: "linear-gradient(to right, #00b09b, #96c93d)",
+	  		    		    		}).showToast();
+	  		    		    	  
+	  		    		      },
+	  		    		      error: function(xhr) {
+	  		    		        // Xử lý lỗi khi gửi yêu cầu Ajax.
+	  		    		        alert('Có lỗi xảy ra!');
+	  		    		      }
+	  		    		    });
+	  		      		  });
+	  		      		});
+	  		    	
+	  		      $(document).ready(function() {
+	  	    		  $('.add_favourite_product').click(function(event) {
+	  	    		    event.preventDefault();
+	  	    		    var url = $(this).attr('href');
+	  	    		  $.ajax({
+	  	  		      url: url,
+	  	  		      type: 'GET',
+	  	  		      success: function(response) {	  		    	  
+	  	  		    	  Toastify({
+	  	  		    		  text: "Bạn đã thích sản phẩm này!",
+	  	  		    		  duration: 3000,
+	  	  		    		  newWindow: true,
+	  	  		    		  close: true,
+	  	  		    		  gravity: "top", // hiển thị ở trên cùng màn hình
+	  	  		    		  position: "center", // căn giữa theo chiều ngang
+	  	  		    		  backgroundColor: "linear-gradient(to right, #00b09b, #96c93d)",
+	  	  		    		}).showToast();
+	  	  		      },
+	  		  		      error: function(xhr) {
+	  		  		        // Xử lý lỗi khi gửi yêu cầu Ajax.
+	  		  		        alert('Có lỗi xảy ra!');
+	  		  		      }
+	  		  		    });
+	  	    		  });
+	  	    		});
+	  		    });
+	  		    // Cập nhật dữ liệu mới vào giao diện
+	  		    $('.featured__filter').html(newProductsHtml);
+		      },
+		      error: function(xhr) {
+		        // Xử lý lỗi khi gửi yêu cầu Ajax.
+		        alert('Có lỗi xảy ra!');
+		      }
+		    });
+		  });
+		});
+  	
+  	$(document).ready(function() {
+		  $('.item_color').click(function(event) {
+		    event.preventDefault();
+		    var url = $(this).attr('href');
+		    $.ajax({
+		      url: url,
+		      type: 'GET',
+		      success: function(response) {
+		    	  if (response == 0) {
+		    		  Toastify({
+	    		    		  text: "Không tìm thấy sản phẩm tương ứng!",
+	    		    		  duration: 3000,
+	    		    		  newWindow: true,
+	    		    		  close: true,
+	    		    		  gravity: "top", // hiển thị ở trên cùng màn hình
+	    		    		  position: "center", // căn giữa theo chiều ngang
+	    		    		  backgroundColor: "linear-gradient(to right, #00b09b, #96c93d)",
+	    		    		}).showToast();
+		    	  }
+		    	  var newProductsHtml = ""; // chuỗi html mới
+	  		        response.forEach(function(item) { // lặp qua các sản phẩm trả về
+	  		        newProductsHtml += "<div class='col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat'>"
+	  		        newProductsHtml += "<div class='featured__item'>"
+	  		        newProductsHtml += "<div class='featured__item__pic set-bg' data-setbg='" + item.image + "'style='background-image: url(&quot;" + item.image + "'&quot;);>"
+	  		        newProductsHtml += "<ul class='featured__item__pic__hover'>"
+	  		        newProductsHtml += "<li><a class = 'add_favourite_product' href='/spring-mvc/san-pham-yeu-thich/" + item.code + "'><i class='fa fa-heart'></i></a></li>"
+	  		        newProductsHtml += "<li><a class = 'add-cart' href='/spring-mvc/them-vao-gio-hang/" + item.code + "'><i class='fa fa-shopping-cart'></i></a></li>"
+	  		        newProductsHtml += "</ul>"
+	  		    	newProductsHtml += "</div>"
+	  		        newProductsHtml += "<div class='featured__item__text'>"
+	  		        newProductsHtml += "<h6><a href='" +item.code + "'>" + item.name + "</a></h6>"
+	  		        newProductsHtml += "<h5>" + item.price + "đ</h5>"
+	  		        newProductsHtml += "</div>"
+	  		    	newProductsHtml += "</div>"
+	  		    	newProductsHtml += "</div>"
+	  		    		$(document).ready(function() {
+	  		      		  $('.add-cart').click(function(event) {
+	  		      		    event.preventDefault();
+	  		      		    var url = $(this).attr('href');
+	  		      		  	var code = $(this).attr('href').split('/').pop();
+	  		      		  $.ajax({
+	  		    		      url: url,
+	  		    		      type: 'GET',
+	  		    		      success: function(response) {	
+	  		    		    	  var jsonObj = JSON.parse(response);
+	  		    		    	  $('.total-quantity').html(jsonObj.TotalQuantity);
+	  		    		    	  $('.total-price-header').html(jsonObj.TotalPrice + '.0đ');
+	  		    		    	  
+	  		    		    	  Toastify({
+	  		    		    		  text: "Thêm vào giỏ hàng thành công!",
+	  		    		    		  duration: 3000,
+	  		    		    		  newWindow: true,
+	  		    		    		  close: true,
+	  		    		    		  gravity: "top", // hiển thị ở trên cùng màn hình
+	  		    		    		  position: "center", // căn giữa theo chiều ngang
+	  		    		    		  backgroundColor: "linear-gradient(to right, #00b09b, #96c93d)",
+	  		    		    		}).showToast();
+	  		    		    	  
+	  		    		      },
+	  		    		      error: function(xhr) {
+	  		    		        // Xử lý lỗi khi gửi yêu cầu Ajax.
+	  		    		        alert('Có lỗi xảy ra!');
+	  		    		      }
+	  		    		    });
+	  		      		  });
+	  		      		});
+	  		    	
+	  		      $(document).ready(function() {
+	  	    		  $('.add_favourite_product').click(function(event) {
+	  	    		    event.preventDefault();
+	  	    		    var url = $(this).attr('href');
+	  	    		  $.ajax({
+	  	  		      url: url,
+	  	  		      type: 'GET',
+	  	  		      success: function(response) {	  		    	  
+	  	  		    	  Toastify({
+	  	  		    		  text: "Bạn đã thích sản phẩm này!",
+	  	  		    		  duration: 3000,
+	  	  		    		  newWindow: true,
+	  	  		    		  close: true,
+	  	  		    		  gravity: "top", // hiển thị ở trên cùng màn hình
+	  	  		    		  position: "center", // căn giữa theo chiều ngang
+	  	  		    		  backgroundColor: "linear-gradient(to right, #00b09b, #96c93d)",
+	  	  		    		}).showToast();
+	  	  		      },
+	  		  		      error: function(xhr) {
+	  		  		        // Xử lý lỗi khi gửi yêu cầu Ajax.
+	  		  		        alert('Có lỗi xảy ra!');
+	  		  		      }
+	  		  		    });
+	  	    		  });
+	  	    		});
+	  		    });
+	  		    // Cập nhật dữ liệu mới vào giao diện
+	  		    $('.featured__filter').html(newProductsHtml);
+		      },
+		      error: function(xhr) {
+		        // Xử lý lỗi khi gửi yêu cầu Ajax.
+		        alert('Có lỗi xảy ra!');
+		      }
+		    });
+		  });
+		});
     	</script>
     </content>
 </body>
