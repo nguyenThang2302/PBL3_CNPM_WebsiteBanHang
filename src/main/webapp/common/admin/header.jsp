@@ -32,7 +32,7 @@
 
           <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
             <i class="bi bi-bell"></i>
-            <span class="badge bg-primary badge-number">${count_notification}</span>
+            <span class="badge bg-primary badge-number">${count_notification + count_notification_message}</span>
           </a><!-- End Notification Icon -->
 
           <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow notifications">
@@ -42,6 +42,15 @@
             <li>
               <hr class="dropdown-divider">
             </li>
+            <li class="notification-item">
+					<i class="bi bi-check-circle text-success"></i>
+	              <div>
+	                <h4>Bạn có ${ count_notification_message } tin nhắn chưa xem</h4>
+	              </div>
+	            </li>
+	            <li>
+	              <hr class="dropdown-divider">
+	            </li>
             <c:forEach var="item" items = "${billnotification}">
             	<li class="notification-item">
 					<i class="bi bi-check-circle text-success"></i>
@@ -205,6 +214,24 @@
           </li>
         </ul>
       </li><!-- End Icons Nav -->
+      
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#message-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-journal-text"></i><span>Quản lí hộp thoại</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="message-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="quan-li-hop-thoai/tin-nhan-chua-xem">
+              <i class="bi bi-circle"></i><span>Tin nhắn chưa xem</span>
+            </a>
+          </li>
+          <li>
+            <a href="quan-li-hop-thoai/tin-nhan-da-xem">
+              <i class="bi bi-circle"></i><span>Tin nhắn đã xem</span>
+            </a>
+          </li>
+        </ul>
+      </li>
     </ul>
 
   </aside><!-- End Sidebar-->

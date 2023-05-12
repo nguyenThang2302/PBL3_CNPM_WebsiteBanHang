@@ -28,7 +28,9 @@ public class ContactController {
 	
 	@RequestMapping(value = "/send-message", method = RequestMethod.POST) 
 	public String sendContactMessage(@ModelAttribute("contactMessage") ContactMessage contactMessage ) {
-		contactService.createOneMessage(contactMessage);
+		if(contactService.createOneMessage(contactMessage) > 0) {
+			contactService.AddMessageNotification();
+		}
 		return "redirect:/lien-he";
 	}
 }

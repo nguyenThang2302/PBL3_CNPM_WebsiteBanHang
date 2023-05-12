@@ -100,4 +100,12 @@
     <decorator name="thong-ke-don-hang" page="orderstatistics.jsp">
        <pattern>/quan-li-don-hang/thong-ke</pattern>
     </decorator>
+    
+    <decorator name="tin-nhan-chua-xem" page="notseenmessage.jsp">
+       <pattern>/quan-li-hop-thoai/tin-nhan-chua-xem</pattern>
+    </decorator>
+    
+    <decorator name="tin-nhan-da-xem" page="notseenmessage.jsp">
+       <pattern>/quan-li-hop-thoai/tin-nhan-da-xem</pattern>
+    </decorator>
 </decorators>
