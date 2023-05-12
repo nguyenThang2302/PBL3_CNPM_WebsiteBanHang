@@ -7,12 +7,13 @@ public class ContactMessage {
 	private String message;
 	private String created_at;
 	private String phone;
+	private String status;
 	
 	public ContactMessage() {
 		
 	}
 
-	public ContactMessage(int id, String name, String email, String message, String created_at, String phone) {
+	public ContactMessage(int id, String name, String email, String message, String created_at, String phone, String status) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -20,6 +21,7 @@ public class ContactMessage {
 		this.message = message;
 		this.created_at = created_at;
 		this.phone = phone;
+		this.status = status;
 	}
 
 	public int getId() {
@@ -68,5 +70,13 @@ public class ContactMessage {
 
 	public void setPhone(String phone) {
 		this.phone = phone;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
 	}
 }

@@ -12,6 +12,7 @@ public class MapperContactMessage implements org.springframework.jdbc.core.RowMa
 		sliders.setMessage(res.getString("message"));
 		sliders.setCreated_at(res.getString("created_at"));
 		sliders.setPhone(res.getString("phone"));
+		sliders.setStatus(res.getString("status"));
 		return sliders;
 	}
 }
