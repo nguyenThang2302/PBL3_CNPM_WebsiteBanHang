@@ -10,9 +10,6 @@ import org.springframework.stereotype.Repository;
 import com.laptrinhjavaweb.entity.FavouriteProduct;
 import com.laptrinhjavaweb.entity.Favourites;
 import com.laptrinhjavaweb.entity.MapperFavouites;
-import com.laptrinhjavaweb.entity.MapperFavouriteProduct;
-import com.laptrinhjavaweb.entity.MapperProducts;
-import com.laptrinhjavaweb.entity.Products;
 
 @Repository
 public class FavouriteProductDao {
@@ -26,7 +23,7 @@ public class FavouriteProductDao {
 	
 	public List<Favourites> findAllProductFavourite() {
 		List<Favourites> list = new ArrayList<Favourites>();
-		String sql = "select distinct name, price, code, count(code) AS count_favourite from products inner join favourite_products on products.code = favourite_products.product_code group by name, price, code order by count_favourite DESC limit 20";
+		String sql = "select distinct name, price, code, count(code) AS count_favourite, image from products inner join favourite_products on products.code = favourite_products.product_code group by name, price, code order by count_favourite DESC limit 20";
 		list = _jdbcTemplate.query(sql, new MapperFavouites());
 		return list;
 	}

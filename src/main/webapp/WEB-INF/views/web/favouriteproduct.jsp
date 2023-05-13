@@ -85,7 +85,7 @@
     <!-- Breadcrumb Section End -->
 
     <!-- Shoping Cart Section Begin -->
-    <section class="shoping-cart spad">
+    <section class="shoping-cart spad" style="margin-left: 115px;">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
@@ -103,6 +103,7 @@
                             <c:forEach var = "item" items = "${favourite_products}">
                              <tr>
                                     <td class="shoping__cart__item">
+                                    <img src = "${item.image}" alt = "" style="height: 70px; width: 70px"/>
                                     <a href = "/spring-mvc/${item.code}"><h5>${item.name}</h5></a>
                                     </td>
                                     <td class="shoping__cart__price">
