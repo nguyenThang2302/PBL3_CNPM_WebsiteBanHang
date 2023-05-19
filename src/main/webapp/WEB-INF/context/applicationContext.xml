@@ -16,5 +16,7 @@
     <!-- Activates scanning of @Repository and @Service and @Component -->
 
     <!-- context:component-scan base-package="com.laptrinhjavaweb" />  -->
-
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+	    <property name="maxUploadSize" value="10485760" />
+	</bean>
 </beans>

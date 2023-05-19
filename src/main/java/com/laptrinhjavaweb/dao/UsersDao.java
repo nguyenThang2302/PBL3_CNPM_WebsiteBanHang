@@ -1,9 +1,17 @@
 package com.laptrinhjavaweb.dao;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import javax.sql.DataSource;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
+import org.springframework.jdbc.core.RowMapper;
 
 import com.laptrinhjavaweb.entity.MapperUsers;
 import com.laptrinhjavaweb.entity.Users;
+
 
 @Repository
 public class UsersDao extends BaseDao{
@@ -49,5 +57,10 @@ public class UsersDao extends BaseDao{
 	public void updateUser(Users user) {
 	    String sql = "UPDATE users SET name=?, email=?, phone=?, address=? WHERE user_code=?";
 	    _jdbcTemplate.update(sql, user.getName(), user.getEmail(), user.getPhone(), user.getAddress(), user.getUser_code());
+	}
+	
+	public void updateUser_passWord(Users user) {
+	    String sql = "UPDATE users SET password =? WHERE user_code=?";
+	    _jdbcTemplate.update(sql, user.getPassword(), user.getUser_code());
 	}
 }

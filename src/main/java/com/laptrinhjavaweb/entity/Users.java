@@ -8,6 +8,7 @@ public class Users {
 	private String phone;
 	private String address;
 	private String repeat_password;
+	private String role;
 	
 	public Users(){
 		
@@ -74,6 +75,14 @@ public class Users {
 
 	public void setAddress(String address) {
 		this.address = address;
+	}
+
+	public String getRole() {
+		return role;
+	}
+
+	public void setRole(String role) {
+		this.role = role;
 	}
 	
 }
