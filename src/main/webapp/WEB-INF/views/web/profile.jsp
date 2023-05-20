@@ -200,59 +200,29 @@ a {
 				        </button>
 				      </div>
 				      <div class="modal-body">
-				      <form:form action="doi-mat-khau" method="post" modelAttribute="user">
+				      <form:form action="doi-mat-khau" method="post" modelAttribute="user" class = "form_change_password">
 							<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
 								<div class="form-group">
-									<%-- <form:label for="oldPassWord" path="password">Mật khẩu cũ</form:label>
-									<form:input type="password" class="form-control" id="oldPassWord" placeholder="Nhập mật khẩu mới" path="password"  /> --%>
 									<label for="oldPassWord" >Mật khẩu cũ</label>
-									<input type="password" class="form-control" id="oldPassWord" placeholder="Nhập mật khẩu mới" name="oldPassword"  />
+									<input type="password" class="form-control" id="oldPassWord" placeholder="Nhập mật cũ" name="oldPassword"  required="required"/>
 								</div>
 							</div>
 							<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
 								<div class="form-group">
 									<label for="NewPassWord" >Mật khẩu mới</label>
-									<input type="password" class="form-control" id="NewPassWord" placeholder="Nhập mật khẩu cũ" name="newPassword"  />
+									<input type="password" class="form-control" id="NewPassWord" placeholder="Nhập mật khẩu mới" name="newPassword"  required="required"/>
 								</div>
 							</div>
 							<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
 								<div class="form-group">
 									<label for="RepeatNewPassWord" >Xác nhận mật khẩu mới</label>
-									<input type="password" class="form-control" id="RepeatNewPassWord" placeholder="Nhập lại mật khẩu cũ" name="confirmPassword" />
+									<input type="password" class="form-control" id="RepeatNewPassWord" placeholder="Nhập lại mật khẩu mới" name="confirmPassword" required="required"/>
 								</div>
 							</div>
 							<div class="modal-footer">
 				        		<button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
-				        		<!-- <button type="button" class="btn btn-primary">Lưu</button> -->
-
-				        		<input type="submit" value="Lưu" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal2"/>
-				        		<!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">CẬP NHẬT</button> -->
+				        		<input type="submit" value="Lưu" id = "btn_change_password" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal2"/>
 				      		</div>
-
-				      		<div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel2" aria-hidden="true">
-							    <div class="modal-dialog" role="document">
-							        <div class="modal-content">
-							            <div class="modal-header">
-							                <h5 class="modal-title" id="exampleModalLabel2">THÔNG BÁO</h5>
-							            </div>
-							            <div class="modal-body">
-									    <c:choose>
-									        <c:when test="${not empty thanhcong}">
-									            <i class="fst-italic">${thanhcong}</i>
-									        </c:when>
-									        <c:when test="${not empty thatbai}">
-									            <i class="fst-italic">${thatbai}</i>
-									        </c:when>
-									        <c:when test="${not empty thatbai2}">
-									            <i class="fst-italic">${thatbai2}</i>
-									        </c:when>
-									    </c:choose>
-							            </div>
-							        </div>
-							    </div>
-							</div>
-<!-- 							<script src="/views/script.js"></script>
- -->							
 					  </form:form>
 				      </div>
 				    </div>
@@ -342,108 +312,179 @@ a {
 </div>
 <content tag = "script">
 <script>
-function searchProducts(keyword) {
-	  return fetch('http://localhost:8080/spring-mvc/api/products')
-	    .then(res => {
-	      return res.json();
-	    })
-	    .then(products => {
-	      let result = [];
-	      let searchWords = keyword.split("-");
-	      products.forEach(product => {
-	        let searchName = product.search_name.toLowerCase();
-	        let matchCount = 0;
-	        searchWords.forEach(word => {
-	          if (searchName.includes(word)) {
-	            matchCount++;
-	          }
-	        });
-	        if (matchCount === searchWords.length) {
-	          result.push(product);
-	        }
-	      });
-	      return result;
-	    })
-	    .catch(err => {
-	      console.error(err);
-	    });
-	}
+		function searchProducts(keyword) {
+			  return fetch('http://localhost:8080/spring-mvc/api/products')
+			    .then(res => {
+			      return res.json();
+			    })
+			    .then(products => {
+			      let result = [];
+			      let searchWords = keyword.split("-");
+			      products.forEach(product => {
+			        let searchName = product.search_name.toLowerCase();
+			        let matchCount = 0;
+			        searchWords.forEach(word => {
+			          if (searchName.includes(word)) {
+			            matchCount++;
+			          }
+			        });
+			        if (matchCount === searchWords.length) {
+			          result.push(product);
+			        }
+			      });
+			      return result;
+			    })
+			    .catch(err => {
+			      console.error(err);
+			    });
+			}
 
-function convertVietnameseToUnsigned(str) {
-	  // Tạo bảng chuyển đổi ký tự tiếng Việt
-	  var charMap = {
-	    'à': 'a', 'á': 'a', 'ả': 'a', 'ã': 'a', 'ạ': 'a',
-	    'ă': 'a', 'ằ': 'a', 'ắ': 'a', 'ẳ': 'a', 'ẵ': 'a', 'ặ': 'a',
-	    'â': 'a', 'ầ': 'a', 'ấ': 'a', 'ẩ': 'a', 'ẫ': 'a', 'ậ': 'a',
-	    'đ': 'd',
-	    'è': 'e', 'é': 'e', 'ẻ': 'e', 'ẽ': 'e', 'ẹ': 'e',
-	    'ê': 'e', 'ề': 'e', 'ế': 'e', 'ể': 'e', 'ễ': 'e', 'ệ': 'e',
-	    'ì': 'i', 'í': 'i', 'ỉ': 'i', 'ĩ': 'i', 'ị': 'i',
-	    'ò': 'o', 'ó': 'o', 'ỏ': 'o', 'õ': 'o', 'ọ': 'o',
-	    'ô': 'o', 'ồ': 'o', 'ố': 'o', 'ổ': 'o', 'ỗ': 'o', 'ộ': 'o',
-	    'ơ': 'o', 'ờ': 'o', 'ớ': 'o', 'ở': 'o', 'ỡ': 'o', 'ợ': 'o',
-	    'ù': 'u', 'ú': 'u', 'ủ': 'u', 'ũ': 'u', 'ụ': 'u',
-	    'ư': 'u', 'ừ': 'u', 'ứ': 'u', 'ử': 'u', 'ữ': 'u', 'ự': 'u',
-	    'ỳ': 'y', 'ý': 'y', 'ỷ': 'y', 'ỹ': 'y', 'ỵ': 'y'
-	  };
-	  // Chuyển đổi ký tự có dấu thành ký tự không dấu
-	  var result = '';
-	  for (var i = 0; i < str.length; i++) {
-	    var c = str.charAt(i);
-	    result += charMap[c] || c;
-	  }
-	  // Loại bỏ các ký tự không cần thiết
-	  result = result.replace(/[^a-z0-9]+/gi, '-'); 
-	  // Loại bỏ dấu - ở đầu và cuối chuỗi
-	  result = result.replace(/^-+|-+$/g, '');  
-	  // Chuyển đổi chuỗi thành chữ thường
-	  result = result.toLowerCase();  
-	  return result;
-	}
+		function convertVietnameseToUnsigned(str) {
+			  // Tạo bảng chuyển đổi ký tự tiếng Việt
+			  var charMap = {
+			    'à': 'a', 'á': 'a', 'ả': 'a', 'ã': 'a', 'ạ': 'a',
+			    'ă': 'a', 'ằ': 'a', 'ắ': 'a', 'ẳ': 'a', 'ẵ': 'a', 'ặ': 'a',
+			    'â': 'a', 'ầ': 'a', 'ấ': 'a', 'ẩ': 'a', 'ẫ': 'a', 'ậ': 'a',
+			    'đ': 'd',
+			    'è': 'e', 'é': 'e', 'ẻ': 'e', 'ẽ': 'e', 'ẹ': 'e',
+			    'ê': 'e', 'ề': 'e', 'ế': 'e', 'ể': 'e', 'ễ': 'e', 'ệ': 'e',
+			    'ì': 'i', 'í': 'i', 'ỉ': 'i', 'ĩ': 'i', 'ị': 'i',
+			    'ò': 'o', 'ó': 'o', 'ỏ': 'o', 'õ': 'o', 'ọ': 'o',
+			    'ô': 'o', 'ồ': 'o', 'ố': 'o', 'ổ': 'o', 'ỗ': 'o', 'ộ': 'o',
+			    'ơ': 'o', 'ờ': 'o', 'ớ': 'o', 'ở': 'o', 'ỡ': 'o', 'ợ': 'o',
+			    'ù': 'u', 'ú': 'u', 'ủ': 'u', 'ũ': 'u', 'ụ': 'u',
+			    'ư': 'u', 'ừ': 'u', 'ứ': 'u', 'ử': 'u', 'ữ': 'u', 'ự': 'u',
+			    'ỳ': 'y', 'ý': 'y', 'ỷ': 'y', 'ỹ': 'y', 'ỵ': 'y'
+			  };
+			  // Chuyển đổi ký tự có dấu thành ký tự không dấu
+			  var result = '';
+			  for (var i = 0; i < str.length; i++) {
+			    var c = str.charAt(i);
+			    result += charMap[c] || c;
+			  }
+			  // Loại bỏ các ký tự không cần thiết
+			  result = result.replace(/[^a-z0-9]+/gi, '-'); 
+			  // Loại bỏ dấu - ở đầu và cuối chuỗi
+			  result = result.replace(/^-+|-+$/g, '');  
+			  // Chuyển đổi chuỗi thành chữ thường
+			  result = result.toLowerCase();  
+			  return result;
+			}
 
-var searchForm = document.getElementById('search_form');
-searchForm.addEventListener("submit", function(event) {
-	event.preventDefault();
-	let foundProducts = [];
-  var inputValue = document.getElementById("search-input").value;
-  var searchResult = document.getElementById("search-result");
-  searchResult.innerHTML = "";
-  var userInput = convertVietnameseToUnsigned(inputValue);
-  searchProducts(userInput.toLowerCase()).then(productsFound => {
-	  if (productsFound.length > 0) {
-	    var productHtml = "<ul class = 'suggest_search'>"
-	    	productHtml += "<li class = 'ttitle'>"
-	    	productHtml += "<div class = 'viewed'>Sản phẩm gợi ý</div>";
-	    	productHtml += "</li>"
-	    productsFound.forEach(product => {
-	    	productHtml += "<li class = 'suggest_product'>"
-	    	productHtml += "<img class = 'search_image' src = '" + product.image + "'>"
-	    	productHtml += "<a href = '" + product.code + "' class = 'search_name'>" + product.name + "</a>";
-	        productHtml += "<p>Giá: " + product.price + ".0đ</p>";
-	    	productHtml += "</li>"
-	    	foundProducts.push(product);
-	    });
-	  productHtml += "</ul>";
-	  searchResult.innerHTML += productHtml;
-	  } else {
-	    var productHtml = "<ul class = 'suggest_search'>"
-	    	productHtml += "<li class = 'ttitle'>"
-		    productHtml += "<div class = 'viewed'>Sản phẩm không được tìm thấy</div>";
-		    productHtml += "</li>"
-	    	productHtml += "</ul>"
-	    searchResult.innerHTML += productHtml;
-	  }
-	});
-});
+		var searchForm = document.getElementById('search_form');
+		searchForm.addEventListener("submit", function(event) {
+			event.preventDefault();
+			let foundProducts = [];
+		  var inputValue = document.getElementById("search-input").value;
+		  var searchResult = document.getElementById("search-result");
+		  searchResult.innerHTML = "";
+		  var userInput = convertVietnameseToUnsigned(inputValue);
+		  searchProducts(userInput.toLowerCase()).then(productsFound => {
+			  if (productsFound.length > 0) {
+			    var productHtml = "<ul class = 'suggest_search'>"
+			    	productHtml += "<li class = 'ttitle'>"
+			    	productHtml += "<div class = 'viewed'>Sản phẩm gợi ý</div>";
+			    	productHtml += "</li>"
+			    productsFound.forEach(product => {
+			    	productHtml += "<li class = 'suggest_product'>"
+			    	productHtml += "<img class = 'search_image' src = '" + product.image + "'>"
+			    	productHtml += "<a href = '" + product.code + "' class = 'search_name'>" + product.name + "</a>";
+			        productHtml += "<p>Giá: " + product.price + ".0đ</p>";
+			    	productHtml += "</li>"
+			    	foundProducts.push(product);
+			    });
+			  productHtml += "</ul>";
+			  searchResult.innerHTML += productHtml;
+			  } else {
+			    var productHtml = "<ul class = 'suggest_search'>"
+			    	productHtml += "<li class = 'ttitle'>"
+				    productHtml += "<div class = 'viewed'>Sản phẩm không được tìm thấy</div>";
+				    productHtml += "</li>"
+			    	productHtml += "</ul>"
+			    searchResult.innerHTML += productHtml;
+			  }
+			});
+		});
 
-document.addEventListener('click', function(event) {
-	  var searchResult = document.getElementById('search-result');
-	  var searchInput = document.getElementById('search-input');
-	  var target = event.target;
-	  if (target !== searchResult && target !== searchInput) {
-	    searchResult.innerHTML = '';
-	  }
-	});
+		document.addEventListener('click', function(event) {
+			  var searchResult = document.getElementById('search-result');
+			  var searchInput = document.getElementById('search-input');
+			  var target = event.target;
+			  if (target !== searchResult && target !== searchInput) {
+			    searchResult.innerHTML = '';
+			  }
+			});
+	
+		$(document).ready(function() {
+  		   $('#btn_change_password').click(function(event) {
+  		    event.preventDefault();
+  		  	var oldPassword = $('#oldPassWord').val();
+	  	    var newPassword = $('#NewPassWord').val();
+	  	    var confirmPassword = $('#RepeatNewPassWord').val();
+	  	    if (oldPassword.trim() === '' || newPassword.trim() === '' || confirmPassword.trim() === '') {
+	  	      // Hiển thị thông báo
+	  	      Toastify({
+	  	        text: "Vui lòng điền đầy đủ thông tin!",
+	  	        duration: 3000,
+	  	        newWindow: true,
+	  	        close: true,
+	  	        gravity: "top",
+	  	        position: "center",
+	  	        backgroundColor: "linear-gradient(to right, #00b09b, #96c93d)",
+	  	      }).showToast();
+	  	    } else {
+			  	var data = {
+			  		      oldPassword: oldPassword,
+			  		      newPassword: newPassword,
+			  		      confirmPassword: confirmPassword
+			  		    };
+			  	console.log(data);
+	  		   $.ajax({
+	  			  url: '/spring-mvc/doi-mat-khau',
+			      type: 'POST',
+			      data: data,
+			      success: function(response) {	  		
+			    	  var jsonObj = JSON.parse(response);
+			    	  if(jsonObj.status == "New password and confirm password don't match") {
+			    		  Toastify({
+				    		  text: "Mật khẩu mới không trùng lặp!",
+				    		  duration: 3000,
+				    		  newWindow: true,
+				    		  close: true,
+				    		  gravity: "top", // hiển thị ở trên cùng màn hình
+				    		  position: "center", // căn giữa theo chiều ngang
+				    		  backgroundColor: "linear-gradient(to right, #00b09b, #96c93d)",
+				    		}).showToast();
+			    	  } else if (jsonObj.status == "old password is not correct") {
+			    		  Toastify({
+				    		  text: "Mật khẩu cũ không chính xác!",
+				    		  duration: 3000,
+				    		  newWindow: true,
+				    		  close: true,
+				    		  gravity: "top", // hiển thị ở trên cùng màn hình
+				    		  position: "center", // căn giữa theo chiều ngang
+				    		  backgroundColor: "linear-gradient(to right, #00b09b, #96c93d)",
+				    		}).showToast();
+			    	  } else if (jsonObj.status == "Change Password Successfuly") {
+			    		  Toastify({
+				    		  text: "Thay đổi mật khẩu thành công!",
+				    		  duration: 3000,
+				    		  newWindow: true,
+				    		  close: true,
+				    		  gravity: "top", // hiển thị ở trên cùng màn hình
+				    		  position: "center", // căn giữa theo chiều ngang
+				    		  backgroundColor: "linear-gradient(to right, #00b09b, #96c93d)",
+				    		}).showToast();
+			    	  }
+			      },
+		  		      error: function(xhr) {
+		  		        // Xử lý lỗi khi gửi yêu cầu Ajax.
+		  		        alert('Có lỗi xảy ra!');
+		  		      }
+		  		  });
+	  	    }
+  		  });
+  		});
 </script>
 </content>
 </body>
