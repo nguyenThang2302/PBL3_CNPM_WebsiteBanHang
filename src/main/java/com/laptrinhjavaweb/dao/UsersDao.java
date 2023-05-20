@@ -55,4 +55,10 @@ public class UsersDao extends BaseDao{
 	    String sql = "UPDATE users SET name=?, email=?, phone=?, address=? WHERE user_code=?";
 	    _jdbcTemplate.update(sql, user.getName(), user.getEmail(), user.getPhone(), user.getAddress(), user.getUser_code());
 	}
+	
+
+	public void updateUser_passWord(Users user) {
+	    String sql = "UPDATE users SET password =? WHERE user_code=?";
+	    _jdbcTemplate.update(sql, user.getPassword(), user.getUser_code());
+	}
 }

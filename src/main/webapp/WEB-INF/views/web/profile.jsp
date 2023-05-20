@@ -81,6 +81,46 @@ body {
   align-items: center;
   margin-top: 63px;
 }
+.btn-primary {
+    --mdb-btn-hover-border-color: 7fad39;
+    --mdb-btn-focus-shadow-rgb: 88,134,210;
+    --mdb-btn-active-border-color: #28a745;
+    --mdb-btn-active-shadow: 0 8px 9px -4px rgba(0,0,0,0.15),0 4px 18px 0 rgba(0,0,0,0.1);
+    --mdb-btn-disabled-color: #fff;
+    --mdb-btn-disabled-bg: #7fad39;
+    --mdb-btn-disabled-border-color: #7fad39;
+    --mdb-btn-bg: #7fad39;
+    --mdb-btn-color: #fff;
+    --mdb-btn-box-shadow: 0 4px 9px -4px #7fad39;
+    --mdb-btn-hover-bg: #7fad39;
+    --mdb-btn-hover-color: #fff;
+    --mdb-btn-focus-bg: #7fad39;
+    --mdb-btn-focus-color: #fff;
+    --mdb-btn-active-bg: #7fad39;
+    --mdb-btn-active-color: #fff;
+}
+.btn:hover {
+    color: var(--mdb-btn-hover-color);
+    background-color: #7fad39;
+    border-color: var(--mdb-btn-hover-border-color);
+} 
+.btn:hover {
+    color: #ffffff;
+    background-color: #5c9506;
+    border-color: var(--mdb-btn-hover-border-color);
+}
+a:hover, a:focus {
+    text-decoration: none;
+    outline: none;
+    color: #7fad398c;
+}
+a:hover {
+    color: #7fad39;
+    text-decoration: none;
+}
+a {
+    color: #7fad39c7;
+}
 #search-result .suggest_search {
 		    background: #fff;
 		    border: 1px solid #eee;
@@ -146,6 +186,78 @@ body {
 				<h5>About</h5>
 				<p>I'm ${ LoginInfor.name }. Full Stack Designer I enjoy creating user-centric, delightful and human experiences.</p>
 			</div>
+			<p class="text-center">
+    			<a href="#" data-toggle="modal" data-target="#myModal">Thay đổi mật khẩu</a>
+			</p>
+			<!-- Modal -->
+				<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				  <div class="modal-dialog" role="document">
+				    <div class="modal-content">
+				      <div class="modal-header">
+				        <h5 class="modal-title" id="myModalLabel">Thay đổi mật khẩu</h5>
+				        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				          <span aria-hidden="true">&times;</span>
+				        </button>
+				      </div>
+				      <div class="modal-body">
+				      <form:form action="doi-mat-khau" method="post" modelAttribute="user">
+							<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+								<div class="form-group">
+									<%-- <form:label for="oldPassWord" path="password">Mật khẩu cũ</form:label>
+									<form:input type="password" class="form-control" id="oldPassWord" placeholder="Nhập mật khẩu mới" path="password"  /> --%>
+									<label for="oldPassWord" >Mật khẩu cũ</label>
+									<input type="password" class="form-control" id="oldPassWord" placeholder="Nhập mật khẩu mới" name="oldPassword"  />
+								</div>
+							</div>
+							<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+								<div class="form-group">
+									<label for="NewPassWord" >Mật khẩu mới</label>
+									<input type="password" class="form-control" id="NewPassWord" placeholder="Nhập mật khẩu cũ" name="newPassword"  />
+								</div>
+							</div>
+							<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+								<div class="form-group">
+									<label for="RepeatNewPassWord" >Xác nhận mật khẩu mới</label>
+									<input type="password" class="form-control" id="RepeatNewPassWord" placeholder="Nhập lại mật khẩu cũ" name="confirmPassword" />
+								</div>
+							</div>
+							<div class="modal-footer">
+				        		<button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+				        		<!-- <button type="button" class="btn btn-primary">Lưu</button> -->
+
+				        		<input type="submit" value="Lưu" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal2"/>
+				        		<!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">CẬP NHẬT</button> -->
+				      		</div>
+
+				      		<div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+							    <div class="modal-dialog" role="document">
+							        <div class="modal-content">
+							            <div class="modal-header">
+							                <h5 class="modal-title" id="exampleModalLabel2">THÔNG BÁO</h5>
+							            </div>
+							            <div class="modal-body">
+									    <c:choose>
+									        <c:when test="${not empty thanhcong}">
+									            <i class="fst-italic">${thanhcong}</i>
+									        </c:when>
+									        <c:when test="${not empty thatbai}">
+									            <i class="fst-italic">${thatbai}</i>
+									        </c:when>
+									        <c:when test="${not empty thatbai2}">
+									            <i class="fst-italic">${thatbai2}</i>
+									        </c:when>
+									    </c:choose>
+							            </div>
+							        </div>
+							    </div>
+							</div>
+<!-- 							<script src="/views/script.js"></script>
+ -->							
+					  </form:form>
+				      </div>
+				    </div>
+				  </div>
+				</div>
 		</div>
 	</div>
 </div>

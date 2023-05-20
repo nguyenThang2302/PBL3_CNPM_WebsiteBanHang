@@ -59,4 +59,34 @@ public class AccountServiceImpl implements IAccountService {
 	    }
 	    return user;
 	}
+	
+
+	public Users changePassword(Users user, String oldPassword, String newPassword) {
+	    Users currentUser = usersDao.getUserByUserCode(user.getUser_code());
+	    if (currentUser != null && currentUser.getPassword().equals(oldPassword)) {
+	        currentUser.setPassword(newPassword);
+	        usersDao.updateUser(currentUser);
+	        return currentUser;
+	    } else {
+	        throw new RuntimeException("Invalid current password");
+	    }
+	}
+//	public Users changPassword2(Users user) {
+//	    Users existingUser = usersDao.getUserByUserCode(user.getUser_code());
+//	    if (existingUser != null) {
+//	        existingUser.setPassword(user.getPassword());
+//	        usersDao.updateUser_passWord(existingUser);
+//	    }
+//	    return user;
+//	}
+
+	public Users changPassword2(Users user) {
+	    Users existingUser = usersDao.getUserByUserCode(user.getUser_code());
+	    if (existingUser != null) {
+	        String hashedPassword = BCrypt.hashpw(user.getPassword(), BCrypt.gensalt(12));
+	        existingUser.setPassword(hashedPassword);
+	        usersDao.updateUser_passWord(existingUser);
+	    }
+	    return user;
+	}
 }
