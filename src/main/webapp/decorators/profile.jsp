@@ -29,6 +29,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap"/>
     <!-- MDB -->
     <link rel="stylesheet" href="<c:url value='/template/web/css/mdb.min.css'/>" type="text/css">
+    <link href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css" rel="stylesheet">
 </head>
 <body>
 	<!-- Header -->
@@ -56,6 +57,9 @@
     <script type="text/javascript"></script>
     <!-- CDN -->
     <script src="<c:url value='https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/js/bootstrap.bundle.min.js'/>"></script>
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <dec:getProperty property="page.script"></dec:getProperty>
 </body>
 </html>
