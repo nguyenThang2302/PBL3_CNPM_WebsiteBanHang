@@ -1,6 +1,8 @@
 package com.laptrinhjavaweb.controller.admin;
 
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.laptrinhjavaweb.entity.Trademarks;
+import com.laptrinhjavaweb.entity.Users;
 import com.laptrinhjavaweb.service.admin.AdminServiceImpl;
 
 @Controller
@@ -19,16 +22,26 @@ public class TradeMarksController {
 	AdminServiceImpl adminService;
 	
 	@RequestMapping(value = "/thuong-hieu", method = RequestMethod.GET)
-	public ModelAndView tradeMakrsPage() {
-		ModelAndView mav = new ModelAndView("admin/trademarks");
-		mav.addObject("trademarks", adminService.findAllTradeMarks());
-		return mav;
+	public ModelAndView tradeMakrsPage(HttpSession session) {
+		Users currentUser = (Users) session.getAttribute("LoginInfor");
+		if (currentUser.getIs_admin() == 1) {
+			ModelAndView mav = new ModelAndView("admin/trademarks");
+			mav.addObject("trademarks", adminService.findAllTradeMarks());
+			return mav;
+		} else {
+			return null;
+		}
 	}
 	
 	@RequestMapping(value = "/thuong-hieu/tao-moi", method = RequestMethod.GET)
-	public ModelAndView tradeMarksAdd() {
-		ModelAndView mav = new ModelAndView("admin/createTrademark");
-		return mav;
+	public ModelAndView tradeMarksAdd(HttpSession session) {
+		Users currentUser = (Users) session.getAttribute("LoginInfor");
+		if (currentUser.getIs_admin() == 1) {
+			ModelAndView mav = new ModelAndView("admin/createTrademark");
+			return mav;
+		} else {
+			return null;
+		}
 	}
 	
 	@RequestMapping(value = "/thuong-hieu/add", method = RequestMethod.POST, produces = "text/html; charset=UTF-8")
@@ -38,16 +51,26 @@ public class TradeMarksController {
 	}
 	
 	@RequestMapping(value = "/thuong-hieu/delete/{id}", method = RequestMethod.GET)
-	public String tradeMarkAddSave(@PathVariable int id) {
-		adminService.deleteOndeTrademark(id);
-		return "redirect:/thuong-hieu";
+	public String tradeMarkAddSave(@PathVariable int id, HttpSession session) {
+		Users currentUser = (Users) session.getAttribute("LoginInfor");
+		if (currentUser.getIs_admin() == 1) {
+			adminService.deleteOndeTrademark(id);
+			return "redirect:/thuong-hieu";
+		} else {
+			return null;
+		}
 	}
 	
 	@RequestMapping(value = "/thuong-hieu/update/{id}", method = RequestMethod.GET)
-	public String tradeMarkUpdate(@PathVariable int id, Model m) {
-		Trademarks trademarks = adminService.findByIdTrademark(id);
-		m.addAttribute("trademarks", trademarks);
-		return "admin/updateTrademark";
+	public String tradeMarkUpdate(@PathVariable int id, Model m, HttpSession session) {
+		Users currentUser = (Users) session.getAttribute("LoginInfor");
+		if (currentUser.getIs_admin() == 1) {
+			Trademarks trademarks = adminService.findByIdTrademark(id);
+			m.addAttribute("trademarks", trademarks);
+			return "admin/updateTrademark";
+		} else {
+			return null;
+		}
 	}
 	
 	@RequestMapping(value = "/thuong-hieu/update/save", method = RequestMethod.POST)
