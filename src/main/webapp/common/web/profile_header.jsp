@@ -45,7 +45,6 @@
         </div>
         <nav class="humberger__menu__nav mobile-menu">
             <ul>
-                <!-- <li class="active"><a href="./index.html">Trang chủ</a></li> -->
                 <li class="active"><a href="/spring-mvc/trang-chu">Trang Chủ</a></li>
                 <li><a href="/spring-mvc/shopping">Shopping</a></li>
                 <li><a href="#">Pages</a>
@@ -116,9 +115,6 @@
                     				<li><a href="/spring-mvc/dang-xuat">Đăng xuất</a></li>
                                 </ul>
 							</div>
-<!-- 							<div class="header__top__right__auth">
-								<a href="/spring-mvc/dang-xuat"><i class="fas fa-sign-out-alt"></i>&nbsp;&nbsp;Đăng Xuất</a>
-							</div> -->
 						</c:if>
                         </div>
                     </div>

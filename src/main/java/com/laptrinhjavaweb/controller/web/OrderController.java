@@ -25,22 +25,29 @@ public class OrderController {
 	
 	@RequestMapping(value = "/don-hang", method = RequestMethod.GET) 
 	public ModelAndView orderPage(HttpServletRequest request, HttpSession session) {
+		Users currentUser = (Users) session.getAttribute("LoginInfor");
 		ModelAndView mav = new ModelAndView("web/order");
 		mav.addObject("departments", adminService.findAll());
-		Users currentUser = (Users) session.getAttribute("LoginInfor");
 		if (currentUser != null) {
 			String user_code = currentUser.getUser_code();
 			mav.addObject("orders", billsService.findAllBillsByUserCode(user_code));
+			return mav;
+		} else {
+			return null;
 		}
-		return mav;
 	}
 	
 	@RequestMapping(value = "/chi-tiet-don-hang/{code}", method = RequestMethod.GET) 
-	public ModelAndView detailOrder(@PathVariable String code, Model m) {
-		ModelAndView mav = new ModelAndView("web/detailorder");
-		m.addAttribute("bills", billsService.findBillsByCode(code));
-		mav.addObject("billproduct", billsService.findProductInBillByCode(code));
-		mav.addObject("departments", adminService.findAll());
-		return mav;
+	public ModelAndView detailOrder(@PathVariable String code, Model m, HttpSession session) {
+		Users currentUser = (Users) session.getAttribute("LoginInfor");
+		if (currentUser.getIs_admin() == 1) {
+			ModelAndView mav = new ModelAndView("web/detailorder");
+			m.addAttribute("bills", billsService.findBillsByCode(code));
+			mav.addObject("billproduct", billsService.findProductInBillByCode(code));
+			mav.addObject("departments", adminService.findAll());
+			return mav;
+		} else {
+			return null;
+		}
 	}
 }
