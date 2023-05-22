@@ -60,9 +60,12 @@ public class UserController extends BaseController {
 	public String Login(HttpServletRequest request, HttpServletResponse respone, HttpSession session, @ModelAttribute("user") Users user, RedirectAttributes redirectAttributes)
 	{	
 		user = accountService.CheckAccount(user);
-		if(user != null) {
+		if(user != null && user.getIs_admin() == 0) {
 			session.setAttribute("LoginInfor", user);
 			return "redirect:/trang-chu";
+		} else if (user != null && user.getIs_admin() == 1) {
+			session.setAttribute("LoginInfor", user);
+			return "redirect:/quan-tri";
 		}
 		else {
 			redirectAttributes.addFlashAttribute("status_Login", "Sai tên tài khoản hoặc mật khẩu");

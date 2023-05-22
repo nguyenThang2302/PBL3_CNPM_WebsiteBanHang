@@ -30,10 +30,15 @@ public class ProfileController extends BaseController {
 	AccountServiceImpl accountService = new AccountServiceImpl();
 	
 	@RequestMapping(value = "/thong-tin-nguoi-dung", method = RequestMethod.GET)
-	public ModelAndView DangNhap(HttpServletRequest request, HttpServletResponse response) {
-		_mvShare.setViewName("web/profile");
-		_mvShare.addObject("user", new Users());
-		return _mvShare;
+	public ModelAndView DangNhap(HttpServletRequest request, HttpServletResponse response, HttpSession session) {
+		Users currentUser = (Users) session.getAttribute("LoginInfor");
+		if (currentUser.getIs_admin() == 0 || currentUser.getIs_admin() == 1) {
+			_mvShare.setViewName("web/profile");
+			_mvShare.addObject("user", new Users());
+			return _mvShare;
+		} else {
+			return null;
+		}
 	}
 	
 	@RequestMapping(value = "/cap-nhat-thong-tin", method = RequestMethod.POST, produces ="text/html; charset=UTF-8")
