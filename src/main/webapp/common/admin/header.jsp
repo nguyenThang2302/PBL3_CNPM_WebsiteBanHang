@@ -120,7 +120,7 @@
     <ul class="sidebar-nav" id="sidebar-nav">
 
       <li class="nav-item">
-        <a class="nav-link " href="index.html">
+        <a class="nav-link " href="/spring-mvc/quan-tri">
           <i class="bi bi-grid"></i>
           <span>Dashboard</span>
         </a>
@@ -197,12 +197,7 @@
         </a>
         <ul id="icons-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="icons-bootstrap.html">
-              <i class="bi bi-circle"></i><span>Thành viên</span>
-            </a>
-          </li>
-          <li>
-            <a href="icons-remix.html">
+            <a href="thong-tin-khach-hang">
               <i class="bi bi-circle"></i><span>Khách hàng</span>
             </a>
           </li>

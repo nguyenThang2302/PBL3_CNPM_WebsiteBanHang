@@ -1,5 +1,7 @@
 package com.laptrinhjavaweb.service.web;
 
+import java.util.List;
+
 import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -71,14 +73,6 @@ public class AccountServiceImpl implements IAccountService {
 	        throw new RuntimeException("Invalid current password");
 	    }
 	}
-//	public Users changPassword2(Users user) {
-//	    Users existingUser = usersDao.getUserByUserCode(user.getUser_code());
-//	    if (existingUser != null) {
-//	        existingUser.setPassword(user.getPassword());
-//	        usersDao.updateUser_passWord(existingUser);
-//	    }
-//	    return user;
-//	}
 
 	public Users changPassword2(Users user) {
 	    Users existingUser = usersDao.getUserByUserCode(user.getUser_code());
@@ -88,5 +82,10 @@ public class AccountServiceImpl implements IAccountService {
 	        usersDao.updateUser_passWord(existingUser);
 	    }
 	    return user;
+	}
+	
+	@Override
+	public List<Users> findAllUser() {
+		return usersDao.findAllUser();
 	}
 }

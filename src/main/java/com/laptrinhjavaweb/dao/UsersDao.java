@@ -1,5 +1,8 @@
 package com.laptrinhjavaweb.dao;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.stereotype.Repository;
 
 import com.laptrinhjavaweb.entity.MapperUsers;
@@ -9,19 +12,22 @@ import com.laptrinhjavaweb.entity.Users;
 public class UsersDao extends BaseDao{
 	public int AddAccount(Users user) {
 		StringBuffer  sql = new StringBuffer();
+		user.setIs_admin(0);
 		sql.append("INSERT INTO users ");
 		sql.append("( ");
 		sql.append("	user_code, ");
 		sql.append("	email, ");
 		sql.append("	password, ");
-		sql.append("	name ");
+		sql.append("	name, ");
+		sql.append("	is_admin ");
 		sql.append(") ");
 		sql.append("VALUES ");
 		sql.append("( ");
 		sql.append("	'"+user.getUser_code()+"', ");
 		sql.append("	'"+user.getEmail()+"', ");
 		sql.append("	'"+user.getPassword()+"', ");
-		sql.append("	'"+user.getName()+"' ");
+		sql.append("	'"+user.getName()+"', ");
+		sql.append("	'"+user.getIs_admin()+"' ");
 		sql.append(")");
 		
 		int insert = _jdbcTemplate.update(sql.toString());
@@ -60,5 +66,12 @@ public class UsersDao extends BaseDao{
 	public void updateUser_passWord(Users user) {
 	    String sql = "UPDATE users SET password =? WHERE user_code=?";
 	    _jdbcTemplate.update(sql, user.getPassword(), user.getUser_code());
+	}
+	
+	public List<Users> findAllUser() {
+		List<Users> list = new ArrayList<Users>();
+		String sql = "select * from users where is_admin = 0";
+		list = _jdbcTemplate.query(sql, new MapperUsers());
+		return list;
 	}
 }

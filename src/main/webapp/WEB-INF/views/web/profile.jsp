@@ -180,6 +180,7 @@ a {
 					<img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Maxwell Admin">
 				</div>
 				<h5 class="user-name">${ LoginInfor.name }</h5>
+				<h6 class="user-email">${ LoginInfor.user_code }</h6>
 				<h6 class="user-email">${ LoginInfor.email }</h6>
 			</div>
 			<div class="about">

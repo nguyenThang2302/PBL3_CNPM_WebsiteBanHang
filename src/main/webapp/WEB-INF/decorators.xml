@@ -108,4 +108,8 @@
     <decorator name="tin-nhan-da-xem" page="notseenmessage.jsp">
        <pattern>/quan-li-hop-thoai/tin-nhan-da-xem</pattern>
     </decorator>
+    
+    <decorator name="thong-tin-khach-hang" page="inforuser.jsp">
+       <pattern>/thong-tin-khach-hang</pattern>
+    </decorator>
 </decorators>
