@@ -88,4 +88,9 @@ public class AccountServiceImpl implements IAccountService {
 	public List<Users> findAllUser() {
 		return usersDao.findAllUser();
 	}
+	
+	@Override
+	public List<Users> findUserByUserCode(String user_code) {
+		return usersDao.findUserByUserCode(user_code);
+	}
 }

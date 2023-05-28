@@ -305,7 +305,7 @@ $(document).ready(function(){
 					</div>
 					<form id = "search-form" action="tim-kiem-don-hang/cho-xac-nhan">
 						<label for="code">Tìm kiếm khách hàng:</label>
-						<input type="text" id="order-id" name="code" placeholder="Mã khách hàng...">
+						<input type="text" id="user_code" name="user_code" placeholder="Mã khách hàng...">
 						<input type="submit" value="Tìm kiếm">
 					</form>
 				</div>
@@ -321,7 +321,7 @@ $(document).ready(function(){
 							<th>Cấp quyền Admin</th>
 						</tr>
 					</thead>
-					<tbody id = "bill_row">
+					<tbody id = "user_row">
 						<c:forEach var="item" items="${ infor_user }">
 							<tr>
 							<td>${item.user_code}</td>
@@ -347,33 +347,33 @@ $(document).ready(function(){
     	$(document).ready(function() {
   		  $("#search-form").submit(function(event) {
   		    event.preventDefault();
-  		    var code = $("#order-id").val();
-  		    var url = "tim-kiem-don-hang/cho-xac-nhan/" + code;
+  		    var code = $("#user_code").val();
+  		    var url = "tim-kiem-khach-hang/" + code;
   		    $.ajax({
   			      url: url,
   			      type: 'GET',
   			      success: function(response) {
-  			    	  var jsonObj = JSON.parse(response);
-  			    	  console.log(jsonObj.length);
-  			    	  jsonObj.status = "Chờ xác nhận";
-  			    	  $("#bill_row").empty();
-	  			    	    var item = jsonObj;
-	  			    	    var row = "<tr>" +
-	  			    	      "<td>" + item.code + "</td>" +
-	  			    	      "<td>" + item.status + "</td>" +
-	  			    	      "<td>" + item.quantity + "</td>" +
-	  			    	      "<td>" + item.total_price + "</td>" +
-	  			    	      "<td>" + item.created_at + "</td>" +
-	  			    	      "<td><a href='/spring-mvc/chi-tiet-don-hang/" + item.code + "'>Chi tiết >></a></td>" +
-	  			    	      "<td><a href='xac-nhan-don-hang/" + item.code + "' data-toggle='modal'><img src='https://i.imgur.com/Yhyk8IO.png' style='margin-left:11px;''></img></a></td>" +
-	  			    	      "</tr>";
-	  			    	    $("#bill_row").append(row);
+  			    	  if(typeof(response) == 'string') {
+  			    		$("#user_row").empty();
+  	  			        var row = "<h3>Không tìm thấy mã khách hàng!</h3>";
+  	  			        $("#user_row").append(row);
+  			    	  } else {
+  			    		$("#user_row").empty();
+  			    	    var item = response[0];
+  			    	    var row = "<tr>" +
+  			    	      "<td>" + item.user_code + "</td>" +
+  			    	      "<td>" + item.name + "</td>" +
+  			    	      "<td>" + item.email + "</td>" +
+  			    	      "<td>" + item.phone + "</td>" +
+  			    	      "<td>" + item.address + "</td>" +
+  						  "<td><a href='#' data-toggle='modal'><img src='https://i.imgur.com/Yhyk8IO.png' style='margin-left:11px;'></img></a></td>" + 
+  						  "<td><a href='#' data-toggle='modal'><img src='https://i.imgur.com/Yhyk8IO.png' style='margin-left:11px;'></img></a></td>" +
+  			    	      "</tr>";
+  			    	    $("#user_row").append(row);
+  			    	  }
   			      },
   			      error: function(xhr) {
   			        // Xử lý lỗi khi gửi yêu cầu Ajax.
-  			        $("#bill_row").empty();
-  			        var row = "<h3>Không tìm thấy mã đơn hàng!</h3>";
-  			        $("#bill_row").append(row);
   			      }
   			    });
   		    });

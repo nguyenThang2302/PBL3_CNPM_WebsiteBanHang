@@ -16,4 +16,6 @@ public interface IAccountService {
 	public int InsertGuest(String guest_code);
 	@Autowired
 	public List<Users> findAllUser();
+	@Autowired
+	public List<Users> findUserByUserCode(String user_code);
 }

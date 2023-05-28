@@ -3,8 +3,10 @@ package com.laptrinhjavaweb.dao;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.stereotype.Repository;
 
+import com.laptrinhjavaweb.entity.Bills;
 import com.laptrinhjavaweb.entity.MapperUsers;
 import com.laptrinhjavaweb.entity.Users;
 
@@ -73,5 +75,15 @@ public class UsersDao extends BaseDao{
 		String sql = "select * from users where is_admin = 0";
 		list = _jdbcTemplate.query(sql, new MapperUsers());
 		return list;
+	}
+	
+	public List<Users> findUserByUserCode(String user_code) {
+		String sql = "SELECT * FROM users where user_code = ?";
+		List<Users> user = _jdbcTemplate.query(sql, new Object[]{user_code}, new BeanPropertyRowMapper<>(Users.class));
+	    if (user.isEmpty()) {
+	        return null;
+	    } else {
+	        return user;
+	    }
 	}
 }
