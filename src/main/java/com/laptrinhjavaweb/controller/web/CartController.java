@@ -20,16 +20,20 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.laptrinhjavaweb.Dto.CartDto;
 import com.laptrinhjavaweb.entity.Departments;
+import com.laptrinhjavaweb.entity.DescriptionProduct;
 import com.laptrinhjavaweb.entity.DiscountCode;
 import com.laptrinhjavaweb.service.admin.AdminServiceImpl;
 import com.laptrinhjavaweb.service.web.CartServiceImpl;
+import com.laptrinhjavaweb.service.web.ProductDescriptionServiceImpl;
 
 @Controller(value = "cartControllerOfWeb")
 public class CartController extends BaseController {
 	@Autowired
 	private CartServiceImpl cartService = new CartServiceImpl();
 	@Autowired
-	AdminServiceImpl adminService;
+	private AdminServiceImpl adminService;
+	@Autowired
+	private ProductDescriptionServiceImpl desDescriptionService;
 	
 	@RequestMapping(value = "/gio-hang", method = RequestMethod.GET)
 	public ModelAndView registerPage(HttpSession session) {
@@ -65,6 +69,19 @@ public class CartController extends BaseController {
 	
 	@RequestMapping(value = "them-vao-gio-hang/{slug_name}/{code}/{quantity}")
 	public @ResponseBody String AddCartWithQuantity(HttpServletRequest request, HttpSession session, @PathVariable String code, @PathVariable String slug_name, @PathVariable int quantity) {
+		DescriptionProduct desProduct = desDescriptionService.findProductDescription(code);
+		if (desProduct.getStatus().equals("Hết hàng")) {
+			Map<String, Object> result = new HashMap<>();
+			result.put("status_product", "out_of_stock");
+			ObjectMapper objectMapper = new ObjectMapper();
+			String jsonStatus = "";
+			try {
+				jsonStatus = objectMapper.writeValueAsString(result);
+			} catch(JsonProcessingException e) {
+				e.printStackTrace();
+			}
+			return jsonStatus;
+		}
 		HashMap<String, CartDto> cart = (HashMap<String, CartDto>) session.getAttribute("Cart");
 		if (cart == null) {
 			cart = new HashMap<String, CartDto>();
@@ -117,6 +134,19 @@ public class CartController extends BaseController {
 	@RequestMapping(value = "them-vao-gio-hang/{code}", method = RequestMethod.GET)
 	public String mapLinkAddcart(@PathVariable String code, Model m) {
 		Departments departments = adminService.findSlugNameByCode(code);
+		DescriptionProduct desProduct = desDescriptionService.findProductDescription(code);
+		if (desProduct.getStatus().equals("Hết hàng")) {
+			Map<String, Object> result = new HashMap<>();
+			result.put("status_product", "out_of_stock");
+			ObjectMapper objectMapper = new ObjectMapper();
+			String json = "";
+			try {
+				json = objectMapper.writeValueAsString(result);
+			} catch(JsonProcessingException e) {
+				e.printStackTrace();
+			}
+			return json;
+		}
 		m.addAttribute("departments", departments);
 		return "redirect:/them-vao-gio-hang/"+departments.getSlug_name()+"/"+code;
 	}
