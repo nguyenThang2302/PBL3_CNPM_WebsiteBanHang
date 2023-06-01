@@ -18,4 +18,6 @@ public interface IAccountService {
 	public List<Users> findAllUser();
 	@Autowired
 	public List<Users> findUserByUserCode(String user_code);
+	@Autowired
+	public int updateAdmin(String user_code);
 }

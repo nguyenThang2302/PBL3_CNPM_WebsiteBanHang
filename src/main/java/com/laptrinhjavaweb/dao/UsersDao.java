@@ -86,4 +86,9 @@ public class UsersDao extends BaseDao{
 	        return user;
 	    }
 	}
+	
+	public int updateAdmin(String user_code) {
+		String sql = "UPDATE users set is_admin = 1 WHERE user_code = ?";
+		return _jdbcTemplate.update(sql, user_code);
+	}
 }

@@ -303,7 +303,7 @@ $(document).ready(function(){
 							<h1>Thông tin khách hàng</h1>
 						</div>
 					</div>
-					<form id = "search-form" action="tim-kiem-don-hang/cho-xac-nhan">
+					<form id = "search-form" action = "tim-kiem-khach-hang">
 						<label for="code">Tìm kiếm khách hàng:</label>
 						<input type="text" id="user_code" name="user_code" placeholder="Mã khách hàng...">
 						<input type="submit" value="Tìm kiếm">
@@ -330,10 +330,10 @@ $(document).ready(function(){
 							<td>${item.phone}</td>
 							<td>${item.address}</td>
 							<td>
-								<a href="#" data-toggle="modal"><img src="https://i.imgur.com/Yhyk8IO.png" style="margin-left:11px;"></img></a>
+								<a href="reset-mat-khau/${item.user_code}" data-toggle="modal"><img src="https://i.imgur.com/Yhyk8IO.png" style="margin-left:11px;"></img></a>
 							</td>
 							<td>
-								<a href="#" data-toggle="modal"><img src="https://i.imgur.com/Yhyk8IO.png" style="margin-left:11px;"></img></a>
+								<a href="cap-quyen-admin/${item.user_code}" id = "btn-accept-admin" data-toggle="modal"><img src="https://i.imgur.com/Yhyk8IO.png" style="margin-left:11px;"></img></a>
 							</td>
 						</tr>
 						</c:forEach>
@@ -366,8 +366,8 @@ $(document).ready(function(){
   			    	      "<td>" + item.email + "</td>" +
   			    	      "<td>" + item.phone + "</td>" +
   			    	      "<td>" + item.address + "</td>" +
-  						  "<td><a href='#' data-toggle='modal'><img src='https://i.imgur.com/Yhyk8IO.png' style='margin-left:11px;'></img></a></td>" + 
-  						  "<td><a href='#' data-toggle='modal'><img src='https://i.imgur.com/Yhyk8IO.png' style='margin-left:11px;'></img></a></td>" +
+  						  "<td><a href='reset-mat-khau/" + item.user_code + "' data-toggle='modal'><img src='https://i.imgur.com/Yhyk8IO.png' style='margin-left:11px;'></img></a></td>" + 
+  						  "<td><a href='cap-quyen-admin/" + item.user_code + "' data-toggle='modal'><img src='https://i.imgur.com/Yhyk8IO.png' style='margin-left:11px;'></img></a></td>" +
   			    	      "</tr>";
   			    	    $("#user_row").append(row);
   			    	  }
