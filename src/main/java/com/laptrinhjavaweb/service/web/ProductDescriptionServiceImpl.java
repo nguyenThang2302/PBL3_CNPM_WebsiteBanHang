@@ -5,13 +5,17 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.laptrinhjavaweb.dao.DescriptionProductDao;
 import com.laptrinhjavaweb.dao.ProductDao;
+import com.laptrinhjavaweb.entity.DescriptionProduct;
 import com.laptrinhjavaweb.entity.Products;
 
 @Service
 public class ProductDescriptionServiceImpl implements IProductDescriptionService {
 	@Autowired
 	private ProductDao productDao;
+	@Autowired
+	private DescriptionProductDao desProductDao;
 	
 	@Override
 	public List<Products> findAllProductTop(String slug_name) {
@@ -26,5 +30,10 @@ public class ProductDescriptionServiceImpl implements IProductDescriptionService
 	@Override
 	public List<Products> findAllRelatedProduct(String slug_name) {
 		return productDao.findAllRelatedProduct(slug_name);
+	}
+	
+	@Override
+	public DescriptionProduct findProductDescription(String product_code) {
+		return desProductDao.findProductDescription(product_code);
 	}
 }

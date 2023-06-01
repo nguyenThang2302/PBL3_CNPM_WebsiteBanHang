@@ -238,7 +238,15 @@
   		      },
   		      error: function(xhr) {
   		        // Xử lý lỗi khi gửi yêu cầu Ajax.
-  		        alert('Có lỗi xảy ra!');
+  		    	 Toastify({
+		    		  text: "Sản phẩm này đang hết hàng!",
+		    		  duration: 3000,
+		    		  newWindow: true,
+		    		  close: true,
+		    		  gravity: "top", // hiển thị ở trên cùng màn hình
+		    		  position: "center", // căn giữa theo chiều ngang
+		    		  backgroundColor: "linear-gradient(to right, #00b09b, #96c93d)",
+		    		}).showToast();
   		         }
   		       });
     		  });
@@ -279,22 +287,32 @@
   		      type: 'GET',
   		      success: function(response) {
   		    	  var jsonObj = JSON.parse(response);
-  		    	  $('.total-quantity').html(jsonObj.TotalQuantity);
-  		    	  $('.total-price-header').html(jsonObj.TotalPrice + '.0đ');
-  		    	  
-  		    	  Toastify({
-  		    		  text: "Thêm vào giỏ hàng thành công!",
-  		    		  duration: 3000,
-  		    		  newWindow: true,
-  		    		  close: true,
-  		    		  gravity: "top", // hiển thị ở trên cùng màn hình
-  		    		  position: "center", // căn giữa theo chiều ngang
-  		    		  backgroundColor: "linear-gradient(to right, #00b09b, #96c93d)",
-  		    		}).showToast();
+  		    	  if (jsonObj.status_product === "out_of_stock") {
+	  		    		Toastify({
+	  		    		  text: "Sản phẩm này đang hết hàng!",
+	  		    		  duration: 3000,
+	  		    		  newWindow: true,
+	  		    		  close: true,
+	  		    		  gravity: "top", // hiển thị ở trên cùng màn hình
+	  		    		  position: "center", // căn giữa theo chiều ngang
+	  		    		  backgroundColor: "linear-gradient(to right, #00b09b, #96c93d)",
+	  		    		}).showToast();
+  		    	  } else {
+  		    		  $('.total-quantity').html(jsonObj.TotalQuantity);
+    		    	  $('.total-price-header').html(jsonObj.TotalPrice + '.0đ');
+    		    	  Toastify({
+      		    		  text: "Thêm vào giỏ hàng thành công!",
+      		    		  duration: 3000,
+      		    		  newWindow: true,
+      		    		  close: true,
+      		    		  gravity: "top", // hiển thị ở trên cùng màn hình
+      		    		  position: "center", // căn giữa theo chiều ngang
+      		    		  backgroundColor: "linear-gradient(to right, #00b09b, #96c93d)",
+      		    		}).showToast();
+  		    	  }
   		      },
   		      error: function(xhr) {
   		        // Xử lý lỗi khi gửi yêu cầu Ajax.
-  		        alert('Có lỗi xảy ra!');
   		      }
   		    });
   		  });
