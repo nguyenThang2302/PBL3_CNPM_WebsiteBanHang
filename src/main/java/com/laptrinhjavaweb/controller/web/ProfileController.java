@@ -70,7 +70,6 @@ public class ProfileController extends BaseController {
 			@RequestParam("confirmPassword") String confirmPassword, RedirectAttributes redirectAttributes) {
 	    Users currentUser = (Users) session.getAttribute("LoginInfor");
 	    Map<String, Object> result = new HashMap<>();
-    	System.out.println(currentUser.getPassword());
 	    if (currentUser != null && BCrypt.checkpw(oldPassword, currentUser.getPassword())) {
 	    	System.out.println("trùng");
 	        if (!newPassword.equals(confirmPassword)) {
