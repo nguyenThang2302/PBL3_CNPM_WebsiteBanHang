@@ -24,23 +24,23 @@ public class TradeMarksController {
 	@RequestMapping(value = "/thuong-hieu", method = RequestMethod.GET)
 	public ModelAndView tradeMakrsPage(HttpSession session) {
 		Users currentUser = (Users) session.getAttribute("LoginInfor");
-		if (currentUser.getIs_admin() == 1) {
+		if (currentUser != null && currentUser.getIs_admin() == 1) {
 			ModelAndView mav = new ModelAndView("admin/trademarks");
 			mav.addObject("trademarks", adminService.findAllTradeMarks());
 			return mav;
 		} else {
-			return null;
+			return new ModelAndView("redirect:/khong-tim-thay-yeu-cau");
 		}
 	}
 	
 	@RequestMapping(value = "/thuong-hieu/tao-moi", method = RequestMethod.GET)
 	public ModelAndView tradeMarksAdd(HttpSession session) {
 		Users currentUser = (Users) session.getAttribute("LoginInfor");
-		if (currentUser.getIs_admin() == 1) {
+		if (currentUser != null && currentUser.getIs_admin() == 1) {
 			ModelAndView mav = new ModelAndView("admin/createTrademark");
 			return mav;
 		} else {
-			return null;
+			return new ModelAndView("redirect:/khong-tim-thay-yeu-cau");
 		}
 	}
 	
@@ -53,23 +53,23 @@ public class TradeMarksController {
 	@RequestMapping(value = "/thuong-hieu/delete/{id}", method = RequestMethod.GET)
 	public String tradeMarkAddSave(@PathVariable int id, HttpSession session) {
 		Users currentUser = (Users) session.getAttribute("LoginInfor");
-		if (currentUser.getIs_admin() == 1) {
+		if (currentUser != null && currentUser.getIs_admin() == 1) {
 			adminService.deleteOndeTrademark(id);
 			return "redirect:/thuong-hieu";
 		} else {
-			return null;
+			return "redirect:/khong-tim-thay-yeu-cau";
 		}
 	}
 	
 	@RequestMapping(value = "/thuong-hieu/update/{id}", method = RequestMethod.GET)
 	public String tradeMarkUpdate(@PathVariable int id, Model m, HttpSession session) {
 		Users currentUser = (Users) session.getAttribute("LoginInfor");
-		if (currentUser.getIs_admin() == 1) {
+		if (currentUser != null && currentUser.getIs_admin() == 1) {
 			Trademarks trademarks = adminService.findByIdTrademark(id);
 			m.addAttribute("trademarks", trademarks);
 			return "admin/updateTrademark";
 		} else {
-			return null;
+			return "redirect:/khong-tim-thay-yeu-cau";
 		}
 	}
 	

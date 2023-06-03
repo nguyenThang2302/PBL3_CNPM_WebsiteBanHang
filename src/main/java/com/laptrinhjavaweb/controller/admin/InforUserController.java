@@ -1,5 +1,6 @@
 package com.laptrinhjavaweb.controller.admin;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -26,19 +27,19 @@ public class InforUserController {
 	@RequestMapping(value = "/thong-tin-khach-hang", method = RequestMethod.GET)
 	public ModelAndView notConfimredOrder(HttpServletRequest request, HttpServletResponse respone, HttpSession session) {
 		Users currentUser = (Users) session.getAttribute("LoginInfor");
-		if (currentUser.getIs_admin() == 1) {
+		if (currentUser != null && currentUser.getIs_admin() == 1) {
 			ModelAndView mav = new ModelAndView("admin/inforuser");
 			mav.addObject("infor_user", accountService.findAllUser());
 			return mav;
 		} else {
-			return null;
+			return new ModelAndView("redirect:/khong-tim-thay-yeu-cau");
 		}
 	}
 	
 	@RequestMapping(value = "tim-kiem-khach-hang/{user_code}", method = RequestMethod.GET)
 	public @ResponseBody List<Users> searchUser(HttpServletRequest request, @PathVariable String user_code, HttpServletResponse respone, HttpSession session) {
 		Users currentUser = (Users) session.getAttribute("LoginInfor");
-		if (currentUser.getIs_admin() == 1) {
+		if (currentUser != null && currentUser.getIs_admin() == 1) {
 			List<Users> user = accountService.findUserByUserCode(user_code);
 			if (user == null) {
 				return null;
@@ -53,18 +54,18 @@ public class InforUserController {
 	@RequestMapping(value = "cap-quyen-admin/{user_code}", method = RequestMethod.GET)
 	public String updateAdminForUser(@PathVariable String user_code, HttpSession session) {
 		Users currentUser = (Users) session.getAttribute("LoginInfor");
-		if (currentUser.getIs_admin() == 1) {
+		if (currentUser != null && currentUser.getIs_admin() == 1) {
 			accountService.updateAdmin(user_code);
 			return "redirect:/thong-tin-khach-hang";
 		} else {
-			return null;
+			return "redirect:/khong-tim-thay-yeu-cau";
 		}
 	}
 	
 	@RequestMapping(value = "reset-mat-khau/{user_code}", method = RequestMethod.GET)
 	public String resetPassWordForUser(@PathVariable String user_code, HttpSession session) {
 		Users currentUser = (Users) session.getAttribute("LoginInfor");
-		if (currentUser.getIs_admin() == 1) {
+		if (currentUser != null && currentUser.getIs_admin() == 1) {
 			List<Users> userList = accountService.findUserByUserCode(user_code);
 			String defaultPassWord = "12345";
 			Users user = userList.get(0);
@@ -73,7 +74,7 @@ public class InforUserController {
 			user.setPassword(BCrypt.hashpw(defaultPassWord, BCrypt.gensalt(12)));
 			return "redirect:/thong-tin-khach-hang";
 		} else {
-			return null;
+			return "redirect:/khong-tim-thay-yeu-cau";
 		}
 	}
 }

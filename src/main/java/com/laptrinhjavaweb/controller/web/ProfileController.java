@@ -32,12 +32,12 @@ public class ProfileController extends BaseController {
 	@RequestMapping(value = "/thong-tin-nguoi-dung", method = RequestMethod.GET)
 	public ModelAndView DangNhap(HttpServletRequest request, HttpServletResponse response, HttpSession session) {
 		Users currentUser = (Users) session.getAttribute("LoginInfor");
-		if (currentUser.getIs_admin() == 0 || currentUser.getIs_admin() == 1) {
+		if (currentUser != null) {
 			_mvShare.setViewName("web/profile");
 			_mvShare.addObject("user", new Users());
 			return _mvShare;
 		} else {
-			return null;
+			return new ModelAndView("redirect:/khong-tim-thay-yeu-cau");
 		}
 	}
 	

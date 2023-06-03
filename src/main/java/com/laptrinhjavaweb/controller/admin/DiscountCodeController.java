@@ -27,23 +27,23 @@ public class DiscountCodeController {
 	@RequestMapping(value = "/ma-giam-gia", method = RequestMethod.GET)
 	public ModelAndView discountCodePage(HttpSession session) {
 		Users currentUser = (Users) session.getAttribute("LoginInfor");
-		if (currentUser.getIs_admin() == 1) {
+		if (currentUser != null && currentUser.getIs_admin() == 1) {
 			ModelAndView mav = new ModelAndView("admin/discountcode");
 			mav.addObject("discountcodes", adminService.findAllDiscountCode());
 			return mav;
 		} else {
-			return null;
+			return new ModelAndView("redirect:/khong-tim-thay-yeu-cau");
 		}
 	}
 	
 	@RequestMapping(value = "/ma-giam-gia/tao-moi", method = RequestMethod.GET)
 	public ModelAndView discountCodeAdd(HttpSession session) {
 		Users currentUser = (Users) session.getAttribute("LoginInfor");
-		if (currentUser.getIs_admin() == 1) {
+		if (currentUser != null && currentUser.getIs_admin() == 1) {
 			ModelAndView mav = new ModelAndView("admin/createDiscountCode");
 			return mav;
 		} else {
-			return null;
+			return new ModelAndView("redirect:/khong-tim-thay-yeu-cau");
 		}
 	}
 	
@@ -56,23 +56,23 @@ public class DiscountCodeController {
 	@RequestMapping(value = "/ma-giam-gia/delete/{id}", method = RequestMethod.GET)
 	public String discountCodeDelete(@PathVariable int id, HttpSession session) {
 		Users currentUser = (Users) session.getAttribute("LoginInfor");
-		if (currentUser.getIs_admin() == 1) {
+		if (currentUser != null && currentUser.getIs_admin() == 1) {
 			adminService.delteOneDiscountCode(id);
 			return "redirect:/ma-giam-gia";
 		} else {
-			return null;
+			return "redirect:/khong-tim-thay-yeu-cau";
 		}
 	}
 	
 	@RequestMapping(value = "/ma-giam-gia/update/{id}", method = RequestMethod.GET)
 	public String discountCodeUpdate(@PathVariable int id, Model m, HttpSession session) {
 		Users currentUser = (Users) session.getAttribute("LoginInfor");
-		if (currentUser.getIs_admin() == 1) {
+		if (currentUser != null && currentUser.getIs_admin() == 1) {
 			DiscountCode discountcode = adminService.findByIdDiscountCode(id);
 			m.addAttribute("discountcode", discountcode);
 			return "admin/updateDiscountCode";
 		} else {
-			return null;
+			return "redirect:/khong-tim-thay-yeu-cau";
 		}
 	}
 	

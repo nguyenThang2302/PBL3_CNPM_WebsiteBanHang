@@ -20,36 +20,36 @@ public class StatusContactMessageContoller {
 	@RequestMapping(value = "/quan-li-hop-thoai/tin-nhan-chua-xem", method = RequestMethod.GET)
 	public ModelAndView notSeenMessage(HttpSession session) {
 		Users currentUser = (Users) session.getAttribute("LoginInfor");
-		if (currentUser.getIs_admin() == 1) {
+		if (currentUser != null && currentUser.getIs_admin() == 1) {
 			ModelAndView mav = new ModelAndView("admin/notseenmessage");
 			mav.addObject("not_seen", contactService.findAllMessageNotSeen());
 			return mav;
 		} else {
-			return null;
+			return new ModelAndView("redirect:/khong-tim-thay-yeu-cau");
 		}
 	}
 	
 	@RequestMapping(value = "/quan-li-hop-thoai/tin-nhan-da-xem", method = RequestMethod.GET)
 	public ModelAndView SeenedMessage(HttpSession session) {
 		Users currentUser = (Users) session.getAttribute("LoginInfor");
-		if (currentUser.getIs_admin() == 1) {
+		if (currentUser != null && currentUser.getIs_admin() == 1) {
 			ModelAndView mav = new ModelAndView("admin/seenedmessage");
 			mav.addObject("seened", contactService.findAllMessageSeened());
 			return mav;
 		} else {
-			return null;
+			return new ModelAndView("redirect:/khong-tim-thay-yeu-cau");
 		}
 	}
 	
 	@RequestMapping(value="/quan-li-hop-thoai/xac-nhan-da-xem/{id}",method = RequestMethod.GET)
 	public String updateStatusOrder(@PathVariable int id, HttpSession session) {
 		Users currentUser = (Users) session.getAttribute("LoginInfor");
-		if (currentUser.getIs_admin() == 1) {
+		if (currentUser != null && currentUser.getIs_admin() == 1) {
 			contactService.updateStatusMessage(id);
 			contactService.deleteMessageNotification(id);
 			return "redirect:/quan-li-hop-thoai/tin-nhan-chua-xem";
 		} else {
-			return null;
+			return "redirect:/khong-tim-thay-yeu-cau";
 		}
 	}
 }

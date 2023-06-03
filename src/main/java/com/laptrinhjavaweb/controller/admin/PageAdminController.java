@@ -41,7 +41,7 @@ public class PageAdminController {
 	@RequestMapping(value = "/quan-tri", method = RequestMethod.GET)
 	public ModelAndView productManagementPage(Model m, HttpServletRequest request, HttpServletResponse respone, HttpSession session, @ModelAttribute("user") Users user) {
 		Users currentUser = (Users) session.getAttribute("LoginInfor");
-		if (currentUser.getIs_admin() == 1) {
+		if (currentUser != null && currentUser.getIs_admin() == 1) {
 			ModelAndView mav = new ModelAndView("admin/admin");
 			mav.addObject("departments",adminService.findAll());
 			mav.addObject("billnotification", billsService.findAllBillNotification());
@@ -49,7 +49,7 @@ public class PageAdminController {
 			m.addAttribute("count_notification_message", contactService.CountNotification());
 			return mav;
 		} else {
-			return null;
+			return new ModelAndView("redirect:/khong-tim-thay-yeu-cau");
 		}
 	}
 }
