@@ -112,4 +112,8 @@
     <decorator name="thong-tin-khach-hang" page="inforuser.jsp">
        <pattern>/thong-tin-khach-hang</pattern>
     </decorator>
+    
+    <decorator name="khong-tim-thay-yeu-cau" page="not_found_404.jsp">
+       <pattern>/khong-tim-thay-yeu-cau</pattern>
+    </decorator>
 </decorators>

@@ -37,43 +37,43 @@ public class StatusOrderController {
 	@RequestMapping(value = "/quan-li-don-hang/chua-xac-nhan", method = RequestMethod.GET)
 	public ModelAndView notConfimredOrder(HttpServletRequest request, HttpServletResponse respone, HttpSession session) {
 		Users currentUser = (Users) session.getAttribute("LoginInfor");
-		if (currentUser.getIs_admin() == 1) {
+		if (currentUser != null && currentUser.getIs_admin() == 1) {
 			ModelAndView mav = new ModelAndView("admin/unconfimredorder");
 			mav.addObject("unconfimred", billsService.findAllBillsUnconfimred());
 			return mav;
 		} else {
-			return null;
+			return new ModelAndView("redirect:/khong-tim-thay-yeu-cau");
 		}
 	}
 	
 	@RequestMapping(value="/quan-li-don-hang/xac-nhan-don-hang/{code}",method = RequestMethod.GET)
 	public String updateStatusOrder(@PathVariable String code, HttpServletRequest request, HttpServletResponse respone, HttpSession session) {
 		Users currentUser = (Users) session.getAttribute("LoginInfor");
-		if (currentUser.getIs_admin() == 1) {
+		if (currentUser != null && currentUser.getIs_admin() == 1) {
 			billsService.updateStatusOrder(code);
 			billsService.deleteNotificationByCode(code);
 			return "redirect:/quan-li-don-hang/chua-xac-nhan";
 		} else {
-			return null;
+			return "redirect:/khong-tim-thay-yeu-cau";
 		}
 	}
 	
 	@RequestMapping(value = "/quan-li-don-hang/da-xac-nhan", method = RequestMethod.GET)
 	public ModelAndView ConfimredOrder(HttpServletRequest request, HttpServletResponse respone, HttpSession session) {
 		Users currentUser = (Users) session.getAttribute("LoginInfor");
-		if (currentUser.getIs_admin() == 1) {
+		if (currentUser != null && currentUser.getIs_admin() == 1) {
 			ModelAndView mav = new ModelAndView("admin/confimredorder");
 			mav.addObject("confimred", billsService.findAllBillsConfimred());
 			return mav;
 		} else {
-			return null;
+			return new ModelAndView("redirect:/khong-tim-thay-yeu-cau");
 		}
 	}
 	
 	@RequestMapping(value = "/quan-li-don-hang/tim-kiem-don-hang/da-xac-nhan/{code}", method = RequestMethod.GET)
 	public @ResponseBody String searchOrderConfimred(HttpServletRequest request, @PathVariable String code, HttpServletResponse respone, HttpSession session) {
 		Users currentUser = (Users) session.getAttribute("LoginInfor");
-		if (currentUser.getIs_admin() == 1) {
+		if (currentUser != null && currentUser.getIs_admin() == 1) {
 			Map<String, Object> result = new HashMap<>();
 			Bills bills = billsService.findBillComfirmedByCode(code);
 			result.put("code", bills.getCode());
@@ -90,14 +90,14 @@ public class StatusOrderController {
 			}
 			return json;
 		} else {
-			return null;
+			return "redirect:/khong-tim-thay-yeu-cau";
 		}
 	}
 	
 	@RequestMapping(value = "/quan-li-don-hang/tim-kiem-don-hang/cho-xac-nhan/{code}", method = RequestMethod.GET)
 	public @ResponseBody String searchOrderUnonfimred(HttpServletRequest request, @PathVariable String code, HttpServletResponse respone, HttpSession session) {
 		Users currentUser = (Users) session.getAttribute("LoginInfor");
-		if (currentUser.getIs_admin() == 1) {
+		if (currentUser != null && currentUser.getIs_admin() == 1) {
 			Map<String, Object> result = new HashMap<>();
 			Bills bills = billsService.findBillUnconfirmedByCode(code);
 			result.put("code", bills.getCode());
@@ -114,18 +114,18 @@ public class StatusOrderController {
 			}
 			return json;
 		} else {
-			return null;
+			return "redirect:/khong-tim-thay-yeu-cau";
 		}
 	}
 	
 	@RequestMapping(value = "/quan-li-don-hang/thong-ke", method = RequestMethod.GET)
 	public ModelAndView statisticsOrder(HttpSession session) {
 		Users currentUser = (Users) session.getAttribute("LoginInfor");
-		if (currentUser.getIs_admin() == 1) {
+		if (currentUser != null && currentUser.getIs_admin() == 1) {
 			ModelAndView mav = new ModelAndView("admin/orderstatistics");
 			return mav;
 		} else {
-			return null;
+			return new ModelAndView("redirect:/khong-tim-thay-yeu-cau");
 		}
 	}
 	

@@ -33,7 +33,7 @@ public class OrderController {
 			mav.addObject("orders", billsService.findAllBillsByUserCode(user_code));
 			return mav;
 		} else {
-			return null;
+			return new ModelAndView("redirect:/khong-tim-thay-yeu-cau");
 		}
 	}
 	
