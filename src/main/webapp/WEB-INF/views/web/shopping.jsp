@@ -271,7 +271,15 @@
   		      },
   		      error: function(xhr) {
   		        // Xử lý lỗi khi gửi yêu cầu Ajax.
-  		        alert('Có lỗi xảy ra!');
+  		    	Toastify({
+		    		  text: "Bạn cần đăng nhập để sử dụng chức năng này!",
+		    		  duration: 3000,
+		    		  newWindow: true,
+		    		  close: true,
+		    		  gravity: "top", // hiển thị ở trên cùng màn hình
+		    		  position: "center", // căn giữa theo chiều ngang
+		    		  backgroundColor: "linear-gradient(to right, #00b09b, #96c93d)",
+		    		}).showToast();
   		      }
   		    });
     		  });
