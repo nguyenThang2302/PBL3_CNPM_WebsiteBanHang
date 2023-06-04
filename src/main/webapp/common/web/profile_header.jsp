@@ -128,7 +128,7 @@
             <div class="row">
                 <div class="col-lg-3">
                     <div class="header__logo">
-                        <a href="/spring-mvc/trang-chu"><img src="<c:url value='/template/web/img/logo.png'/>" alt=""></a>
+                        <a href="/spring-mvc/trang-chu"><img src="https://i.imgur.com/0uivnIm.jpg"alt=""></a>
                     </div>
                 </div>
                 <div class="col-lg-6">
