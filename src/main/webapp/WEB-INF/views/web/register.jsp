@@ -46,7 +46,7 @@
    <!--  <form>   -->    
     <form:form action="hoan-tat" method="post" modelAttribute="user">  
       <div class="text-center mb-3">
-            <a href="/spring-mvc/trang-chu"><img src="<c:url value='/template/web/img/logo.png'/>"alt=""></a>
+            <a href="/spring-mvc/trang-chu"><img src="https://i.imgur.com/0uivnIm.jpg"alt=""></a>
       </div>
       
       <!-- Name input -->
