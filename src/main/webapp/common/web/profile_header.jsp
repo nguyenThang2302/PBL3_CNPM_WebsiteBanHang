@@ -8,6 +8,9 @@
 			background: #f5f5f5;
 			height: 48px;
 		}
+		.header__menu ul li.active a {
+		    color: #252525;
+		}
 	</style>
 	
     <!-- Page Preloder -->
@@ -132,11 +135,9 @@
                     <nav class="header__menu">
                         <ul>
                             <li class="active"><a href="/spring-mvc/trang-chu">Trang Chủ</a></li>
-                            <li><a href="/spring-mvc/shopping">Shopping</a></li>
                             <li><a href="#">Pages</a>
                                 <ul class="header__menu__dropdown">
                                     <li><a href="/spring-mvc/gio-hang">Giỏ Hàng</a></li>
-                                    <li><a href="/spring-mvc/thanh-toan">Thanh Toán</a></li>
                                 </ul>
                             </li>
                             <li><a href="/spring-mvc/about-us">About</a></li>

@@ -40,7 +40,11 @@ public class ShoppingController {
 		mav.addObject("trademarks",homeService.GetDataTradeMark());
 		mav.addObject("top_products", productDescriptionService.findAllProductTop(slug_name));
 		mav.addObject("new_products", productDescriptionService.findAllProductsNew(slug_name));
-		mav.addObject("products", homeService.findByDepartmentId(departmentsSlugName.getId()));
+		if (departmentsSlugName.getSlug_name().equals("tat-ca-san-pham")) {
+			mav.addObject("products", homeService.findAllProducts());
+		} else {
+			mav.addObject("products", homeService.findByDepartmentId(departmentsSlugName.getId()));
+		}
 		return mav;
 	}
 	
