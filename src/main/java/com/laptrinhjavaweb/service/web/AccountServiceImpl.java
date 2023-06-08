@@ -15,7 +15,7 @@ public class AccountServiceImpl implements IAccountService {
 	UsersDao usersDao = new UsersDao();
 	
 	public int AddAccount(Users user) {
-	    if (usersDao.isUserExists(user.getEmail())) {
+	    if (usersDao.isUserExists(user.getEmail()) || !user.getPassword().equals(user.getRepeat_password())) {
 	        return -1;
 	    } else {
 	        user.setPassword(BCrypt.hashpw(user.getPassword(), BCrypt.gensalt(12)));
@@ -28,6 +28,7 @@ public class AccountServiceImpl implements IAccountService {
 		return usersDao.InsertGuest(guest_code);
 	}
 
+	
 	@Override
 	public Users CheckAccount(Users user) {
 		if(usersDao.isUserExists(user.getEmail())) {
