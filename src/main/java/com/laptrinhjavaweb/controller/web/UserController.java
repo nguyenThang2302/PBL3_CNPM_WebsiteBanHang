@@ -38,7 +38,6 @@ public class UserController extends BaseController {
 		Random rd = new Random();
 		String user_code = System.currentTimeMillis() + rd.nextInt(1000) + "";
 		user.setUser_code(user_code);
-		System.out.println(user.getUser_code() + user.getName() + user.getEmail() + user.getPassword() + user.getRepeat_password());
 		int check_pass = 0;
 		if(user.getPassword().equals(user.getRepeat_password())) {
 			check_pass = 1;
