@@ -133,23 +133,14 @@
 	                                    <li>${ item.value.product.name.substring(0, 20) }... x${ item.value.quantity }<span>${ item.value.product.price }</span></li>
 	                                </c:forEach>
                                 </ul>
-                                <div class="checkout__order__subtotal">Tạm tính <span>${TotalPrice}đ</span></div>
-                                <div class="checkout__order__total" id = "total_discount">Giảm <span>${PercentDiscount * TotalPrice}đ</span></div>
+                                <div class="checkout__order__subtotal">Tạm tính <span>${TotalPrice} VNĐ</span></div>
+                                <div class="checkout__order__total" id = "total_discount">Giảm <span>${PercentDiscount * TotalPrice} VNĐ</span></div>
                                 <input type="hidden" name = "total_price" value="${TotalPrice - PercentDiscount * TotalPrice}">
                                 <input type="hidden" name = "quantity" value="${TotalQuantity}">
-                                <div class="checkout__order__total">Tổng Cộng <span>${TotalPrice - PercentDiscount * TotalPrice}đ</span></div>
+                                <div class="checkout__order__total">Tổng Cộng <span>${TotalPrice - PercentDiscount * TotalPrice} VNĐ</span></div>
                                 <div class="checkout__input__checkbox">
                                     <label for="payment">
                                         Thanh toán khi nhận hàng
-                                        <input type="checkbox" id="payment">
-                                        <span class="checkmark"></span>
-                                    </label>
-                                </div>
-                                <div class="checkout__input__checkbox">
-                                    <label for="paypal">
-                                        Thanh toán bằng VNPAY
-                                        <input type="checkbox" id="paypal">
-                                        <span class="checkmark"></span>
                                     </label>
                                 </div>
                                 <button type="submit" class="site-btn">ĐẶT HÀNG</button>

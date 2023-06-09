@@ -91,7 +91,7 @@
       </div>    
       
       <!-- Submit button -->
-      	<input type="submit" value="Submit" class="btn btn-primary btn-block mb-3"/>
+      	<input type="submit" value="Đăng ký" class="btn btn-primary btn-block mb-3"/>
      </form:form>
     <!-- </form> -->
 </div>

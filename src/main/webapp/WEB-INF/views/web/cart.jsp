@@ -144,7 +144,7 @@
                                         </div>
                                     </td>
                                     <td class="shoping__cart__total-${ item.value.product.code }" >
-                                        ${ item.value.totalPrice }đ
+                                        ${ item.value.totalPrice } VNĐ
                                     </td>
                                     <td class="shoping__cart__item__close">
                                     	<a id = "btn-delete-cart" class = "delete-cart" data-id = "${item.value.product.code}"  href = "xoa-khoi-gio-hang/${ item.value.product.code }"><span class="icon_close"></span></a>
@@ -184,11 +184,11 @@
                         <h5>Tổng giỏ hàng</h5>
                         <ul>
                         <c:forEach var = "item" items = "${ Cart }">
-                            <li class = "cart-product-${ item.value.product.code }">${ item.value.product.name }<span class = "total-price-products-${ item.value.product.code }">${ item.value.totalPrice }đ</span><span class = "total-quantity-${ item.value.product.code }" style = "margin-right: 185px">x${item.value.quantity}</span> </li>
+                            <li class = "cart-product-${ item.value.product.code }">${ item.value.product.name }<span class = "total-price-products-${ item.value.product.code }">${ item.value.totalPrice } VNĐ</span><span class = "total-quantity-${ item.value.product.code }" style = "margin-right: 185px">x${item.value.quantity}</span> </li>
                         </c:forEach>
-                            <li>Tạm tính <span class = "total-price">${TotalPrice}đ</span></li>
+                            <li>Tạm tính <span class = "total-price">${TotalPrice} VNĐ</span></li>
                             <li>Giảm <span class = "total-price-discount">Chưa áp dụng mã giảm giá</span></li>
-                            <li>Tổng tiền giỏ hàng <span class = "total-price-cart">${TotalPrice}đ</span></li>
+                            <li>Tổng tiền giỏ hàng <span class = "total-price-cart">${TotalPrice} VNĐ</span></li>
                         </ul>
                         <c:choose>
 						    <c:when test="${ empty Cart }">
@@ -232,13 +232,13 @@
     		      type: 'GET',
     		      success: function(response) {
     		    	  var jsonObj = JSON.parse(response);
-    		    	  $('.shoping__cart__total-' + code).html(jsonObj.updatePrice + '.0đ');
-    		    	  $('.total-price').html(jsonObj.TotalPrice + '.0đ');
-    		    	  $('.total-price-products-' + code).html(jsonObj.updatePrice + '.0đ')
+    		    	  $('.shoping__cart__total-' + code).html(jsonObj.updatePrice + '.0 VNĐ');
+    		    	  $('.total-price').html(jsonObj.TotalPrice + '.0 VNĐ');
+    		    	  $('.total-price-products-' + code).html(jsonObj.updatePrice + '.0 VNĐ')
     		    	  $('.total-quantity-' + code).html('x' + quantity);
     		    	  $('.total-quantity').html(jsonObj.TotalQuantity);
     		    	  $('.total-price-header').html(jsonObj.TotalPrice);
-    		    	  $('.total-price-cart').html(Math.floor(jsonObj.TotalPrice) + '.0đ');
+    		    	  $('.total-price-cart').html(Math.floor(jsonObj.TotalPrice) + '.0 VNĐ');
     		      },
     		      error: function(xhr) {
     		        // Xử lý lỗi khi gửi yêu cầu Ajax.
@@ -261,13 +261,13 @@
     		      type: 'GET',
     		      success: function(response) {
     		    	  var jsonObj = JSON.parse(response);
-    		    	  $('.shoping__cart__total-' + code).html(jsonObj.updatePrice + '.0đ');
-    		    	  $('.total-price').html(jsonObj.TotalPrice + '.0đ');
-    		    	  $('.total-price-products-' + code).html(jsonObj.updatePrice + '.0đ')
+    		    	  $('.shoping__cart__total-' + code).html(jsonObj.updatePrice + '.0 VNĐ');
+    		    	  $('.total-price').html(jsonObj.TotalPrice + '.0 VNĐ');
+    		    	  $('.total-price-products-' + code).html(jsonObj.updatePrice + '.0 VNĐ')
     		    	  $('.total-quantity-' + code).html('x' + quantity);
     		    	  $('.total-quantity').html(jsonObj.TotalQuantity);
     		    	  $('.total-price-header').html(jsonObj.TotalPrice);
-    		    	  $('.total-price-cart').html(Math.floor(jsonObj.TotalPrice) + '.0đ');
+    		    	  $('.total-price-cart').html(Math.floor(jsonObj.TotalPrice) + '.0 VNĐ');
     		      },
     		      error: function(xhr) {
     		        // Xử lý lỗi khi gửi yêu cầu Ajax.
@@ -291,10 +291,10 @@
 		    		  location.reload();
 		    	  }
 		    	  $('.cart-product-' + jsonObj.deletedCode).remove();
-		    	  $('.total-price').html(jsonObj.TotalPrice + '.0đ');
+		    	  $('.total-price').html(jsonObj.TotalPrice + '.0 VNĐ');
 		    	  $('.total-quantity').html(jsonObj.TotalQuantity);
-		    	  $('.total-price-header').html(jsonObj.TotalPrice + '.0đ');
-		    	  $('.total-price-cart').html(Math.floor(jsonObj.TotalPrice) + '.0đ');   	  
+		    	  $('.total-price-header').html(jsonObj.TotalPrice + '.0 VNĐ');
+		    	  $('.total-price-cart').html(Math.floor(jsonObj.TotalPrice) + '.0 VNĐ');   	  
 		      },
 		      error: function(xhr) {
 		        // Xử lý lỗi khi gửi yêu cầu Ajax.
@@ -330,8 +330,8 @@
     			      type: 'GET',
     			      success: function(response) {
     			    	  var jsonObj = JSON.parse(response);
-    			    	  $('.total-price-discount').html(Math.floor(jsonObj.TotalPrice - jsonObj.TotalPriceDiscount) + '.0đ');
-    			    	  $('.total-price-cart').html(Math.floor(jsonObj.TotalPriceDiscount) + '.0đ');
+    			    	  $('.total-price-discount').html(Math.floor(jsonObj.TotalPrice - jsonObj.TotalPriceDiscount) + '.0 VNĐ');
+    			    	  $('.total-price-cart').html(Math.floor(jsonObj.TotalPriceDiscount) + '.0 VNĐ');
     			    	  
     			    	  Toastify({
   							text: "Áp dụng mã giảm giá thành công!",

@@ -13,7 +13,7 @@
     <meta name="keywords" content="Ogani, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<title>Ogani | About Us</title>
+	<title>Ogani | Description</title>
 
 </head>
 
@@ -122,7 +122,7 @@
                             <i class="fa fa-star"></i>
                             <i class="fa fa-star-half-o"></i>
                         </div>
-                        <div class="product__details__price">${products.price}</div>
+                        <div class="product__details__price">${products.price} VNĐ</div>
                         <div class="product__details__quantity">
                             <div class="quantity">
                                 <div class="pro-qty">
@@ -202,7 +202,7 @@
                         </div>
                         <div class="product__item__text">
                             <h6><a href="/spring-mvc/${item.code}">${item.name}</a></h6>
-                            <h5>${item.price}đ</h5>
+                            <h5>${item.price} VNĐ</h5>
                         </div>
                     </div>
                 </div>  

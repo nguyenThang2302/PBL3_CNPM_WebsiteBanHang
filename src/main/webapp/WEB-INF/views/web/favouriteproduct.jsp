@@ -107,7 +107,7 @@
                                     <a href = "/spring-mvc/${item.code}"><h5>${item.name}</h5></a>
                                     </td>
                                     <td class="shoping__cart__price">
-                                        ${item.price}đ
+                                        ${item.price} VNĐ
                                     </td>
                                     <td class = "count_favourite">
                                     	${item.count_favourite}

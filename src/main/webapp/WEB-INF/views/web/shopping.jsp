@@ -12,7 +12,7 @@
     <meta name="keywords" content="Ogani, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<title>Ogani | Contact</title>
+	<title>Ogani | Shopping</title>
 
 </head>
 
@@ -119,14 +119,6 @@
                         </div>
                         <div class="sidebar__item sidebar__item__color--option">
                             <h4>Màu sắc</h4>
-                            <!-- <ul class = "filter-list">
-                            	<li><a href = "Trắng" class = "item_color">Màu Trắng</a></li>
-                            	<li><a href = "Vàng" class = "item_color" style="background-color: yellow;">Màu Vàng</a></li>
-                            	<li><a href = "Xám" class = "item_color" style="background-color: gray;">Màu Xám</a></li>
-                            	<li><a href = "Đen" class = "item_color" style="background-color: black; color: white;">Màu Đen</a></li>
-                            	<li><a href = "Đỏ" class = "item_color" style="background-color: #D62D2D; color: white;">Màu Đỏ</a></li>
-                            	<li><a href = "Xanh" class = "item_color" style="background-color: #249BC8; color: white;">Màu Xanh</a></li>
-                            </ul> -->
                              <div class="sidebar__item__color sidebar__item__color--white">
                                  <a href = "color/white" class = "item_color" id = "white">
                                      <label for = "white">Trắng</label>
@@ -180,7 +172,7 @@
                                             </div>
                                             <div class="latest-product__item__text">
                                                 <h6>${item.name}</h6>
-                                                <span>${item.price}đ</span>
+                                                <span>${item.price} VNĐ</span>
                                             </div>
                                         </a>
                                     </c:forEach>
@@ -203,13 +195,12 @@
 			                        <div class="featured__item__pic set-bg" data-setbg="${item.image}">
 			                            <ul class="featured__item__pic__hover">
 			                                <li><a class = "add_favourite_product" href="/spring-mvc/san-pham-yeu-thich/${item.code}"><i class="fa fa-heart"></i></a></li>
-			                                <li><a href="#"><i class="fa fa-retweet"></i></a></li>
 			                                <li><a class = "add-cart" href="/spring-mvc/them-vao-gio-hang/${item.code}"><i class="fa fa-shopping-cart"></i></a></li>
 			                            </ul>
 			                        </div>
 			                        <div class="featured__item__text">
 			                            <h6><a href="/spring-mvc/${item.code}">${item.name}</a></h6>
-			                            <h5>${item.price}đ</h5>
+			                            <h5>${item.price}VNĐ</h5>
 			                        </div>
 	                   			 </div>
                                 </div>
@@ -222,7 +213,7 @@
                             <div class="col-lg-4 col-md-5">
                             </div>
                             <div class="col-lg-4 col-md-4">
-                            <h2>Tất cả sản phẩm</h2>
+                            <h2 style="font-weight: 700">Tất cả sản phẩm</h2>
                             </div>
                         </div>
                     </div>
@@ -238,7 +229,7 @@
 	                        </div>
 	                        <div class="featured__item__text">
 	                            <h6><a href="/spring-mvc/${item.code}">${item.name}</a></h6>
-	                            <h5>${item.price}đ</h5>
+	                            <h5>${item.price} VNĐ</h5>
 	                        </div>
 	                    </div>
 	                   </div>
@@ -258,7 +249,8 @@
     		  $.ajax({
   		      url: url,
   		      type: 'GET',
-  		      success: function(response) {	  		    	  
+  		      success: function(response) {	  
+  		    	var jsonObj = JSON.parse(response);
   		    	  Toastify({
   		    		  text: "Bạn đã thích sản phẩm này!",
   		    		  duration: 3000,

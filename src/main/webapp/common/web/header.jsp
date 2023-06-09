@@ -96,11 +96,6 @@
                             <div class="header__top__right__language">
                                 <img src="<c:url value='/template/web/img/vietnam.png'/>" alt="">
                                 <div>Tiếng Việt</div>
-                                <span class="arrow_carrot-down"></span>
-                                <ul>
-                                    <li><a href="#">Tiếng Anh</a></li>
-                    				<li><a href="#">Tiếng Việt</a></li>
-                                </ul>
                             </div>
                             <c:if test = "${ empty LoginInfor }">
                              <div class="header__top__right__social">
@@ -153,7 +148,7 @@
 						<li><a href="/spring-mvc/san-pham-yeu-thich"><i class="fa fa-heart"></i></a></li>
 						<li><a href="/spring-mvc/gio-hang"><i class="fa fa-shopping-cart"></i> <span class = "total-quantity">${TotalQuantity}</span></a></li>
 						</ul>
-                        <div class="header__cart__price"><span class = "total-price-header">${TotalPrice}đ</span></div>
+                        <div class="header__cart__price"><span class = "total-price-header">${TotalPrice} VNĐ</span></div>
                     </div>
                 </div>
             </div>
