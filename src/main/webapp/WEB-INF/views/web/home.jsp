@@ -79,10 +79,14 @@
 		  z-index: 999;
 		  margin-left: 180px;
 		}
+		#title_trademark {
+		  font-weight: 700;
+    	  color: #1c1c1c;
+		}
 	</style>
 	
 	<div class= "trademark">
-	<h1>Thương Hiệu</h1>
+	<h1 id = "title_trademark">Thương Hiệu</h1>
 	</div>
 	<!-- Categories Section Begin -->
     <section class="categories">
@@ -118,7 +122,7 @@
                                     </div>
                                     <div class="latest-product__item__text">
                                         <h6>${item.name}</h6>
-                                        <span>${item.price}đ</span>
+                                        <span>${item.price} VNĐ</span>
                                     </div>
                                 </a>
                             </div>
@@ -138,7 +142,7 @@
                                     </div>
                                     <div class="latest-product__item__text">
                                         <h6>${item.name}</h6>
-                                        <span>${item.price}đ</span>
+                                        <span>${item.price} VNĐ</span>
                                     </div>
                                 </a>
                             </div>
@@ -158,7 +162,7 @@
                                     </div>
                                     <div class="latest-product__item__text">
                                         <h6>${item.name}</h6>
-                                        <span>${item.price}đ</span>
+                                        <span>${item.price} VNĐ</span>
                                     </div>
                                 </a>
                             </div>
@@ -204,7 +208,7 @@
                         </div>
                         <div class="featured__item__text">
                             <h6><a href="${item.code}">${item.name}</a></h6>
-                            <h5>${item.price}đ</h5>
+                            <h5>${item.price} VNĐ</h5>
                         </div>
                     </div>
                 </div>
