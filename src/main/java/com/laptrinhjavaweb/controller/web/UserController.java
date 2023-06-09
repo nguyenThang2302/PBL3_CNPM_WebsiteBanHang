@@ -38,13 +38,19 @@ public class UserController extends BaseController {
 		Random rd = new Random();
 		String user_code = System.currentTimeMillis() + rd.nextInt(1000) + "";
 		user.setUser_code(user_code);
-		System.out.println(user.getUser_code() + user.getName() + user.getEmail() + user.getPassword() + user.getRepeat_password());
+		int check_pass = 0;
+		if(user.getPassword().equals(user.getRepeat_password())) {
+			check_pass = 1;
+		}
 		int count = accountService.AddAccount(user);
-		if(count > 0) {
+		if(count > 0 && check_pass == 1) {
 			redirectAttributes.addFlashAttribute("status", "Đăng ký tài khoản thành công");
 		}
+		else if(check_pass == 0) {
+			redirectAttributes.addFlashAttribute("status", "Xác nhận mật khẩu chưa khớp!");
+		}
 		else {
-			redirectAttributes.addFlashAttribute("status", "Đăng ký tài khoản thất bại");
+			redirectAttributes.addFlashAttribute("status", "Email đã tồn tại, vui lòng sử dụng Email khác!");
 		}
 		return "redirect:/dang-ky";
 	}
