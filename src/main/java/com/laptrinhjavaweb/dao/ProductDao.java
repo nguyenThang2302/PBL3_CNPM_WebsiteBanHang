@@ -39,6 +39,12 @@ public class ProductDao {
 		String sqlDeleteDesc = "DELETE FROM product_descriptions WHERE product_code = ?";
 	    _jdbcTemplate.update(sqlDeleteDesc, code);
 	    
+	    String sqlDeleteFavou = "DELETE FROM favourite_products WHERE product_code = ?";
+	    _jdbcTemplate.update(sqlDeleteFavou, code);
+	    
+	    String sqlDeleteBill = "DELETE FROM bills_detail WHERE product_code = ?";
+	    _jdbcTemplate.update(sqlDeleteBill, code);
+	    
 	    String sqlDeleteProduct = "DELETE FROM products WHERE code = ?";
 	    return _jdbcTemplate.update(sqlDeleteProduct, code);
 	}
