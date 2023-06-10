@@ -7,7 +7,7 @@
                 <div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="footer__about">
                         <div class="footer__about__logo">
-                            <a href="/spring-mvc/trang-chu"><img src="https://i.imgur.com/0uivnIm.jpg" alt=""></a>
+                            <a href="/spring-mvc/trang-chu"><img src="<c:url value='/template/web/img/logo_pbl3.jpg'/>" alt=""></a>
                         </div>
                         <ul>
                             <li>Address: 54 Nguyễn Lương Bằng, Hoà Khánh Bắc, Liên Chiểu, Đà Nẵng</li>
