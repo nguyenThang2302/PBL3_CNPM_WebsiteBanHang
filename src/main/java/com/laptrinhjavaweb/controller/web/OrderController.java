@@ -40,14 +40,14 @@ public class OrderController {
 	@RequestMapping(value = "/chi-tiet-don-hang/{code}", method = RequestMethod.GET) 
 	public ModelAndView detailOrder(@PathVariable String code, Model m, HttpSession session) {
 		Users currentUser = (Users) session.getAttribute("LoginInfor");
-		if (currentUser.getIs_admin() == 1) {
+		if (currentUser != null) {
 			ModelAndView mav = new ModelAndView("web/detailorder");
 			m.addAttribute("bills", billsService.findBillsByCode(code));
 			mav.addObject("billproduct", billsService.findProductInBillByCode(code));
 			mav.addObject("departments", adminService.findAll());
 			return mav;
 		} else {
-			return null;
+			return new ModelAndView("redirect:/khong-tim-thay-yeu-cau");
 		}
 	}
 }
